@@ -4,14 +4,15 @@
 #include <random>
 using namespace std;
 
-void Trainig() {
+void Training() {
 	int test;
+	string Theme;
 	cout << "Введите номер теста:" << endl;
 	cout << "1) Циклы" << endl << "2) Массивы (одномерные и двумерные)" << endl << "3) Строки" << endl << "4) Рекурсия" << endl << "5) Файлы" << endl << "6) Адреса и указатели" << endl << "7) Динамическая память" << endl;
 	cin >> test;
 	switch (test)
 	{
-	case 1:; break;
+	case 1:Theme="CircleTest.txt"; break;
 	case 2:; break;
 	case 3:; break;
 	case 4:; break;
@@ -120,7 +121,7 @@ void StudentAuthMenu()
 			cin >> choose;
 			switch (choose)
 			{
-			case 1:Trainig(); getchar();  break;
+			case 1:Training(); getchar();  break;
 			case 2:TopicTesting(); getchar(); break;
 			case 3:FinalTest(); getchar(); break;
 			}
