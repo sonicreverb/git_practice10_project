@@ -16,3 +16,5 @@ struct StudentData
 
 
 void StudentAuthMenu();
+
+void training();
