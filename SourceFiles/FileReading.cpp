@@ -4,11 +4,13 @@
 #include "../Headers/StudentMode.h"
 #include "../Headers/FileReading.h"
 
+#define ABSPATH_TO_DATABASE "D:\\БГТУ\\Программирование\\Practice10_GroupProject\\git_practice10_project\\SourceFiles\\"
+
 
 int CheckTeacherListNumber()
 {
 	FILE* file;
-	int a = fopen_s(&file, "teacher_database.txt", "rt");
+	int a = fopen_s(&file, ABSPATH_TO_DATABASE "teacher_database.txt", "rt");
 	int number;
 	fscanf_s(file, "%d", &number);
 	fclose(file);
@@ -17,7 +19,7 @@ int CheckTeacherListNumber()
 int CheckStudentListNumber()
 {
 	FILE* file;
-	int a = fopen_s(&file, "students_database.txt", "rt");
+	int a = fopen_s(&file, ABSPATH_TO_DATABASE "students_database.txt", "rt");
 	int number;
 	fscanf_s(file, "%d", &number);
 	fclose(file);
@@ -27,7 +29,7 @@ TeacherData* CheckTeacherList(TeacherData* teacherdata, int number)
 {
 	char string[100];
 	FILE* file;
-	int a = fopen_s(&file, "teacher_database.txt", "rt");
+	int a = fopen_s(&file, ABSPATH_TO_DATABASE "teacher_database.txt", "rt");
 	fgets(string, 100, file);
 	for (int i = 0; i < number; i++)
 	{
@@ -54,7 +56,7 @@ StudentData* CheckStudentList(StudentData* studentdata, int number)
 {
 	char string[100];
 	FILE* file;
-	int a = fopen_s(&file, "students_database.txt", "rt");
+	int a = fopen_s(&file, ABSPATH_TO_DATABASE "students_database.txt", "rt");
 	fgets(string, 100, file);
 	for (int i = 0; i < number; i++)
 	{

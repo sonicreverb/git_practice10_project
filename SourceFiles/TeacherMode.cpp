@@ -6,8 +6,32 @@
 
 using namespace std;
 
+void DeleteQuestions()
+{
+	
+}
+
+void AddQuestions()
+{
+
+}
+
+void EditQuestions()
+{
+
+}
+
 void TeacherAuthMenu()
 {
+	/*int number_of_teachers = CheckTeacherListNumber();
+	cout << number_of_teachers;
+
+	TeacherData* teachers = (TeacherData*)malloc(sizeof(TeacherData));
+	CheckTeacherList(teachers, number_of_teachers);
+
+	cout << teachers[0].login;
+	getchar();*/
+
 	int number_of_teachers = 2;
 	TeacherData* teachers = new TeacherData[number_of_teachers];
 
@@ -114,19 +138,61 @@ void TeacherAuthMenu()
 					cout << "1. Удаление." << endl << "2. Добавление." << endl << "3. Изменение.";
 					cout << "Выберите задачу: ";
 					cin >> teacher_task_choose;
-					getchar();
+
+					switch (teacher_task_choose)
+					{
+					case 1:
+						DeleteQuestions();
+						break;
+					case 2:
+						AddQuestions();
+						break;
+					case 3:
+						EditQuestions();
+						break;
+					default:
+						cout << "Вы ввели некорректное значение. Для продолжения нажмите ENTER.";
+						getchar();
+						break;
+					}
+				
 					break;
 				case 2:
 					// работа со списком студентов
-					cout << "1. Работа со списком студентов.\n2. Удаление и регистрация студентов.\n3. Изменение прогресса студентов.\n-- Вывод списка студентов с оценками \n4. -по всем темам\n5. -по конкретной теме\n";
-					cout << "6. -только итоговый тест\n7. -только средний бал\n8. Фильтрация (по конкретным оценкам).\n9. Сортировка по конректным оценкам.";
+					cout << "1. Удаление и регистрация студентов.\n2. Изменение прогресса студентов.\n-- Вывод списка студентов с оценками \n3. -по всем темам\n4. -по конкретной теме\n";
+					cout << "5. -только итоговый тест\n6. -только средний бал\n7. Фильтрация (по конкретным оценкам).\n8. Сортировка по конректным оценкам.";
 					cout << "Выберите задачу: ";
 					cin >> teacher_task_choose;
-					getchar();
+
+					switch (teacher_task_choose)
+					{
+					case 1:
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						break;
+					case 6:
+						break;
+					case 7:
+						break;
+					case 8:
+						break;
+
+					default:
+						cout << "Вы ввели некорректное значение. Для продолжения нажмите ENTER.";
+						getchar();
+						break;
+					}
+					
 					break;
 				default:
 					cout << "Вы ввели некорректное значение. Для продолжения нажмите любую клавишу" << endl;
-					getchar();
+					
 					break;
 				}
 			} while (teacher_section_choose != 0);

@@ -3,7 +3,7 @@
 
 #include "../Headers/TeacherMode.h"
 #include "../Headers/StudentMode.h"
-#include "../Headers/FileReading.h"
+//#include "../Headers/FileReading.h"
 
 
 int CheckTeacherListNumber();
