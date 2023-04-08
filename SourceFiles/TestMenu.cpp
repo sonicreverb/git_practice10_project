@@ -9,10 +9,10 @@
 
 using namespace std;
 
-void Training()
+void Training(string Theme)
 {
     setlocale(LC_ALL, "en_US.UTF-8");
-    ifstream file("CircleTest.txt");
+    ifstream file(Theme);
 
     if (!file.is_open()) {
         cout << "Ошибка открытия файла." << endl;
