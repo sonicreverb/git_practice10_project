@@ -1,10 +1,6 @@
 #include <iostream>	
 #include <string>
 #include "../Headers/StudentMode.h"
-#include <fstream>
-#include <string>
-#include <vector>
-#include <algorithm>
 #include <random>
 using namespace std;
 
