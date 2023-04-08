@@ -1,0 +1,15 @@
+1. Как объявить переменную типа строка в C++? 1. string var; 2. str var; 3. string var = "hello"; 4. char var[10]; Ответ: 1
+2. Как прочитать строку с помощью getline()? 1. getline(string); 2. getline(cin, string); 3. cin.getline(string); 4. cin.getline(string, size); Ответ: 2
+3. Как удалить первый символ из строки? 1. string.erase(0, 1); 2. string.erase(1, 0); 3. string.delete(0, 1); 4. string.remove(0, 1); Ответ: 1
+4. Как получить длину строки? 1. string.length(); 2. string.size(); 3. sizeof(string); 4. strlen(string); Ответ: 2
+5. Как добавить символы в конец строки? 1. string += "abc"; 2. string.append("abc"); 3. string.insert("abc"); 4. string.concat("abc"); Ответ: 2
+6. Как заменить одну подстроку на другую в строке? 1. string.replace(old_str, new_str); 2. string.swap(old_str, new_str); 3. string.change(old_str, new_str); 4. string.modify(old_str, new_str); Ответ: 1
+7. Как проверить, содержит ли строка подстроку? 1. string.contains(sub_str); 2. string.search(sub_str); 3. string.find(sub_str); 4. string.locate(sub_str); Ответ: 3
+8. Как преобразовать строку в целое число? 1. atoi(string); 2. to_int(string); 3. stoi(string); 4. string.to_int(); Ответ: 3
+9. Как преобразовать целое число в строку? 1. itoa(num, string); 2. to_string(num); 3. int_to_string(num); 4. string.int(num); Ответ: 2
+10. Как удалить все пробельные символы из строки? 1. string.replace(" ", ""); 2. string.remove_space(); 3. string.erase(remove_if(string.begin(), string.end(), isspace), string.end()); 4. string.clear_spaces(); Ответ: 3
+11. Как скопировать одну строку в другую? 1. string = new_str; 2. string.copy(new_str, size); 3. strcpy(string, new_str); 4. string.move(new_str, size); Ответ: 1
+12. Как сравнить две строки? 1. string.compare(other_string); 2. string.eq(other_string); 3. sring.match(other_string); 4. string.verify(other_string); Ответ: 1
+13. Как изменить регистр всех символов в строке на противоположный? 1. string.invert_case(); 2. string.transform_case(); 3. string.swap_case(); 4. string.reverse_case(); Ответ: 3
+14. Как получить подстроку из строки? 1. string.substr(index); 2. string.get_substring(index, length); 3. string.section(index, length); 4. string.extract(index, length); Ответ: 1
+15. Как перевернуть строку задом наперёд? 1. string.reverse(); 2. string.turn(); 3. string.rotate(); 4. string.flip(); Ответ: 1
