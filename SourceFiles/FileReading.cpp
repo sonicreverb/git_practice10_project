@@ -27,7 +27,7 @@ TeacherData* CheckTeacherList(TeacherData* teacherdata, int number)
 {
 	char string[100];
 	FILE* file;
-	int a = fopen_s(&file, "students_database.txt", "rt");
+	int a = fopen_s(&file, "teacher_database.txt", "rt");
 	fgets(string, 100, file);
 	for (int i = 0; i < number; i++)
 	{
@@ -58,7 +58,7 @@ StudentData* CheckStudentList(StudentData* studentdata, int number)
 	fgets(string, 100, file);
 	for (int i = 0; i < number; i++)
 	{
-		studentdata = (TeacherData*)realloc((void*)studentdata, (i + 1) * sizeof(TeacherData));
+		studentdata = (StudentData*)realloc((void*)studentdata, (i + 1) * sizeof(StudentData));
 		fgets(string, 100, file);
 		fscanf_s(file, "%s", &studentdata[i].login);
 		fscanf_s(file, "%s", &studentdata[i].password);
