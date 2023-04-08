@@ -11,7 +11,9 @@ void TeacherAuthMenu()
 
 	teachers[0].login = "kazemir32";
 	teachers[0].name = "Каземир";
+	teachers[0].surname = "Каземиров";
 	teachers[0].patronymic = "Каземирович";
+	teachers[0].password = "qwerty";
 
 	teachers[1].login = "maxonpolyakov";
 	teachers[1].name = "Максим";
@@ -62,7 +64,8 @@ void TeacherAuthMenu()
 			{
 				cout << "Для продолжения введите пароль(чтобы выйти из учётной записи введите 0): ";
 				getline(cin, curr_user.password);
-
+				
+				// отказ от ввода пароля, выход в меню авторизации
 				if (curr_user.password == "0") continue;
 
 				if (curr_user.password != teachers[curr_user_arr_id_in_database].password)
@@ -83,7 +86,8 @@ void TeacherAuthMenu()
 				getchar();
 				continue;
 			}
-			cout << "Вы авторизировались." << endl;
+			curr_user = teachers[curr_user_arr_id_in_database];
+			cout << "Вы авторизировались, как " << curr_user.surname << " " << curr_user.name << " " << curr_user.patronymic << endl;
 			getchar();
 			
 		}
