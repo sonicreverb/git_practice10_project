@@ -17,7 +17,9 @@ void TeacherAuthMenu()
 
 	teachers[1].login = "maxonpolyakov";
 	teachers[1].name = "Максим";
-	teachers[1].patronymic = "Козельскорожденнович";
+	teachers[1].surname = "Поляков";
+	teachers[1].patronymic = "Фенибутович";
+	teachers[1].password = "bobus2";
 	
 	string state = "run";
 
@@ -86,9 +88,36 @@ void TeacherAuthMenu()
 				getchar();
 				continue;
 			}
-			curr_user = teachers[curr_user_arr_id_in_database];
-			cout << "Вы авторизировались, как " << curr_user.surname << " " << curr_user.name << " " << curr_user.patronymic << endl;
-			getchar();
+
+			int teacher_task_choose;
+			// меню авторизованного учителя
+
+			do
+			{
+				system("cls");
+				curr_user = teachers[curr_user_arr_id_in_database];
+				cout << "Вы авторизированы, как " << curr_user.surname << " " << curr_user.name << " " << curr_user.patronymic << endl;
+				cout << "1. Редактирование вопросов." << endl << "2.Работа со списком студентов." << endl;
+
+				cout << "Выберите раздел меню: ";
+				cin >> teacher_task_choose;
+
+
+				switch (teacher_task_choose)
+				{
+				case 1:
+					// редактирование вопросов
+					cout << "1. Удаление." << endl << "2. Добавление." << endl << "3. Изменение.";
+					break;
+				case 2:
+					cout << "1. Работа со списком студентов.\n2. Удаление и регистрация студентов.\n3. Изменение прогресса студентов.\nВывод списка студентов с оценками \n4. -по всем темам\n5. - по конкретной теме\n";
+					cout << "6. - только итоговый тест\n7. - только средний бал";
+				default:
+					cout << "Вы ввели некорректное значение. Для продолжения нажмите любую клавишу" << endl;
+					getchar();
+				}
+			} while (teacher_task_choose != 0);
+			
 			
 		}
 
