@@ -9,4 +9,6 @@ void TeacherAuthMenu()
 {
 	TeacherAuthData curr_user;
 	cout << "Добро пожаловать, для продолжения введите свой логин:" << endl;
+	getchar();
+
 }
