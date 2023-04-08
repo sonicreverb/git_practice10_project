@@ -10,11 +10,11 @@ struct StudentData
 	string name;
 	string surname;
 	string patronymic;
-	int *id;
+	int id;
 	int marks[11];
 };
 
 
 void StudentAuthMenu();
 
-void training();
+void Training();
