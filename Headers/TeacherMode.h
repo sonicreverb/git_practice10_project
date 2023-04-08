@@ -3,11 +3,17 @@
 
 using namespace std;
 
-struct TeacherAuthData
+struct TeacherData
 {
 	string login;
 	string password;
-	string name_surname;
+
+	string name;
+	string surname;
+	string patronymic;
+
+	int* id_students_arr;
+	int numbers_of_students;
 };
 
 void TeacherAuthMenu();
