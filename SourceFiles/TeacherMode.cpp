@@ -24,6 +24,7 @@ void TeacherAuthMenu()
 		TeacherData curr_user;
 		int curr_user_arr_id_in_database;
 
+		system("cls");
 		cout << "Добро пожаловать, для продолжения введите свой логин (чтобы вернуться в главное меню введите 0):" << endl;
 		getline(cin, curr_user.login);
 
@@ -48,14 +49,43 @@ void TeacherAuthMenu()
 			if (!flag_teacher_exist)
 			{
 				cout << "Извините, пользователь " << curr_user.login << " не найден.\n";
+				cout << "Нажмите любую клавишу, чтобы продолжить.\n";
+				getchar();
 				continue;
 			}
 
 			// пользователь существует
 			cout << "Вы входите, как " << teachers[curr_user_arr_id_in_database].name << " " << teachers[curr_user_arr_id_in_database].patronymic << ".\n";
-			cout << "Для продолжения введите пароль: ";
-			getline(cin, curr_user.login);
 
+			int attemps_left = 3;
+			do
+			{
+				cout << "Для продолжения введите пароль(чтобы выйти из учётной записи введите 0): ";
+				getline(cin, curr_user.password);
+
+				if (curr_user.password == "0") continue;
+
+				if (curr_user.password != teachers[curr_user_arr_id_in_database].password)
+				{
+					if (attemps_left - 1 > 0) 
+					{
+						cout << "Вы ввели неверный пароль, попробуйте снова." << "Осталось(ась) " << attemps_left - 1 << " попытки(ок/ка)." << endl;
+					}
+					
+				}
+				attemps_left--;
+			} while (curr_user.password != teachers[curr_user_arr_id_in_database].password && attemps_left > 0);
+
+			if (attemps_left == 0)
+			{
+				cout << "Вы не авторизировались.\n";
+				cout << "Нажмите любую клавишу, чтобы продолжить.\n";
+				getchar();
+				continue;
+			}
+			cout << "Вы авторизировались." << endl;
+			getchar();
+			
 		}
 
 	
