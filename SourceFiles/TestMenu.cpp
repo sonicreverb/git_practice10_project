@@ -1,97 +1,91 @@
 #include "../Headers/TestMenuLib.h"
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdlib>
-#include <ctime>
-#include <locale>
 
-using namespace std;
-
-void TestTraining(string Theme)
+int TrainingOnTheme(string Theme)
 {
+
     setlocale(LC_ALL, "en_US.UTF-8");
-    ifstream file(Theme);
+    system("cls");
 
-    if (!file.is_open()) {
-        cout << "Îøèáêà îòêðûòèÿ ôàéëà." << endl;
-        return;
+    ifstream input(Theme);
+    if (!input.is_open()) {
+        cout << "Failed to open file" << endl;
+        return 1;
     }
 
-    srand(time(0));
-
-    int lines[10], range;
-    range = 30;
-    for (int i = 1; i < 11; i++)
-    {
-        lines[i] = rand() % range;
-    }
+    vector<string> lines;
     string line;
-    int digit, answer;
-    for (int i = 0; i < 10; i++) {
-        system("cls");
-        for (int j = 0; j < lines[i] - 1; j++) {
-            getline(file, line);
+    while (getline(input, line)) {
+        lines.push_back(line);
+    }
+
+    int correctAnswer, answer;
+    srand(time(nullptr));
+    for (int i = 0; i < 10; ++i) {
+        int index = rand() % lines.size();
+        string& str = lines[index];
+
+        if (!str.empty()) {
+            correctAnswer = str.back() - '0';
         }
-        getline(file, line);
-        digit = line[line.length() - 1] - '0';
         do
         {
             system("cls");
-            cout << line.substr(0, line.length() - 1) << endl;
+            if (!str.empty()) {
+                cout << str.substr(0, str.size() - 1) << endl;
+            }
+            cout << " --> ";
             cin >> answer;
-        } while (answer != digit);
-        cout << "ÂÅÐÍÎ!";
+        } while (answer != correctAnswer);
+        cout << endl << "CORRECT!" << endl;
         system("pause");
     }
 
-    file.close();
+    input.close();
+    return 0;
 
-    return;
 }
-
-void TestinOnTheme(string Theme)
+int TestingOnTheme(string Theme)
 {
     setlocale(LC_ALL, "en_US.UTF-8");
-    ifstream file(Theme);
+    system("cls");
 
-    if (!file.is_open()) {
-        cout << "Îøèáêà îòêðûòèÿ ôàéëà." << endl;
-        return;
+    ifstream input("CircleTest.txt");
+    if (!input.is_open()) {
+        cout << "Failed to open file" << endl;
+        return 1;
     }
 
-    srand(time(0));
-
-    int lines[10], range;
-    range = 30;
-    for (int i = 1; i < 11; i++)
-    {
-        lines[i] = rand() % range;
-    }
+    vector<string> lines;
     string line;
-    int digit, answer, mark, mistakes;
-    for (int i = 0; i < 10; i++) {
-        system("cls");
-        for (int j = 0; j < lines[i] - 1; j++) {
-            getline(file, line);
+    while (getline(input, line)) {
+        lines.push_back(line);
+    }
+
+    int correctAnswer, answer, mistakes = 0;
+    srand(time(nullptr));
+    for (int i = 0; i < 10; ++i) {
+        int index = rand() % lines.size();
+        string& str = lines[index];
+
+        if (!str.empty()) {
+            correctAnswer = str.back() - '0';
         }
-        getline(file, line);
-        digit = line[line.length() - 1] - '0';
         system("cls");
-        cout << line.substr(0, line.length() - 1) << endl;
+        if (!str.empty()) {
+            cout << str.substr(0, str.size() - 1) << endl;
+        }
+        cout << " --> ";
         cin >> answer;
-        if (answer == digit) cout << "ÂÅÐÍÎ"; else { cout << "ÍÅÂÅÐÍÎ"; mistakes++; }
+        if (answer == correctAnswer) cout << "CORRECT" << endl; else { cout << "WRONG ANSWER" << endl; mistakes++; }
         system("pause");
     }
-    if (mistakes < 2) cout << "5";
-    if (mistakes < 3) cout << "4";
-    if (mistakes < 5) cout << "3";
-    if (mistakes < 6) cout << "2";
+    system("cls");
+    if (mistakes > 6) cout << endl << endl << "Mark: 2";
+    else if (mistakes > 4) cout << endl << endl << "Mark: 3";
+    else if (mistakes > 2) cout << endl << endl << "Mark: 4";
+    else cout << endl << endl << "Mark: 5";
 
-
-
-    file.close();
-
-    return;
+    input.close();
+    return 0;
 }
