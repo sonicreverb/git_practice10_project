@@ -11,3 +11,4 @@
 using namespace std;
 int TrainingOnTheme(string Theme);
 int TestingOnTheme(string Theme);
+int FinalTest();
