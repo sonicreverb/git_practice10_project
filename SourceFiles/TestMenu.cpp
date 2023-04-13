@@ -1,7 +1,8 @@
 #include "../Headers/TestMenuLib.h"
 
 int TrainingOnTheme(string Theme) {
-    setlocale(LC_ALL, "ru_RU.UTF-8"); system("cls");
+    setlocale(LC_ALL, "ru_RU.UTF-8"); 
+    system("cls");
 
     ifstream fileInp(Theme);
     if (!fileInp.is_open()) {
@@ -53,7 +54,6 @@ int TrainingOnTheme(string Theme) {
 int TestingOnTheme(string Theme)
 {
     setlocale(LC_ALL, "ru_RU.UTF-8");
-
     system("cls");
 
     ifstream fileInp(Theme);
@@ -132,8 +132,8 @@ int TestingOnTheme(string Theme)
 }
 
 int FinalTest() {
-    const int FILE_COUNT = 8; setlocale(LC_ALL, "ru_RU.UTF-8");
-
+    const int FILE_COUNT = 8;
+    setlocale(LC_ALL, "ru_RU.UTF-8");
     system("cls");
 
     ifstream cirFile("CircleTest.txt");
