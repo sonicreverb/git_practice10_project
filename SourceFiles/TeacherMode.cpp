@@ -1,35 +1,219 @@
-#include <iostream>
-#include <string>
-
 #include "../Headers/TeacherMode.h"
 #include "../Headers/FileReading.h"
 
-using namespace std;
-
-void DeleteQuestions()
+int FileOutput(vector<string> lines)
 {
-	
+	int i = 1;
+	for (auto& str : lines) {
+		if (!str.empty()) {
+			cout << "QESTION #" << i << "  ";
+			cout << str.substr(0, str.size()) << endl;
+			i++;
+		}
+	}
+	cout << endl;
+	return 0;
 }
 
-void AddQuestions()
+int QuestionDel(string Theme, vector<string> lines)
+{
+	FileOutput(lines);
+	int lineNumber;
+	cout << "Выберите номер вопроса для удаления: ";
+	cin >> lineNumber;
+	lineNumber--;
+	if (lineNumber >= 0 && lineNumber < lines.size()) {
+		lines.erase(lines.begin() + lineNumber);
+		ofstream fileOut(Theme);
+		if (fileOut.is_open()) {
+			for (int i = 0; i < lines.size(); i++) {
+				fileOut << lines[i] << endl;
+			}
+			fileOut.close();
+		}
+		else {
+			cout << "Ошибка при открытии файла." << endl;
+			return 1;
+		}
+		cout << "Готово." << endl;
+	}
+	else {
+		cout << "Неверный номер вопроса." << endl;
+		return 1;
+	}
+	return 0;
+}
+
+int QuestionEdit(string Theme, vector<string> lines)
+{
+	FileOutput(lines);
+
+	int LineNumber;
+	cout << "Выберите номер вопроса для редактирования: ";
+	cin >> LineNumber;
+	LineNumber++;
+	if (LineNumber > 0 && LineNumber < lines.size()) {
+		string editedLine;
+		cout << "Новый вариант вопроса: ";
+		cin >> editedLine;
+		lines[LineNumber] = editedLine;
+		ofstream fileOut(Theme);
+		if (fileOut.is_open()) {
+			for (int i = 0; i < lines.size(); i++) {
+				fileOut << lines[i] << endl;
+			}
+			fileOut.close();
+		}
+		else {
+			cout << "Ошибка при открытии файла." << endl;
+			system("pause");
+			setlocale(LC_ALL, "rus");
+			return 1;
+		}
+		cout << "Готово." << endl;
+	}
+	else {
+		cout << "Неверный номер вопроса." << endl;
+		return 1;
+	}
+	return 0;
+}
+
+int QuestionAdd(string Theme, vector<string> lines)
+{
+	FileOutput(lines);
+
+	string newLine;
+	cout << "Новый вопрос: ";
+	cin >> newLine;
+	lines.push_back(newLine);
+	ofstream fileOut(Theme);
+	if (fileOut.is_open()) {
+		for (int i = 0; i < lines.size(); i++) {
+			fileOut << lines[i] << endl;
+		}
+		fileOut.close();
+	}
+	else {
+		cout << "Ошибка при открытии файла." << endl;
+		return 1;
+	}
+	cout << "Готово." << endl;
+	return 0;
+}
+
+vector<string> fileParse(string Theme)
+{
+	string line;
+	vector<string> lines;
+
+	ifstream fileInp(Theme);
+	if (!fileInp.is_open()) {
+		cout << "Ошибка при открытии файла" << endl;
+		system("pause");
+		return lines;
+	}
+
+	while (getline(fileInp, line)) {
+		lines.push_back(line);
+	}
+	fileInp.close();
+	return lines;
+}
+
+int QestionEditorPlace(string Theme)
+{
+	system("cls");
+
+	vector<string> lines = fileParse(Theme);
+
+	int switcher;
+
+	do
+	{
+		cout << "Выберите действие: " << endl << "1 - Удалить строку" << endl << "2 - Редактировать строку" << endl << "3 - Добавить строку" << endl << "4 - Вывести перечень вопросов" << endl << "0 - Выйти в меню выбора темы" << endl;
+		cin >> switcher;
+		switch (switcher) {
+		case 1: system("cls"); QuestionDel(Theme, lines); system("pause"); /*setlocale(LC_ALL, "rus");*/ system("cls"); lines = fileParse(Theme); break;
+		case 2: system("cls"); QuestionEdit(Theme, lines); system("pause");/* setlocale(LC_ALL, "rus");*/ system("cls"); lines = fileParse(Theme); break;
+		case 3: system("cls"); QuestionAdd(Theme, lines); system("pause"); /*setlocale(LC_ALL, "rus");*/ system("cls"); lines = fileParse(Theme); break;
+		case 4: system("cls"); FileOutput(lines); system("pause"); /*setlocale(LC_ALL, "rus");*/ system("cls"); break;
+		case 0: break;
+		default: cout << "Несуществующий вариат." << endl;
+		}
+	} while (switcher != 0);
+	return 0;
+}
+
+int QestionEditorMenu()
+{
+	system("cls");
+
+	string Theme;
+	int switcher;
+	do
+	{
+		cout << "Выберите тему для редактирования перечня вопросов:" << endl << endl << "1 - Циклы\n2 - Массивы\n3 - Строки\n4 - Рекурсия\n5 - Структуры\n6 - Файлы\n7 - Адреса и указатели\n8 - Динамическая память\n0 - Выйти из редактора вопросов\n--> ";
+		cin >> switcher;
+		switch (switcher)
+		{
+		case 1: QestionEditorPlace("CircleTest.txt"); break;
+		case 2: QestionEditorPlace("ArrayTest.txt"); break;
+		case 3: QestionEditorPlace("StringTest.txt"); break;
+		case 4: QestionEditorPlace("RekursionTest.txt"); break;
+		case 5: QestionEditorPlace("StructTest.txt"); break;
+		case 6: QestionEditorPlace("FilesTest.txt"); break;
+		case 7: QestionEditorPlace("PointerTest.txt"); break;
+		case 8: QestionEditorPlace("DinMemory.txt"); break;
+		case 0: break;
+		default: cout << "Несуществующий вариант";
+		}
+	} while (switcher != 0);
+	return 0;
+}
+
+//TODO ILIAS
+void DelAndRegStudents()
 {
 
 }
 
-void EditQuestions()
+//TODO VLADIS
+void EditStudentsProgress()
+{
+
+}
+
+//TODO VLADIS
+void ShowStudensList()
+{
+
+}
+
+//TODO VLADIS
+void Filter()
+{
+
+}
+
+//TODO VLADIS
+void ShowSortList()
 {
 
 }
 
 void TeacherAuthMenu()
 {
+
+	//TODO ILIAS READING FROM DATABASE
+
 	/*int number_of_teachers = CheckTeacherListNumber();
 	cout << number_of_teachers;
 
-	TeacherData* teachers = (TeacherData*)malloc(sizeof(TeacherData));
+	TeacherData* teachers = (TeacherData*)malloc(sizeof(TeacherData) * number_of_teachers);
 	CheckTeacherList(teachers, number_of_teachers);
 
-	cout << teachers[0].login;
+	cout << teachers;
 	getchar();*/
 
 	int number_of_teachers = 2;
@@ -134,30 +318,12 @@ void TeacherAuthMenu()
 				switch (teacher_section_choose)
 				{
 				case 1:
+				{
 					// редактирование вопросов
-					cout << "1. Удаление." << endl << "2. Добавление." << endl << "3. Изменение.";
-					cout << "Выберите задачу: ";
-					cin >> teacher_task_choose;
-
-					switch (teacher_task_choose)
-					{
-					case 1:
-						DeleteQuestions();
-						break;
-					case 2:
-						AddQuestions();
-						break;
-					case 3:
-						EditQuestions();
-						break;
-					default:
-						cout << "Вы ввели некорректное значение. Для продолжения нажмите ENTER.";
-						getchar();
-						break;
-					}
-				
-					break;
+					QestionEditorMenu(); break;
+				}
 				case 2:
+				{
 					// работа со списком студентов
 					cout << "1. Удаление и регистрация студентов.\n2. Изменение прогресса студентов.\n-- Вывод списка студентов с оценками \n3. -по всем темам\n4. -по конкретной теме\n";
 					cout << "5. -только итоговый тест\n6. -только средний бал\n7. Фильтрация (по конкретным оценкам).\n8. Сортировка по конректным оценкам.";
@@ -167,6 +333,7 @@ void TeacherAuthMenu()
 					switch (teacher_task_choose)
 					{
 					case 1:
+						DelAndRegStudents();
 						break;
 					case 2:
 						break;
@@ -184,16 +351,19 @@ void TeacherAuthMenu()
 						break;
 
 					default:
+					{
 						cout << "Вы ввели некорректное значение. Для продолжения нажмите ENTER.";
 						getchar();
 						break;
 					}
-					
-					break;
+					}
+				}
 				default:
+				{
 					cout << "Вы ввели некорректное значение. Для продолжения нажмите любую клавишу" << endl;
-					
+
 					break;
+				}
 				}
 			} while (teacher_section_choose != 0);
 			
