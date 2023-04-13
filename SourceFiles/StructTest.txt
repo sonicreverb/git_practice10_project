@@ -13,3 +13,18 @@
 Как создать объект класса в C++? 1. Object o = new Object() 2. Object o = Object(); 3. Object o(); 4. Object o; Ответ: 2
 Как узнать размер переменной в байтах в C++? 1. sizeof(variable) 2. size() 3. length() 4. sizeof variable Ответ: 1
 Какое ключевое слово используется для завершения цикла в C++? 1. next 2. continue 3. break 4. skip Ответ: 3
+Какое ключевое слово используется для создания нового типа данных в C++? 1. typedef 2. decltype 3. typeof 4. auto Ответ: 1
+Что такое операторы << и >> в C++? 1. Математические операторы 2. Логические операторы 3. Бинарные операторы 4. Операторы потокового ввода/вывода Ответ: 4
+Как преобразовать строку в число в C++? 1. atoi() 2. parse() 3. convert() 4. str_to_num() Ответ: 1
+Как открыть файл в режиме записи в C++? 1. file.open("filename", 'r') 2. file.open("filename", 'w') 3. file.open("filename", 'a') 4. file.open("filename", 'x') Ответ: 2
+Как узнать количество элементов в контейнере в C++? 1. container.size() 2. container.length() 3. container.count() 4. container.capacity() Ответ: 1
+Как удалить элемент из вектора в C++? 1. vector.pop_front() 2. vector.pop_back() 3. vector.remove() 4. vector.erase() Ответ: 4
+Что такое исключения (exceptions) в C++? 1. Ошибки, возникающие при компиляции программы 2. Ошибки, возникающие при выполнении программы 3. Ошибки, возникающие при работе с базами данных 4. Ошибки, возникающие при работе с сетью Ответ: 2
+Как обработать исключение (exception) в C++? 1. try-catch блоком 2. if-else блоком 3. switch-case блоком 4. while-do блоком Ответ: 1
+Как вставить элемент в произвольное место списка (list) в C++? 1. list.insert(position, value) 2. list.add(position, value) 3. list.put(position, value) 4. list.set(position, value) Ответ: 1
+Как вставить элемент в множество (set) в C++? 1. set.insert(value) 2. set.add(value) 3. set.put(value) 4. set.set(value) Ответ: 1
+Как узнать количество элементов, удовлетворяющих заданному условию, в векторе (vector) в C++? 1. count_if() 2. find_if() 3. size() 4. length() Ответ: 1
+Как отсортировать элементы вектора (vector) в C++? 1. vector.sort() 2. vector.sort(compare) 3. sort(vector.begin(), vector.end()) 4. sort(vector) Ответ: 3
+Как отсортировать элементы списка (list) в C++? 1. list.sort() 2. list.sort(compare) 3. sort(list.begin(), list.end()) 4. sort(list) Ответ: 1
+Как отсортировать элементы множества (set) в C++? 1. set.sort() 2. set.sort(compare) 3. sort(set.begin(), set.end()) 4. sort(set) Ответ: 4
+Как удалить элементы из множества (set) по заданному условию в C++? 1. set.remove_if(predicate) 2. set.erase_if(predicate) 3. set.delete_if(predicate) 4. set.clear_if(predicate) Ответ: 1
