@@ -6,30 +6,66 @@
 
 using namespace std;
 
+//TODO GRIGORY
 void DeleteQuestions()
 {
 	
 }
 
+//TODO GRIGORY
 void AddQuestions()
 {
 
 }
 
+//TODO GRIGORY
 void EditQuestions()
+{
+
+}
+
+//TODO ILIAS
+void DelAndRegStudents()
+{
+
+}
+
+//TODO VLADIS
+void EditStudentsProgress()
+{
+
+}
+
+//TODO VLADIS
+void ShowStudensList()
+{
+
+}
+
+//TODO VLADIS
+void Filter()
+{
+
+}
+
+//TODO VLADIS
+void ShowSortList()
 {
 
 }
 
 void TeacherAuthMenu()
 {
+
+	//TODO ILIAS READING FROM DATABASE
+
 	/*int number_of_teachers = CheckTeacherListNumber();
 	cout << number_of_teachers;
 
-	TeacherData* teachers = (TeacherData*)malloc(sizeof(TeacherData));
+	TeacherData* teachers = (TeacherData*)malloc(sizeof(TeacherData) * number_of_teachers);
 	CheckTeacherList(teachers, number_of_teachers);
 
-	cout << teachers[0].login;
+	cout << teachers;
 	getchar();*/
 
 	int number_of_teachers = 2;
@@ -167,6 +203,7 @@ void TeacherAuthMenu()
 					switch (teacher_task_choose)
 					{
 					case 1:
+						DelAndRegStudents();
 						break;
 					case 2:
 						break;
