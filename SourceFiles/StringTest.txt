@@ -13,3 +13,18 @@
 Как изменить регистр всех символов в строке на противоположный? 1. string.invert_case(); 2. string.transform_case(); 3. string.swap_case(); 4. string.reverse_case(); Ответ: 3
 Как получить подстроку из строки? 1. string.substr(index); 2. string.get_substring(index, length); 3. string.section(index, length); 4. string.extract(index, length); Ответ: 1
 Как перевернуть строку задом наперёд? 1. string.reverse(); 2. string.turn(); 3. string.rotate(); 4. string.flip(); Ответ: 1
+Как проверить, пустая ли строка? 1. string.empty(); 2. string.null(); 3. string.blank(); 4. string.void(); Ответ: 1
+Как добавить символ в заданной позиции в строке? 1. string.insert(position, char); 2. string.add(char, position); 3. string.modify(char, position); 4. string.place(char, position); Ответ: 1
+Как удалить все символы из строки, кроме цифр? 1. string.filter_digits(); 2. string.clear_non_digits(); 3. string.remove_letters(); 4. string.delete_non_numbers(); Ответ: 1
+Как вывести строку на экран? 1. cout << string; 2. printf(string); 3. write(string); 4. echo(string); Ответ: 1
+Как узнать, начинается ли строка с определенной подстроки? 1. string.starts_with(sub_str); 2. string.begins_with(sub_str); 3. string.commences(sub_str); 4. string.initiates(sub_str); Ответ: 1
+Как получить указатель на символ по заданной позиции в строке? 1. &string[index]; 2. string.char_pointer(index); 3. string.position(index); 4. string.symbol_reference(index); Ответ: 1
+Как вывести строку задом наперед? 1. reverse_string(string); 2. string.reverse_output(); 3. print_reversed(string); 4. cout << string.reverse(); Ответ: 4
+Как удалить последний символ из строки? 1. string.lastchar(); 2. string.pop_back(); 3. string.erase_back(); 4. string.remove_last(); Ответ: 2
+Как получить подстроку между двумя заданными индексами? 1. string.subsection(index1, index2); 2. string.extract(index1, index2); 3. string.section(index1, index2); 4. string.get_range(index1, index2); Ответ: 3
+Как проверить, является ли строка палиндромом? 1. string.is_palindrome(); 2. string.check_palindrome(); 3. string.palindrome(); 4. string.verify_palindrome(); Ответ: 1
+Как удалить все символы из строки, кроме букв? 1. string.filter_letters(); 2. string.delete_non_letters(); 3. string.clear_digits(); 4. string.remove_non_chars(); Ответ: 1
+Как скопировать символы из одной строки в другую с указанной позиции? 1. string.copy(new_str, length, position); 2. string.copy_to(new_str, length, position); 3. string.transfer(new_str, length, position); 4. string.move_to(new_str, position, length); Ответ: 1
+Как получить индекс первого вхождения подстроки в строку? 1. string.find(sub_str); 2. string.search(sub_str); 3. string.locate(sub_str); 4. string.seek(sub_str); Ответ: 1
+Как заменить все вхождения одной подстроки на другую в строке? 1. string.replace_all(old_str, new_str); 2. string.swap_all(old_str, new_str); 3. string.change_all(old_str, new_str); 4. string.modify_all(old_str, new_str); Ответ: 1
+Как получить последний символ из строки? 1. string.lastchar(); 2. string.back(); 3. string.endchar(); 4. string.final_char(); Ответ: 2
