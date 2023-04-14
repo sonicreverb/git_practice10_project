@@ -1,30 +1,30 @@
-РљР°Рє РѕР±СЉСЏРІРёС‚СЊ РјР°СЃСЃРёРІ РІ C++? 1. int myArray; 2. array myArray; 3. int myArray[]; 4. myArray = new array(); РћС‚РІРµС‚: 3
-РљР°Рє РЅР°Р·С‹РІР°РµС‚СЃСЏ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РІ РјР°СЃСЃРёРІРµ? 1. 0 2. РїРµСЂРІС‹Р№ 3. РЅР°С‡Р°Р»Рѕ 4. 1 РћС‚РІРµС‚: 1
-РљР°Рє РѕР±СЂР°С‰Р°С‚СЊСЃСЏ Рє СЌР»РµРјРµРЅС‚Сѓ РјР°СЃСЃРёРІР° РїРѕ РёРЅРґРµРєСЃСѓ? 1. myArray(index) 2. myArray[index] 3. myArray{index} 4. myArray.index РћС‚РІРµС‚: 2
-РљР°Рє Р·Р°РїРёСЃР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РІ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°? 1. myArray[2] = 5; 2. myArray(2) = 5; 3. myArray{2} = 5; 4. myArray.value(2) = 5; РћС‚РІРµС‚: 1
-РљР°Рє РїРѕР»СѓС‡РёС‚СЊ СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР° РІ C++? 1. myArray.size() 2. myArray.length() 3. sizeof(myArray) 4. myArray.getsize() РћС‚РІРµС‚: 3
-РљР°РєР°СЏ С„СѓРЅРєС†РёСЏ РјРѕР¶РµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ РјР°СЃСЃРёРІР° РѕРґРёРЅР°РєРѕРІС‹Рј Р·РЅР°С‡РµРЅРёРµРј? 1. std::fill_n() 2. std::fill() 3. std::for_each() 4. std::transform() РћС‚РІРµС‚: 1
-РљР°Рє РїСЂРѕРІРµСЂРёС‚СЊ, СЃРѕРґРµСЂР¶РёС‚ Р»Рё РјР°СЃСЃРёРІ РѕРїСЂРµРґРµР»РµРЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ? 1. myArray.contains(value) 2. myArray.find(value) 3. std::find(myArray.begin(), myArray.end(), value) != myArray.end() 4. std::contains(myArray, value) РћС‚РІРµС‚: 3
-РљР°Рє РЅР°Р·С‹РІР°РµС‚СЃСЏ РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚ РІ РјР°СЃСЃРёРІРµ? 1. last 2. end 3. size - 1 4. length - 1 РћС‚РІРµС‚: 3
-РљР°Рє СѓРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ РёР· РјР°СЃСЃРёРІР°? 1. myArray.erase(index) 2. myArray.pop_back() 3. myArray.delete(index) 4. myArray.remove(index) РћС‚РІРµС‚: 2
-РљР°РєР°СЏ С„СѓРЅРєС†РёСЏ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РјР°СЃСЃРёРІР°? 1. std::sort() 2. std::stable_sort() 3. std::partial_sort() 4. РІСЃРµ РІС‹С€РµРїРµСЂРµС‡РёСЃР»РµРЅРЅС‹Рµ РћС‚РІРµС‚: 4
-РљР°Рє РїРµСЂРµР±СЂР°С‚СЊ РІСЃРµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°? 1. С†РёРєР» while 2. С†РёРєР» for 3. С†РёРєР» do-while 4. Р»СЋР±РѕР№ РёР· РІС‹С€РµРїРµСЂРµС‡РёСЃР»РµРЅРЅС‹С… РћС‚РІРµС‚: 2
-РљР°Рє РЅР°Р·С‹РІР°РµС‚СЃСЏ Р·РЅР°С‡РµРЅРёРµ, С…СЂР°РЅСЏС‰РµРµСЃСЏ РІ РЅРµР·Р°РїРѕР»РЅРµРЅРЅРѕР№ СЏС‡РµР№РєРµ РјР°СЃСЃРёРІР°? 1. "0" 2. "" 3. "null" 4. "undefined" РћС‚РІРµС‚: 3
-РљР°Рє РЅР°Р№С‚Рё РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РІ РјР°СЃСЃРёРІРµ? 1. max(arr); 2. *max_element(arr, arr+len); 3. arr.max(); 4. arr.max_element(); РћС‚РІРµС‚: 2
-РљР°Рє РЅР°Р№С‚Рё СЃСЂРµРґРЅРµРµ Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°? 1. sum(arr) / len; 2. mean(arr); 3. average(arr); 4. accumulate(arr, arr+len) / len; РћС‚РІРµС‚: 1
-РљР°Рє РїСЂРѕРІРµСЂРёС‚СЊ, РµСЃС‚СЊ Р»Рё СЌР»РµРјРµРЅС‚ РІ РјР°СЃСЃРёРІРµ? 1. arr.contains(val); 2. find(arr, val) != arr.end(); 3. arr.index(val) != -1; 4. for(int i=0; i<len; i++) if(arr[i] == val) return true; return false; РћС‚РІРµС‚: 4
-РљР°Рє СЃРєРѕРїРёСЂРѕРІР°С‚СЊ РјР°СЃСЃРёРІ РІ РґСЂСѓРіРѕР№ РјР°СЃСЃРёРІ? 1. memcpy(arr1, arr2, sizeof(arr2)); 2. arr1 = arr2; 3. copy(arr1, arr1+len, arr2); 4. arr2.copy(arr1, len); РћС‚РІРµС‚: 1
-РљР°Рє РїСЂРѕРІРµСЂРёС‚СЊ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РјР°СЃСЃРёРІ РїСѓСЃС‚С‹Рј? 1. arr.IsEmpty(); 2. arr.size() == 0; 3. arr.empty(); 4. len(arr) == 0; РћС‚РІРµС‚: 3
-РљР°Рє РЅР°Р·С‹РІР°РµС‚СЃСЏ СЃР»СѓС‡Р°Р№РЅРѕРµ СЂР°СЃРїСЂРµРґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°? 1. shuffle() 2. random_shuffle() 3. random_order() 4. sort_random() РћС‚РІРµС‚: 2
-РљР°Рє РїРѕР»СѓС‡РёС‚СЊ РїРѕРґРјР°СЃСЃРёРІ (С‡Р°СЃС‚СЊ РјР°СЃСЃРёРІР°) СЃ РїРѕРјРѕС‰СЊСЋ РёС‚РµСЂР°С‚РѕСЂРѕРІ? 1. array_slice(arr.begin(), arr.end(), start, end); 2. arr.slice(begin, end); 3. vector(arr.begin()+start, arr.begin()+end); 4. std::copy(arr.begin()+start, arr.begin()+end, new_arr); РћС‚РІРµС‚: 3
-РљР°Рє РїРѕСЃР»Рµ СЃРѕР·РґР°РЅРёСЏ РјР°СЃСЃРёРІР° РёР·РјРµРЅРёС‚СЊ РµРіРѕ СЂР°Р·РјРµСЂ? 1. РёСЃРїРѕР»СЊР·СѓСЏ С„СѓРЅРєС†РёСЋ realloc() 2. СЃРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ РјР°СЃСЃРёРІ РЅСѓР¶РЅРѕРіРѕ СЂР°Р·РјРµСЂР° Рё СЃРєРѕРїРёСЂРѕРІР°С‚СЊ РґР°РЅРЅС‹Рµ 3. РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С„СѓРЅРєС†РёСЋ resize() 4. РІСЃРµ РІС‹С€РµРїРµСЂРµС‡РёСЃР»РµРЅРЅРѕРµ РћС‚РІРµС‚: 2
-РљР°Рє РЅР°Р№С‚Рё РјРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РІ РјР°СЃСЃРёРІРµ? 1. arr.min(); 2. min_element(arr, arr+len); 3. *min(arr, arr+len); 4. min(arr); РћС‚РІРµС‚: 2
-РљР°РєР°СЏ СЃС‚Р°РЅРґР°СЂС‚РЅР°СЏ Р±РёР±Р»РёРѕС‚РµРєР° C++ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РјР°СЃСЃРёРІР°РјРё? 1. array.h 2. vector.h 3. list.h 4. arraylist.h РћС‚РІРµС‚: 2
-РљР°Рє СЃРѕР·РґР°С‚СЊ РјР°СЃСЃРёРІ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕРіРѕ СЂР°Р·РјРµСЂР°? 1. int[] myArray = new int[n]; 2. std::vector myArray(n); 3. int[n] myArray; 4. int myArray[n]; РћС‚РІРµС‚: 4
-РљР°Рє СЃРѕР·РґР°С‚СЊ РјР°СЃСЃРёРІ РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ СЂР°Р·РјРµСЂР°? 1. int[] myArray = new int[n]; 2. std::vector myArray(n); 3. int[n] myArray; 4. int myArray[n]; РћС‚РІРµС‚: 2
-РљР°Рє РїРѕР»СѓС‡РёС‚СЊ СЃС‚СЂРѕРєРѕРІРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РјР°СЃСЃРёРІР° РІ C++? 1. arr.to_string(); 2. std::to_string(arr); 3. std::to_string(begin(arr), end(arr)); 4. std::stringstream ss; for(auto i : arr) ss << i << " "; РћС‚РІРµС‚: 4
-РљР°Рє РЅР°Р№С‚Рё РјРµРґРёР°РЅСѓ (СЃРµСЂРµРґРёРЅСѓ) РјР°СЃСЃРёРІР°? 1. arr.median(); 2. median(arr); 3. std::nth_element(arr.begin(), arr.begin()+arr.size()/2, arr.end()); 4. std::sort(arr.begin(), arr.end()); РћС‚РІРµС‚: 3
-РљР°Рє РїСЂРѕРІРµСЂРёС‚СЊ, РІСЃРµ Р»Рё СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‚ СѓСЃР»РѕРІРёСЋ? 1. std::all_of(arr.begin(), arr.end(), condition); 2. arr.all(condition); 3. arr.every(condition); 4. for(int i=0; i<len; i++) if(!condition(arr[i])) return false; return true; РћС‚РІРµС‚: 1
-РљР°Рє СЃРѕР·РґР°С‚СЊ РјР°СЃСЃРёРІ РёР· РїРѕРІС‚РѕСЂСЏСЋС‰РёС…СЃСЏ СЌР»РµРјРµРЅС‚РѕРІ? 1. std::vector myArray(n, value); 2. int myArray[n] = value; 3. int[] myArray = new int[n] {value}; 4. for(int i=0; i<n; i++) arr[i] = value; РћС‚РІРµС‚: 1
-РљР°Рє РґРѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ РІ РєРѕРЅРµС† РјР°СЃСЃРёРІР°? 1. arr.add(value); 2. arr.insert(value); 3. arr.push_back(value); 4. arr.concat(value); РћС‚РІРµС‚: 3
-РљР°Рє РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ РјР°СЃСЃРёРІ РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ? 1. reverse(arr.begin(), arr.end()); 2. std::sort(arr.begin(), arr.end(), [](int a, int b){return a>b;}); 3. arr.reverse(); 4. std::sort(arr.end(), arr.begin()); РћС‚РІРµС‚: 2
+Как объявить массив в C++? 1. int myArray; 2. array myArray; 3. int myArray[]; 4. myArray = new array(); Ответ: 3
+Как называется первый элемент в массиве? 1. 0 2. первый 3. начало 4. 1 Ответ: 1
+Как обращаться к элементу массива по индексу? 1. myArray(index) 2. myArray[index] 3. myArray{index} 4. myArray.index Ответ: 2
+Как записать значение в элемент массива? 1. myArray[2] = 5; 2. myArray(2) = 5; 3. myArray{2} = 5; 4. myArray.value(2) = 5; Ответ: 1
+Как получить размер массива в C++? 1. myArray.size() 2. myArray.length() 3. sizeof(myArray) 4. myArray.getsize() Ответ: 3
+Какая функция может использоваться для заполнения массива одинаковым значением? 1. std::fill_n() 2. std::fill() 3. std::for_each() 4. std::transform() Ответ: 1
+Как проверить, содержит ли массив определенное значение? 1. myArray.contains(value) 2. myArray.find(value) 3. std::find(myArray.begin(), myArray.end(), value) != myArray.end() 4. std::contains(myArray, value) Ответ: 3
+Как называется последний элемент в массиве? 1. last 2. end 3. size - 1 4. length - 1 Ответ: 3
+Как удалить элемент из массива? 1. myArray.erase(index) 2. myArray.pop_back() 3. myArray.delete(index) 4. myArray.remove(index) Ответ: 2
+Какая функция используется для сортировки массива? 1. std::sort() 2. std::stable_sort() 3. std::partial_sort() 4. все вышеперечисленные Ответ: 4
+Как перебрать все элементы массива? 1. цикл while 2. цикл for 3. цикл do-while 4. любой из вышеперечисленных Ответ: 2
+Как называется значение, хранящееся в незаполненной ячейке массива? 1. "0" 2. "" 3. "null" 4. "undefined" Ответ: 3
+Как найти максимальный элемент в массиве? 1. max(arr); 2. *max_element(arr, arr+len); 3. arr.max(); 4. arr.max_element(); Ответ: 2
+Как найти среднее значение элементов массива? 1. sum(arr) / len; 2. mean(arr); 3. average(arr); 4. accumulate(arr, arr+len) / len; Ответ: 1
+Как проверить, есть ли элемент в массиве? 1. arr.contains(val); 2. find(arr, val) != arr.end(); 3. arr.index(val) != -1; 4. for(int i=0; i<len; i++) if(arr[i] == val) return true; return false; Ответ: 4
+Как скопировать массив в другой массив? 1. memcpy(arr1, arr2, sizeof(arr2)); 2. arr1 = arr2; 3. copy(arr1, arr1+len, arr2); 4. arr2.copy(arr1, len); Ответ: 1
+Как проверить, является ли массив пустым? 1. arr.IsEmpty(); 2. arr.size() == 0; 3. arr.empty(); 4. len(arr) == 0; Ответ: 3
+Как называется случайное распределение элементов массива? 1. shuffle() 2. random_shuffle() 3. random_order() 4. sort_random() Ответ: 2
+Как получить подмассив (часть массива) с помощью итераторов? 1. array_slice(arr.begin(), arr.end(), start, end); 2. arr.slice(begin, end); 3. vector(arr.begin()+start, arr.begin()+end); 4. std::copy(arr.begin()+start, arr.begin()+end, new_arr); Ответ: 3
+Как после создания массива изменить его размер? 1. используя функцию realloc() 2. создать новый массив нужного размера и скопировать данные 3. использовать функцию resize() 4. все вышеперечисленное Ответ: 2
+Как найти минимальный элемент в массиве? 1. arr.min(); 2. min_element(arr, arr+len); 3. *min(arr, arr+len); 4. min(arr); Ответ: 2
+Какая стандартная библиотека C++ используется для работы с массивами? 1. array.h 2. vector.h 3. list.h 4. arraylist.h Ответ: 2
+Как создать массив фиксированного размера? 1. int[] myArray = new int[n]; 2. std::vector myArray(n); 3. int[n] myArray; 4. int myArray[n]; Ответ: 4
+Как создать массив динамического размера? 1. int[] myArray = new int[n]; 2. std::vector myArray(n); 3. int[n] myArray; 4. int myArray[n]; Ответ: 2
+Как получить строковое представление массива в C++? 1. arr.to_string(); 2. std::to_string(arr); 3. std::to_string(begin(arr), end(arr)); 4. std::stringstream ss; for(auto i : arr) ss << i << " "; Ответ: 4
+Как найти медиану (середину) массива? 1. arr.median(); 2. median(arr); 3. std::nth_element(arr.begin(), arr.begin()+arr.size()/2, arr.end()); 4. std::sort(arr.begin(), arr.end()); Ответ: 3
+Как проверить, все ли элементы массива удовлетворяют условию? 1. std::all_of(arr.begin(), arr.end(), condition); 2. arr.all(condition); 3. arr.every(condition); 4. for(int i=0; i<len; i++) if(!condition(arr[i])) return false; return true; Ответ: 1
+Как создать массив из повторяющихся элементов? 1. std::vector myArray(n, value); 2. int myArray[n] = value; 3. int[] myArray = new int[n] {value}; 4. for(int i=0; i<n; i++) arr[i] = value; Ответ: 1
+Как добавить элемент в конец массива? 1. arr.add(value); 2. arr.insert(value); 3. arr.push_back(value); 4. arr.concat(value); Ответ: 3
+Как отсортировать массив в обратном порядке? 1. reverse(arr.begin(), arr.end()); 2. std::sort(arr.begin(), arr.end(), [](int a, int b){return a>b;}); 3. arr.reverse(); 4. std::sort(arr.end(), arr.begin()); Ответ: 2

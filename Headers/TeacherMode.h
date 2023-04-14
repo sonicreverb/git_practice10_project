@@ -5,6 +5,7 @@
 #include <vector>
 #include <cstdlib>
 #include <locale>
+#include <windows.h>
 #include <set>
 
 using namespace std;

@@ -19,7 +19,7 @@ int QuestionDel(string Theme, vector<string> lines)
 {
 	FileOutput(lines);
 	int lineNumber;
-	cout << "Выберите номер вопроса для удаления: ";
+	cout << "Выберите номер вопроса для удаления(0 - выход): ";
 	cin >> lineNumber;
 	lineNumber--;
 	if (lineNumber >= 0 && lineNumber < lines.size()) {
@@ -49,13 +49,16 @@ int QuestionEdit(string Theme, vector<string> lines)
 	FileOutput(lines);
 
 	int LineNumber;
-	cout << "Выберите номер вопроса для редактирования: ";
+	cout << "Выберите номер вопроса для редактирования(0 - выход): ";
 	cin >> LineNumber;
-	LineNumber++;
-	if (LineNumber > 0 && LineNumber < lines.size()) {
+	LineNumber--;
+	if (LineNumber >= 0 && LineNumber < lines.size()) {
 		string editedLine;
 		cout << "Новый вариант вопроса: ";
-		cin >> editedLine;
+		if (!isdigit(editedLine.back())) {
+			cout << "Последний символ нового варианта вопроса должен быть его ответом, то есть, цифрой." << endl;
+			return 1;
+		}
 		lines[LineNumber] = editedLine;
 		ofstream fileOut(Theme);
 		if (fileOut.is_open()) {
@@ -67,7 +70,6 @@ int QuestionEdit(string Theme, vector<string> lines)
 		else {
 			cout << "Ошибка при открытии файла." << endl;
 			system("pause");
-			setlocale(LC_ALL, "rus");
 			return 1;
 		}
 		cout << "Готово." << endl;
@@ -85,8 +87,17 @@ int QuestionAdd(string Theme, vector<string> lines)
 
 	string newLine;
 	cout << "Новый вопрос: ";
-	cin >> newLine;
+
+	cin.ignore();
+	getline(cin, newLine);
+
+	if (!isdigit(newLine.back())) {
+		cout << "Последний символ нового вопроса должен быть его ответом, то есть, цифрой." << endl;
+		return 1;
+	}
+
 	lines.push_back(newLine);
+
 	ofstream fileOut(Theme);
 	if (fileOut.is_open()) {
 		for (int i = 0; i < lines.size(); i++) {
@@ -123,21 +134,20 @@ vector<string> fileParse(string Theme)
 
 int QestionEditorPlace(string Theme)
 {
-	system("cls");
-
 	vector<string> lines = fileParse(Theme);
 
 	int switcher;
 
 	do
 	{
-		cout << "Выберите действие: " << endl << "1 - Удалить строку" << endl << "2 - Редактировать строку" << endl << "3 - Добавить строку" << endl << "4 - Вывести перечень вопросов" << endl << "0 - Выйти в меню выбора темы" << endl;
+		system("cls");
+		cout << "Выберите действие: " << endl << "1 - Удалить вопрос" << endl << "2 - Редактировать вопрос" << endl << "3 - Добавить вопрос" << endl << "4 - Вывести перечень вопросов" << endl << "0 - Выйти в меню выбора темы" << endl;
 		cin >> switcher;
 		switch (switcher) {
-		case 1: system("cls"); QuestionDel(Theme, lines); system("pause"); /*setlocale(LC_ALL, "rus");*/ system("cls"); lines = fileParse(Theme); break;
-		case 2: system("cls"); QuestionEdit(Theme, lines); system("pause");/* setlocale(LC_ALL, "rus");*/ system("cls"); lines = fileParse(Theme); break;
-		case 3: system("cls"); QuestionAdd(Theme, lines); system("pause"); /*setlocale(LC_ALL, "rus");*/ system("cls"); lines = fileParse(Theme); break;
-		case 4: system("cls"); FileOutput(lines); system("pause"); /*setlocale(LC_ALL, "rus");*/ system("cls"); break;
+		case 1: system("cls"); QuestionDel(Theme, lines); system("pause"); system("cls"); lines = fileParse(Theme); break;
+		case 2: system("cls"); QuestionEdit(Theme, lines); system("pause"); system("cls"); lines = fileParse(Theme); break;
+		case 3: system("cls"); QuestionAdd(Theme, lines); system("pause"); system("cls"); lines = fileParse(Theme); break;
+		case 4: system("cls"); FileOutput(lines); system("pause"); system("cls"); break;
 		case 0: break;
 		default: cout << "Несуществующий вариат." << endl;
 		}
@@ -147,12 +157,11 @@ int QestionEditorPlace(string Theme)
 
 int QestionEditorMenu()
 {
-	system("cls");
-
 	string Theme;
 	int switcher;
 	do
 	{
+		system("cls");
 		cout << "Выберите тему для редактирования перечня вопросов:" << endl << endl << "1 - Циклы\n2 - Массивы\n3 - Строки\n4 - Рекурсия\n5 - Структуры\n6 - Файлы\n7 - Адреса и указатели\n8 - Динамическая память\n0 - Выйти из редактора вопросов\n--> ";
 		cin >> switcher;
 		switch (switcher)
