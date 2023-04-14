@@ -1,35 +1,48 @@
 #include <iostream>	
 #include <string>
 #include "../Headers/StudentMode.h"
+#include "../Headers/TestMenuLib.h"
 #include <random>
 using namespace std;
 
 void Training() {
 	int test;
-	string Theme;
-	cout << "Введите номер теста:" << endl;
-	cout << "1) Циклы" << endl << "2) Массивы (одномерные и двумерные)" << endl << "3) Строки" << endl << "4) Рекурсия" << endl << "5) Файлы" << endl << "6) Адреса и указатели" << endl << "7) Динамическая память" << endl;
+	cout << "Введите номер тренинга:" << endl;
+	cout << "1) Циклы" << endl << "2) Массивы (одномерные и двумерные)" << endl << "3) Строки" << endl << "4) Рекурсия" << endl << "5) Структуры" << endl << "6) Файлы" << endl << "7) Адреса и указатели" << endl << "8) Динамическая память" << endl;
 	cin >> test;
 	switch (test)
 	{
-	case 1:Theme="CircleTest.txt"; break;
-	case 2:; break;
-	case 3:; break;
-	case 4:; break;
-	case 5:; break;
-	case 6:; break;
-	case 7:; break;
-	case 0:; break;
+	case 1:TrainingOnTheme("CircleTest.txt"); break;
+	case 2:TrainingOnTheme("ArrayTest.txt"); break;
+	case 3:TrainingOnTheme("StringTest.txt"); break;
+	case 4:TrainingOnTheme("RekursionTest.txt"); break;
+	case 5:TrainingOnTheme("StructTest.txt"); break;
+	case 6:TrainingOnTheme("FilesTest.txt"); break;
+	case 7:TrainingOnTheme("PointerTest.txt"); break;
+	case 8:TrainingOnTheme("DinMemory.txt"); break;
+	case 0: break;
 	}
 }
-void TopicTesting()
+void TopicTesting(string surname, string name, string patronymic)
 {
+	int test;
+	cout << "Введите номер теста:" << endl;
+	cout << "1) Циклы" << endl << "2) Массивы (одномерные и двумерные)" << endl << "3) Строки" << endl << "4) Рекурсия" << endl << "5) Структуры" << endl << "6) Файлы" << endl << "7) Адреса и указатели" << endl << "8) Динамическая память" << endl;
+	cin >> test;
+	switch (test)
+	{
+	case 1:TestingOnTheme("CircleTest.txt", surname, name, patronymic); break;
+	case 2:TestingOnTheme("ArrayTest.txt", surname, name, patronymic); break;
+	case 3:TestingOnTheme("StringTest.txt", surname, name, patronymic); break;
+	case 4:TestingOnTheme("RekursionTest.txt", surname, name, patronymic); break;
+	case 5:TestingOnTheme("StructTest.txt", surname, name, patronymic); break;
+	case 6:TestingOnTheme("FilesTest.txt", surname, name, patronymic); break;
+	case 7:TestingOnTheme("PointerTest.txt", surname, name, patronymic); break;
+	case 8:TestingOnTheme("DinMemory.txt", surname, name, patronymic); break;
+	case 0: break;
 	}
-
-void FinalTest()
-{
-
 }
+
 
 void StudentAuthMenu()
 {
@@ -37,9 +50,9 @@ void StudentAuthMenu()
 	StudentData* students = new StudentData[number_of_students];
 
 	students[0].login = "student32";
-	students[0].name = "Владимир";
-	students[0].surname = "Кулебяка";
-	students[0].patronymic = "Иванович";
+	students[0].name = "Максим";
+	students[0].surname = "Козлек";
+	students[0].patronymic = "Абрамович";
 	students[0].password = "qwerty";
 
 	students[1].login = "demidovlox";
@@ -79,7 +92,7 @@ void StudentAuthMenu()
 			{
 				cout << "Извините, пользователь " << curr_user.login << " не найден.\n";
 				cout << "Нажмите клавишу enter, чтобы продолжить.\n";
-				
+
 				continue;
 			}
 
@@ -110,29 +123,27 @@ void StudentAuthMenu()
 			{
 				cout << "Вы не авторизировались.\n";
 				cout << "Нажмите клавишу enter, чтобы продолжить.\n";
-				
+
 				continue;
 			}
 			curr_user = students[curr_user_arr_id_in_database];
 			cout << "Вы авторизировались, как " << curr_user.surname << " " << curr_user.name << " " << curr_user.patronymic << endl;
-			
 			int choose;
-			do{cout << "Выберите род задания:" << endl << "1) Треннинг по теме" << endl << "2) Тестирование по теме" << endl << "3) Итоговый тест" << endl << "0) Выход из учётной записи" << endl;
-			cin >> choose;
-			switch (choose)
-			{
-			case 1:Training(); getchar();  break;
-			case 2:TopicTesting(); getchar(); break;
-			case 3:FinalTest(); getchar(); break;
-			}
+			do {
+				cout << "Выберите род задания:" << endl << "1) Треннинг по теме" << endl << "2) Тестирование по теме" << endl << "3) Итоговый тест" << endl << "0) Выход из учётной записи" << endl;
+				cin >> choose;
+				switch (choose)
+				{
+				case 1:Training(); getchar();  break;
+				case 2:TopicTesting(curr_user.surname, curr_user.name, curr_user.patronymic); getchar(); break;
+				case 3:FinalTest(curr_user.surname, curr_user.name, curr_user.patronymic); getchar(); break;
+				}
 			} while (choose != 0);
 			getchar();
 
 		}
-		
+
 
 	} while (state != "shutdown");
-	
+
 }
-
-
