@@ -18,4 +18,4 @@ struct StudentData
 void StudentAuthMenu();
 
 void Training();
-void TopicTesting();
+void TopicTesting(string surname, string name, string patronymic);

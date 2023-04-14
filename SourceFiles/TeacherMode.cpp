@@ -157,6 +157,9 @@ int QestionEditorPlace(string Theme)
 
 int QestionEditorMenu()
 {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
 	string Theme;
 	int switcher;
 	do
@@ -178,6 +181,8 @@ int QestionEditorMenu()
 		default: cout << "Несуществующий вариант";
 		}
 	} while (switcher != 0);
+
+	setlocale(LC_ALL, "Rus");
 	return 0;
 }
 
