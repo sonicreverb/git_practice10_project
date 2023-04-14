@@ -55,8 +55,10 @@ int QuestionEdit(string Theme, vector<string> lines)
 	if (LineNumber >= 0 && LineNumber < lines.size()) {
 		string editedLine;
 		cout << "Новый вариант вопроса: ";
-		cin.ignore();
-		getline(cin, editedLine);
+		if (!isdigit(editedLine.back())) {
+			cout << "Последний символ нового варианта вопроса должен быть его ответом, то есть, цифрой." << endl;
+			return 1;
+		}
 		lines[LineNumber] = editedLine;
 		ofstream fileOut(Theme);
 		if (fileOut.is_open()) {
@@ -85,8 +87,15 @@ int QuestionAdd(string Theme, vector<string> lines)
 
 	string newLine;
 	cout << "Новый вопрос: ";
+
 	cin.ignore();
 	getline(cin, newLine);
+
+	if (!isdigit(newLine.back())) {
+		cout << "Последний символ нового вопроса должен быть его ответом, то есть, цифрой." << endl;
+		return 1;
+	}
+
 	lines.push_back(newLine);
 
 	ofstream fileOut(Theme);
@@ -148,8 +157,6 @@ int QestionEditorPlace(string Theme)
 
 int QestionEditorMenu()
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
 	string Theme;
 	int switcher;
 	do
@@ -171,7 +178,6 @@ int QestionEditorMenu()
 		default: cout << "Несуществующий вариант";
 		}
 	} while (switcher != 0);
-	setlocale(LC_ALL, "Rus");
 	return 0;
 }
 
