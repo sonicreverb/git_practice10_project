@@ -1,30 +1,30 @@
-–ö–∞–∫ –æ–±—ä—è–≤–∏—Ç—å –ø–µ—Ä–µ–º–µ–Ω–Ω—É—é —Ç–∏–ø–∞ —Å—Ç—Ä–æ–∫–∞ –≤ C++? 1. string var; 2. str var; 3. string var = "hello"; 4. char var[10]; –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –ø—Ä–æ—á–∏—Ç–∞—Ç—å —Å—Ç—Ä–æ–∫—É —Å –ø–æ–º–æ—â—å—é getline()? 1. getline(string); 2. getline(cin, string); 3. cin.getline(string); 4. cin.getline(string, size); –û—Ç–≤–µ—Ç: 2
-–ö–∞–∫ —É–¥–∞–ª–∏—Ç—å –ø–µ—Ä–≤—ã–π —Å–∏–º–≤–æ–ª –∏–∑ —Å—Ç—Ä–æ–∫–∏? 1. string.erase(0, 1); 2. string.erase(1, 0); 3. string.delete(0, 1); 4. string.remove(0, 1); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –ø–æ–ª—É—á–∏—Ç—å –¥–ª–∏–Ω—É —Å—Ç—Ä–æ–∫–∏? 1. string.length(); 2. string.size(); 3. sizeof(string); 4. strlen(string); –û—Ç–≤–µ—Ç: 2
-–ö–∞–∫ –¥–æ–±–∞–≤–∏—Ç—å —Å–∏–º–≤–æ–ª—ã –≤ –∫–æ–Ω–µ—Ü —Å—Ç—Ä–æ–∫–∏? 1. string += "abc"; 2. string.append("abc"); 3. string.insert("abc"); 4. string.concat("abc"); –û—Ç–≤–µ—Ç: 2
-–ö–∞–∫ –∑–∞–º–µ–Ω–∏—Ç—å –æ–¥–Ω—É –ø–æ–¥—Å—Ç—Ä–æ–∫—É –Ω–∞ –¥—Ä—É–≥—É—é –≤ —Å—Ç—Ä–æ–∫–µ? 1. string.replace(old_str, new_str); 2. string.swap(old_str, new_str); 3. string.change(old_str, new_str); 4. string.modify(old_str, new_str); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –ø—Ä–æ–≤–µ—Ä–∏—Ç—å, —Å–æ–¥–µ—Ä–∂–∏—Ç –ª–∏ —Å—Ç—Ä–æ–∫–∞ –ø–æ–¥—Å—Ç—Ä–æ–∫—É? 1. string.contains(sub_str); 2. string.search(sub_str); 3. string.find(sub_str); 4. string.locate(sub_str); –û—Ç–≤–µ—Ç: 3
-–ö–∞–∫ –ø—Ä–µ–æ–±—Ä–∞–∑–æ–≤–∞—Ç—å —Å—Ç—Ä–æ–∫—É –≤ —Ü–µ–ª–æ–µ —á–∏—Å–ª–æ? 1. atoi(string); 2. to_int(string); 3. stoi(string); 4. string.to_int(); –û—Ç–≤–µ—Ç: 3
-–ö–∞–∫ –ø—Ä–µ–æ–±—Ä–∞–∑–æ–≤–∞—Ç—å —Ü–µ–ª–æ–µ —á–∏—Å–ª–æ –≤ —Å—Ç—Ä–æ–∫—É? 1. itoa(num, string); 2. to_string(num); 3. int_to_string(num); 4. string.int(num); –û—Ç–≤–µ—Ç: 2
-–ö–∞–∫ —É–¥–∞–ª–∏—Ç—å –≤—Å–µ –ø—Ä–æ–±–µ–ª—å–Ω—ã–µ —Å–∏–º–≤–æ–ª—ã –∏–∑ —Å—Ç—Ä–æ–∫–∏? 1. string.replace(" ", ""); 2. string.remove_space(); 3. string.erase(remove_if(string.begin(), string.end(), isspace), string.end()); 4. string.clear_spaces(); –û—Ç–≤–µ—Ç: 3
-–ö–∞–∫ —Å–∫–æ–ø–∏—Ä–æ–≤–∞—Ç—å –æ–¥–Ω—É —Å—Ç—Ä–æ–∫—É –≤ –¥—Ä—É–≥—É—é? 1. string = new_str; 2. string.copy(new_str, size); 3. strcpy(string, new_str); 4. string.move(new_str, size); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ —Å—Ä–∞–≤–Ω–∏—Ç—å –¥–≤–µ —Å—Ç—Ä–æ–∫–∏? 1. string.compare(other_string); 2. string.eq(other_string); 3. sring.match(other_string); 4. string.verify(other_string); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –∏–∑–º–µ–Ω–∏—Ç—å —Ä–µ–≥–∏—Å—Ç—Ä –≤—Å–µ—Ö —Å–∏–º–≤–æ–ª–æ–≤ –≤ —Å—Ç—Ä–æ–∫–µ –Ω–∞ –ø—Ä–æ—Ç–∏–≤–æ–ø–æ–ª–æ–∂–Ω—ã–π? 1. string.invert_case(); 2. string.transform_case(); 3. string.swap_case(); 4. string.reverse_case(); –û—Ç–≤–µ—Ç: 3
-–ö–∞–∫ –ø–æ–ª—É—á–∏—Ç—å –ø–æ–¥—Å—Ç—Ä–æ–∫—É –∏–∑ —Å—Ç—Ä–æ–∫–∏? 1. string.substr(index); 2. string.get_substring(index, length); 3. string.section(index, length); 4. string.extract(index, length); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –ø–µ—Ä–µ–≤–µ—Ä–Ω—É—Ç—å —Å—Ç—Ä–æ–∫—É –∑–∞–¥–æ–º –Ω–∞–ø–µ—Ä—ë–¥? 1. string.reverse(); 2. string.turn(); 3. string.rotate(); 4. string.flip(); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –ø—Ä–æ–≤–µ—Ä–∏—Ç—å, –ø—É—Å—Ç–∞—è –ª–∏ —Å—Ç—Ä–æ–∫–∞? 1. string.empty(); 2. string.null(); 3. string.blank(); 4. string.void(); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –¥–æ–±–∞–≤–∏—Ç—å —Å–∏–º–≤–æ–ª –≤ –∑–∞–¥–∞–Ω–Ω–æ–π –ø–æ–∑–∏—Ü–∏–∏ –≤ —Å—Ç—Ä–æ–∫–µ? 1. string.insert(position, char); 2. string.add(char, position); 3. string.modify(char, position); 4. string.place(char, position); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ —É–¥–∞–ª–∏—Ç—å –≤—Å–µ —Å–∏–º–≤–æ–ª—ã –∏–∑ —Å—Ç—Ä–æ–∫–∏, –∫—Ä–æ–º–µ —Ü–∏—Ñ—Ä? 1. string.filter_digits(); 2. string.clear_non_digits(); 3. string.remove_letters(); 4. string.delete_non_numbers(); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –≤—ã–≤–µ—Å—Ç–∏ —Å—Ç—Ä–æ–∫—É –Ω–∞ —ç–∫—Ä–∞–Ω? 1. cout << string; 2. printf(string); 3. write(string); 4. echo(string); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ —É–∑–Ω–∞—Ç—å, –Ω–∞—á–∏–Ω–∞–µ—Ç—Å—è –ª–∏ —Å—Ç—Ä–æ–∫–∞ —Å –æ–ø—Ä–µ–¥–µ–ª–µ–Ω–Ω–æ–π –ø–æ–¥—Å—Ç—Ä–æ–∫–∏? 1. string.starts_with(sub_str); 2. string.begins_with(sub_str); 3. string.commences(sub_str); 4. string.initiates(sub_str); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –ø–æ–ª—É—á–∏—Ç—å —É–∫–∞–∑–∞—Ç–µ–ª—å –Ω–∞ —Å–∏–º–≤–æ–ª –ø–æ –∑–∞–¥–∞–Ω–Ω–æ–π –ø–æ–∑–∏—Ü–∏–∏ –≤ —Å—Ç—Ä–æ–∫–µ? 1. &string[index]; 2. string.char_pointer(index); 3. string.position(index); 4. string.symbol_reference(index); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –≤—ã–≤–µ—Å—Ç–∏ —Å—Ç—Ä–æ–∫—É –∑–∞–¥–æ–º –Ω–∞–ø–µ—Ä–µ–¥? 1. reverse_string(string); 2. string.reverse_output(); 3. print_reversed(string); 4. cout << string.reverse(); –û—Ç–≤–µ—Ç: 4
-–ö–∞–∫ —É–¥–∞–ª–∏—Ç—å –ø–æ—Å–ª–µ–¥–Ω–∏–π —Å–∏–º–≤–æ–ª –∏–∑ —Å—Ç—Ä–æ–∫–∏? 1. string.lastchar(); 2. string.pop_back(); 3. string.erase_back(); 4. string.remove_last(); –û—Ç–≤–µ—Ç: 2
-–ö–∞–∫ –ø–æ–ª—É—á–∏—Ç—å –ø–æ–¥—Å—Ç—Ä–æ–∫—É –º–µ–∂–¥—É –¥–≤—É–º—è –∑–∞–¥–∞–Ω–Ω—ã–º–∏ –∏–Ω–¥–µ–∫—Å–∞–º–∏? 1. string.subsection(index1, index2); 2. string.extract(index1, index2); 3. string.section(index1, index2); 4. string.get_range(index1, index2); –û—Ç–≤–µ—Ç: 3
-–ö–∞–∫ –ø—Ä–æ–≤–µ—Ä–∏—Ç—å, —è–≤–ª—è–µ—Ç—Å—è –ª–∏ —Å—Ç—Ä–æ–∫–∞ –ø–∞–ª–∏–Ω–¥—Ä–æ–º–æ–º? 1. string.is_palindrome(); 2. string.check_palindrome(); 3. string.palindrome(); 4. string.verify_palindrome(); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ —É–¥–∞–ª–∏—Ç—å –≤—Å–µ —Å–∏–º–≤–æ–ª—ã –∏–∑ —Å—Ç—Ä–æ–∫–∏, –∫—Ä–æ–º–µ –±—É–∫–≤? 1. string.filter_letters(); 2. string.delete_non_letters(); 3. string.clear_digits(); 4. string.remove_non_chars(); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ —Å–∫–æ–ø–∏—Ä–æ–≤–∞—Ç—å —Å–∏–º–≤–æ–ª—ã –∏–∑ –æ–¥–Ω–æ–π —Å—Ç—Ä–æ–∫–∏ –≤ –¥—Ä—É–≥—É—é —Å —É–∫–∞–∑–∞–Ω–Ω–æ–π –ø–æ–∑–∏—Ü–∏–∏? 1. string.copy(new_str, length, position); 2. string.copy_to(new_str, length, position); 3. string.transfer(new_str, length, position); 4. string.move_to(new_str, position, length); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –ø–æ–ª—É—á–∏—Ç—å –∏–Ω–¥–µ–∫—Å –ø–µ—Ä–≤–æ–≥–æ –≤—Ö–æ–∂–¥–µ–Ω–∏—è –ø–æ–¥—Å—Ç—Ä–æ–∫–∏ –≤ —Å—Ç—Ä–æ–∫—É? 1. string.find(sub_str); 2. string.search(sub_str); 3. string.locate(sub_str); 4. string.seek(sub_str); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –∑–∞–º–µ–Ω–∏—Ç—å –≤—Å–µ –≤—Ö–æ–∂–¥–µ–Ω–∏—è –æ–¥–Ω–æ–π –ø–æ–¥—Å—Ç—Ä–æ–∫–∏ –Ω–∞ –¥—Ä—É–≥—É—é –≤ —Å—Ç—Ä–æ–∫–µ? 1. string.replace_all(old_str, new_str); 2. string.swap_all(old_str, new_str); 3. string.change_all(old_str, new_str); 4. string.modify_all(old_str, new_str); –û—Ç–≤–µ—Ç: 1
-–ö–∞–∫ –ø–æ–ª—É—á–∏—Ç—å –ø–æ—Å–ª–µ–¥–Ω–∏–π —Å–∏–º–≤–æ–ª –∏–∑ —Å—Ç—Ä–æ–∫–∏? 1. string.lastchar(); 2. string.back(); 3. string.endchar(); 4. string.final_char(); –û—Ç–≤–µ—Ç: 2
+ ‡Í Ó·˙ˇ‚ËÚ¸ ÔÂÂÏÂÌÌÛ˛ ÚËÔ‡ ÒÚÓÍ‡ ‚ C++? 1. string var; 2. str var; 3. string var = "hello"; 4. char var[10]; ŒÚ‚ÂÚ: 1
+ ‡Í ÔÓ˜ËÚ‡Ú¸ ÒÚÓÍÛ Ò ÔÓÏÓ˘¸˛ getline()? 1. getline(string); 2. getline(cin, string); 3. cin.getline(string); 4. cin.getline(string, size); ŒÚ‚ÂÚ: 2
+ ‡Í Û‰‡ÎËÚ¸ ÔÂ‚˚È ÒËÏ‚ÓÎ ËÁ ÒÚÓÍË? 1. string.erase(0, 1); 2. string.erase(1, 0); 3. string.delete(0, 1); 4. string.remove(0, 1); ŒÚ‚ÂÚ: 1
+ ‡Í ÔÓÎÛ˜ËÚ¸ ‰ÎËÌÛ ÒÚÓÍË? 1. string.length(); 2. string.size(); 3. sizeof(string); 4. strlen(string); ŒÚ‚ÂÚ: 2
+ ‡Í ‰Ó·‡‚ËÚ¸ ÒËÏ‚ÓÎ˚ ‚ ÍÓÌÂˆ ÒÚÓÍË? 1. string += "abc"; 2. string.append("abc"); 3. string.insert("abc"); 4. string.concat("abc"); ŒÚ‚ÂÚ: 2
+ ‡Í Á‡ÏÂÌËÚ¸ Ó‰ÌÛ ÔÓ‰ÒÚÓÍÛ Ì‡ ‰Û„Û˛ ‚ ÒÚÓÍÂ? 1. string.replace(old_str, new_str); 2. string.swap(old_str, new_str); 3. string.change(old_str, new_str); 4. string.modify(old_str, new_str); ŒÚ‚ÂÚ: 1
+ ‡Í ÔÓ‚ÂËÚ¸, ÒÓ‰ÂÊËÚ ÎË ÒÚÓÍ‡ ÔÓ‰ÒÚÓÍÛ? 1. string.contains(sub_str); 2. string.search(sub_str); 3. string.find(sub_str); 4. string.locate(sub_str); ŒÚ‚ÂÚ: 3
+ ‡Í ÔÂÓ·‡ÁÓ‚‡Ú¸ ÒÚÓÍÛ ‚ ˆÂÎÓÂ ˜ËÒÎÓ? 1. atoi(string); 2. to_int(string); 3. stoi(string); 4. string.to_int(); ŒÚ‚ÂÚ: 3
+ ‡Í ÔÂÓ·‡ÁÓ‚‡Ú¸ ˆÂÎÓÂ ˜ËÒÎÓ ‚ ÒÚÓÍÛ? 1. itoa(num, string); 2. to_string(num); 3. int_to_string(num); 4. string.int(num); ŒÚ‚ÂÚ: 2
+ ‡Í Û‰‡ÎËÚ¸ ‚ÒÂ ÔÓ·ÂÎ¸Ì˚Â ÒËÏ‚ÓÎ˚ ËÁ ÒÚÓÍË? 1. string.replace(" ", ""); 2. string.remove_space(); 3. string.erase(remove_if(string.begin(), string.end(), isspace), string.end()); 4. string.clear_spaces(); ŒÚ‚ÂÚ: 3
+ ‡Í ÒÍÓÔËÓ‚‡Ú¸ Ó‰ÌÛ ÒÚÓÍÛ ‚ ‰Û„Û˛? 1. string = new_str; 2. string.copy(new_str, size); 3. strcpy(string, new_str); 4. string.move(new_str, size); ŒÚ‚ÂÚ: 1
+ ‡Í Ò‡‚ÌËÚ¸ ‰‚Â ÒÚÓÍË? 1. string.compare(other_string); 2. string.eq(other_string); 3. sring.match(other_string); 4. string.verify(other_string); ŒÚ‚ÂÚ: 1
+ ‡Í ËÁÏÂÌËÚ¸ Â„ËÒÚ ‚ÒÂı ÒËÏ‚ÓÎÓ‚ ‚ ÒÚÓÍÂ Ì‡ ÔÓÚË‚ÓÔÓÎÓÊÌ˚È? 1. string.invert_case(); 2. string.transform_case(); 3. string.swap_case(); 4. string.reverse_case(); ŒÚ‚ÂÚ: 3
+ ‡Í ÔÓÎÛ˜ËÚ¸ ÔÓ‰ÒÚÓÍÛ ËÁ ÒÚÓÍË? 1. string.substr(index); 2. string.get_substring(index, length); 3. string.section(index, length); 4. string.extract(index, length); ŒÚ‚ÂÚ: 1
+ ‡Í ÔÂÂ‚ÂÌÛÚ¸ ÒÚÓÍÛ Á‡‰ÓÏ Ì‡ÔÂ∏‰? 1. string.reverse(); 2. string.turn(); 3. string.rotate(); 4. string.flip(); ŒÚ‚ÂÚ: 1
+ ‡Í ÔÓ‚ÂËÚ¸, ÔÛÒÚ‡ˇ ÎË ÒÚÓÍ‡? 1. string.empty(); 2. string.null(); 3. string.blank(); 4. string.void(); ŒÚ‚ÂÚ: 1
+ ‡Í ‰Ó·‡‚ËÚ¸ ÒËÏ‚ÓÎ ‚ Á‡‰‡ÌÌÓÈ ÔÓÁËˆËË ‚ ÒÚÓÍÂ? 1. string.insert(position, char); 2. string.add(char, position); 3. string.modify(char, position); 4. string.place(char, position); ŒÚ‚ÂÚ: 1
+ ‡Í Û‰‡ÎËÚ¸ ‚ÒÂ ÒËÏ‚ÓÎ˚ ËÁ ÒÚÓÍË, ÍÓÏÂ ˆËÙ? 1. string.filter_digits(); 2. string.clear_non_digits(); 3. string.remove_letters(); 4. string.delete_non_numbers(); ŒÚ‚ÂÚ: 1
+ ‡Í ‚˚‚ÂÒÚË ÒÚÓÍÛ Ì‡ ˝Í‡Ì? 1. cout << string; 2. printf(string); 3. write(string); 4. echo(string); ŒÚ‚ÂÚ: 1
+ ‡Í ÛÁÌ‡Ú¸, Ì‡˜ËÌ‡ÂÚÒˇ ÎË ÒÚÓÍ‡ Ò ÓÔÂ‰ÂÎÂÌÌÓÈ ÔÓ‰ÒÚÓÍË? 1. string.starts_with(sub_str); 2. string.begins_with(sub_str); 3. string.commences(sub_str); 4. string.initiates(sub_str); ŒÚ‚ÂÚ: 1
+ ‡Í ÔÓÎÛ˜ËÚ¸ ÛÍ‡Á‡ÚÂÎ¸ Ì‡ ÒËÏ‚ÓÎ ÔÓ Á‡‰‡ÌÌÓÈ ÔÓÁËˆËË ‚ ÒÚÓÍÂ? 1. &string[index]; 2. string.char_pointer(index); 3. string.position(index); 4. string.symbol_reference(index); ŒÚ‚ÂÚ: 1
+ ‡Í ‚˚‚ÂÒÚË ÒÚÓÍÛ Á‡‰ÓÏ Ì‡ÔÂÂ‰? 1. reverse_string(string); 2. string.reverse_output(); 3. print_reversed(string); 4. cout << string.reverse(); ŒÚ‚ÂÚ: 4
+ ‡Í Û‰‡ÎËÚ¸ ÔÓÒÎÂ‰ÌËÈ ÒËÏ‚ÓÎ ËÁ ÒÚÓÍË? 1. string.lastchar(); 2. string.pop_back(); 3. string.erase_back(); 4. string.remove_last(); ŒÚ‚ÂÚ: 2
+ ‡Í ÔÓÎÛ˜ËÚ¸ ÔÓ‰ÒÚÓÍÛ ÏÂÊ‰Û ‰‚ÛÏˇ Á‡‰‡ÌÌ˚ÏË ËÌ‰ÂÍÒ‡ÏË? 1. string.subsection(index1, index2); 2. string.extract(index1, index2); 3. string.section(index1, index2); 4. string.get_range(index1, index2); ŒÚ‚ÂÚ: 3
+ ‡Í ÔÓ‚ÂËÚ¸, ˇ‚ÎˇÂÚÒˇ ÎË ÒÚÓÍ‡ Ô‡ÎËÌ‰ÓÏÓÏ? 1. string.is_palindrome(); 2. string.check_palindrome(); 3. string.palindrome(); 4. string.verify_palindrome(); ŒÚ‚ÂÚ: 1
+ ‡Í Û‰‡ÎËÚ¸ ‚ÒÂ ÒËÏ‚ÓÎ˚ ËÁ ÒÚÓÍË, ÍÓÏÂ ·ÛÍ‚? 1. string.filter_letters(); 2. string.delete_non_letters(); 3. string.clear_digits(); 4. string.remove_non_chars(); ŒÚ‚ÂÚ: 1
+ ‡Í ÒÍÓÔËÓ‚‡Ú¸ ÒËÏ‚ÓÎ˚ ËÁ Ó‰ÌÓÈ ÒÚÓÍË ‚ ‰Û„Û˛ Ò ÛÍ‡Á‡ÌÌÓÈ ÔÓÁËˆËË? 1. string.copy(new_str, length, position); 2. string.copy_to(new_str, length, position); 3. string.transfer(new_str, length, position); 4. string.move_to(new_str, position, length); ŒÚ‚ÂÚ: 1
+ ‡Í ÔÓÎÛ˜ËÚ¸ ËÌ‰ÂÍÒ ÔÂ‚Ó„Ó ‚ıÓÊ‰ÂÌËˇ ÔÓ‰ÒÚÓÍË ‚ ÒÚÓÍÛ? 1. string.find(sub_str); 2. string.search(sub_str); 3. string.locate(sub_str); 4. string.seek(sub_str); ŒÚ‚ÂÚ: 1
+ ‡Í Á‡ÏÂÌËÚ¸ ‚ÒÂ ‚ıÓÊ‰ÂÌËˇ Ó‰ÌÓÈ ÔÓ‰ÒÚÓÍË Ì‡ ‰Û„Û˛ ‚ ÒÚÓÍÂ? 1. string.replace_all(old_str, new_str); 2. string.swap_all(old_str, new_str); 3. string.change_all(old_str, new_str); 4. string.modify_all(old_str, new_str); ŒÚ‚ÂÚ: 1
+ ‡Í ÔÓÎÛ˜ËÚ¸ ÔÓÒÎÂ‰ÌËÈ ÒËÏ‚ÓÎ ËÁ ÒÚÓÍË? 1. string.lastchar(); 2. string.back(); 3. string.endchar(); 4. string.final_char(); ŒÚ‚ÂÚ: 2
