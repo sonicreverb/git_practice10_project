@@ -1,5 +1,60 @@
 #include "../Headers/TestMenuLib.h"
 
+int MarkToBase(int mark, string surname, string name, string patronymic)
+{
+    string line;
+    ifstream fileStudents("students_database.txt");
+    if (!fileStudents.is_open()) {
+        cout << "Îøèáêà îòêğûòèÿ ôàéëà students_database.txt" << endl;
+        return 1;
+    }
+
+    vector<string> studentLines;
+    while (getline(fileStudents, line)) {
+        studentLines.push_back(line);
+    }
+    fileStudents.close();
+
+    ofstream fileStudentsOut("students_database.txt");
+    if (!fileStudentsOut.is_open()) {
+        cout << "Îøèáêà îòêğûòèÿ ôàéëà students_database.txt" << endl;
+        system("pause");
+        return 1;
+    }
+
+    bool studentFound = false;
+    for (size_t i = 0; i < studentLines.size(); ++i) {
+        if (studentLines[i] == surname && studentLines[i + 1] == name && studentLines[i + 2] == patronymic) {
+            studentFound = true;
+
+            size_t marksPos = i + 3;
+            while (marksPos < studentLines.size() && studentLines[marksPos].find("Marks:") == string::npos) {
+                ++marksPos;
+            }
+
+            if (marksPos < studentLines.size()) {
+                system("cls");
+                cout << "Âàøè ïğåäûäóùèå îöåíêè: " << studentLines[marksPos].substr(6) << endl;
+                system("pause");
+                studentLines[marksPos] += " " + to_string(mark);
+                break;
+            }
+        }
+    }
+
+    if (!studentFound) {
+        cout << "Ñòóäåíò íå íàéäåí â áàçå äàííûõ." << endl;
+        system("pause");
+    }
+
+    for (const auto& line : studentLines) {
+        fileStudentsOut << line << endl;
+    }
+    fileStudentsOut.close();
+
+    return 0;
+}
+
 int TrainingOnTheme(string Theme) {
     system("cls");
 
@@ -51,8 +106,10 @@ int TrainingOnTheme(string Theme) {
 }
 
 
-int TestingOnTheme(string Theme)
+int TestingOnTheme(string Theme, string surname, string name, string patronymic)
 {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     system("cls");
 
     ifstream fileInp(Theme);
@@ -105,31 +162,36 @@ int TestingOnTheme(string Theme)
         }
         system("pause");
     }
+
+    int mark;
     system("cls");
     if (mistakes > 6) {
-        cout << "ÎÖÅÍÊÀ: 2 (" << 10 - mistakes << "/10)" << endl;
+        cout << "ÎÖÅÍÊÀ: 2 (" << 10 - mistakes << "/10)" << endl; mark = 2;
     }
     else if (mistakes > 4) {
-        cout << "ÎÖÅÍÊÀ: 3 (" << 10 - mistakes << "/10)" << endl;
+        cout << "ÎÖÅÍÊÀ: 3 (" << 10 - mistakes << "/10)" << endl; mark = 3;
     }
     else if (mistakes > 2) {
-        cout << "ÎÖÅÍÊÀ: 4 (" << 10 - mistakes << "/10)" << endl;
+        cout << "ÎÖÅÍÊÀ: 4 (" << 10 - mistakes << "/10)" << endl; mark = 4;
     }
     else {
-        cout << "ÎÖÅÍÊÀ: 5 (" << 10 - mistakes << "/10)" << endl;
+        cout << "ÎÖÅÍÊÀ: 5 (" << 10 - mistakes << "/10)" << endl; mark = 5;
     }
 
     cout << "ÍÅÏĞÀÂÈËÜÍÎ ÎÒÂÅ×ÅÍÍÛÅ ÂÎÏĞÎÑÛ:" << endl;
     for (string wrongAnswer : wrongAnswers) {
         cout << endl << wrongAnswer << endl;
     }
-
     system("pause");
+    MarkToBase(mark, surname, name, patronymic);
     system("cls");
+    setlocale(LC_ALL, "Rus");
     return 0;
 }
 
-int FinalTest() {
+int FinalTest(string surname, string name, string patronymic) {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     const int FILE_COUNT = 8;
     system("cls");
 
@@ -191,13 +253,15 @@ int FinalTest() {
         if (answer == correctAnswer) cout << "ÂÅĞÍÎ" << endl; else { cout << "ÍÅÂÅĞÍÎ" << endl; mistakes++; }
         system("pause");
     }
+    int mark;
     system("cls");
-    if (mistakes > 15) cout << "ÎÖÅÍÊÀ: 2(" << 40 - mistakes << "/40)" << endl;
-    else if (mistakes > 10) cout << "ÎÖÅÍÊÀ: 3(" << 40 - mistakes << "/40)" << endl;
-    else if (mistakes > 5) cout << "ÎÖÅÍÊÀ: 4(" << 40 - mistakes << "/40)" << endl;
-    else cout << "ÎÖÅÍÊÀ: 5(" << 40 - mistakes << "/40)" << endl;
+    if (mistakes > 15) { cout << "ÎÖÅÍÊÀ: 2(" << 40 - mistakes << "/40)" << endl; mark = 2; }
+    else if (mistakes > 10) { cout << "ÎÖÅÍÊÀ: 3(" << 40 - mistakes << "/40)" << endl; mark = 3; }
+    else if (mistakes > 5) { cout << "ÎÖÅÍÊÀ: 4(" << 40 - mistakes << "/40)" << endl; mark = 4; }
+    else { cout << "ÎÖÅÍÊÀ: 5(" << 40 - mistakes << "/40)" << endl; mark = 5; }
 
     system("pause");
+    MarkToBase(mark, surname, name, patronymic);
     system("cls");
     return 0;
 }
