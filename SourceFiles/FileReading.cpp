@@ -48,7 +48,7 @@ TeacherData* CheckTeacherList(TeacherData* teacherdata, int number)
 		}
 		fgets(string, 100, file);
 	}
-	fclose(file);
+
 	return teacherdata;
 }
 
@@ -74,47 +74,6 @@ StudentData* CheckStudentList(StudentData* studentdata, int number)
 		}
 		fgets(string, 100, file);
 	}
-	fclose(file);
+
 	return studentdata;
-}
-
-void TextDecryption(int number_of_text)//1 - student 2 - teacher 3 - test
-{
-	FILE* file;
-	int a;
-	switch (number_of_text)
-	{
-	case 1: a = fopen_s(&file, ABSPATH_TO_DATABASE "students_database.txt", "rt"); break;
-	case 2: a = fopen_s(&file, ABSPATH_TO_DATABASE "teacher_database.txt", "rt"); break;
-	default: a = fopen_s(&file, ABSPATH_TO_DATABASE "test_database.txt", "rt");
-	}
-	fclose(file);
-}
-
-void TextEncryption(int number_of_text)//1 - student 2 - teacher 3 - test
-{
-	FILE* file;
-	int a;
-	switch (number_of_text)
-	{
-	case 1: a = fopen_s(&file, ABSPATH_TO_DATABASE "students_database.txt", "rt"); break;
-	case 2: a = fopen_s(&file, ABSPATH_TO_DATABASE "teacher_database.txt", "rt"); break;
-	default: a = fopen_s(&file, ABSPATH_TO_DATABASE "test_database.txt", "rt");
-	}
-	fclose(file);
-}
-
-void AddStudent(StudentData* studentdata)//Just let me create these functions
-{
-
-}
-
-void DeleteStudent()
-{
-
-}
-
-void UpdateStudentBase(StudentData* studentdata)// use this function after every test to save student's progress in file
-{
-
 }

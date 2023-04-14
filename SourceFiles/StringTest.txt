@@ -1,15 +1,30 @@
-РљР°Рє РѕР±СЉСЏРІРёС‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ С‚РёРїР° СЃС‚СЂРѕРєР° РІ C++? 1. string var; 2. str var; 3. string var = "hello"; 4. char var[10]; РћС‚РІРµС‚: 1
-РљР°Рє РїСЂРѕС‡РёС‚Р°С‚СЊ СЃС‚СЂРѕРєСѓ СЃ РїРѕРјРѕС‰СЊСЋ getline()? 1. getline(string); 2. getline(cin, string); 3. cin.getline(string); 4. cin.getline(string, size); РћС‚РІРµС‚: 2
-РљР°Рє СѓРґР°Р»РёС‚СЊ РїРµСЂРІС‹Р№ СЃРёРјРІРѕР» РёР· СЃС‚СЂРѕРєРё? 1. string.erase(0, 1); 2. string.erase(1, 0); 3. string.delete(0, 1); 4. string.remove(0, 1); РћС‚РІРµС‚: 1
-РљР°Рє РїРѕР»СѓС‡РёС‚СЊ РґР»РёРЅСѓ СЃС‚СЂРѕРєРё? 1. string.length(); 2. string.size(); 3. sizeof(string); 4. strlen(string); РћС‚РІРµС‚: 2
-РљР°Рє РґРѕР±Р°РІРёС‚СЊ СЃРёРјРІРѕР»С‹ РІ РєРѕРЅРµС† СЃС‚СЂРѕРєРё? 1. string += "abc"; 2. string.append("abc"); 3. string.insert("abc"); 4. string.concat("abc"); РћС‚РІРµС‚: 2
-РљР°Рє Р·Р°РјРµРЅРёС‚СЊ РѕРґРЅСѓ РїРѕРґСЃС‚СЂРѕРєСѓ РЅР° РґСЂСѓРіСѓСЋ РІ СЃС‚СЂРѕРєРµ? 1. string.replace(old_str, new_str); 2. string.swap(old_str, new_str); 3. string.change(old_str, new_str); 4. string.modify(old_str, new_str); РћС‚РІРµС‚: 1
-РљР°Рє РїСЂРѕРІРµСЂРёС‚СЊ, СЃРѕРґРµСЂР¶РёС‚ Р»Рё СЃС‚СЂРѕРєР° РїРѕРґСЃС‚СЂРѕРєСѓ? 1. string.contains(sub_str); 2. string.search(sub_str); 3. string.find(sub_str); 4. string.locate(sub_str); РћС‚РІРµС‚: 3
-РљР°Рє РїСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ СЃС‚СЂРѕРєСѓ РІ С†РµР»РѕРµ С‡РёСЃР»Рѕ? 1. atoi(string); 2. to_int(string); 3. stoi(string); 4. string.to_int(); РћС‚РІРµС‚: 3
-РљР°Рє РїСЂРµРѕР±СЂР°Р·РѕРІР°С‚СЊ С†РµР»РѕРµ С‡РёСЃР»Рѕ РІ СЃС‚СЂРѕРєСѓ? 1. itoa(num, string); 2. to_string(num); 3. int_to_string(num); 4. string.int(num); РћС‚РІРµС‚: 2
-РљР°Рє СѓРґР°Р»РёС‚СЊ РІСЃРµ РїСЂРѕР±РµР»СЊРЅС‹Рµ СЃРёРјРІРѕР»С‹ РёР· СЃС‚СЂРѕРєРё? 1. string.replace(" ", ""); 2. string.remove_space(); 3. string.erase(remove_if(string.begin(), string.end(), isspace), string.end()); 4. string.clear_spaces(); РћС‚РІРµС‚: 3
-РљР°Рє СЃРєРѕРїРёСЂРѕРІР°С‚СЊ РѕРґРЅСѓ СЃС‚СЂРѕРєСѓ РІ РґСЂСѓРіСѓСЋ? 1. string = new_str; 2. string.copy(new_str, size); 3. strcpy(string, new_str); 4. string.move(new_str, size); РћС‚РІРµС‚: 1
-РљР°Рє СЃСЂР°РІРЅРёС‚СЊ РґРІРµ СЃС‚СЂРѕРєРё? 1. string.compare(other_string); 2. string.eq(other_string); 3. sring.match(other_string); 4. string.verify(other_string); РћС‚РІРµС‚: 1
-РљР°Рє РёР·РјРµРЅРёС‚СЊ СЂРµРіРёСЃС‚СЂ РІСЃРµС… СЃРёРјРІРѕР»РѕРІ РІ СЃС‚СЂРѕРєРµ РЅР° РїСЂРѕС‚РёРІРѕРїРѕР»РѕР¶РЅС‹Р№? 1. string.invert_case(); 2. string.transform_case(); 3. string.swap_case(); 4. string.reverse_case(); РћС‚РІРµС‚: 3
-РљР°Рє РїРѕР»СѓС‡РёС‚СЊ РїРѕРґСЃС‚СЂРѕРєСѓ РёР· СЃС‚СЂРѕРєРё? 1. string.substr(index); 2. string.get_substring(index, length); 3. string.section(index, length); 4. string.extract(index, length); РћС‚РІРµС‚: 1
-РљР°Рє РїРµСЂРµРІРµСЂРЅСѓС‚СЊ СЃС‚СЂРѕРєСѓ Р·Р°РґРѕРј РЅР°РїРµСЂС‘Рґ? 1. string.reverse(); 2. string.turn(); 3. string.rotate(); 4. string.flip(); РћС‚РІРµС‚: 1
+Как объявить переменную типа строка в C++? 1. string var; 2. str var; 3. string var = "hello"; 4. char var[10]; Ответ: 1
+Как прочитать строку с помощью getline()? 1. getline(string); 2. getline(cin, string); 3. cin.getline(string); 4. cin.getline(string, size); Ответ: 2
+Как удалить первый символ из строки? 1. string.erase(0, 1); 2. string.erase(1, 0); 3. string.delete(0, 1); 4. string.remove(0, 1); Ответ: 1
+Как получить длину строки? 1. string.length(); 2. string.size(); 3. sizeof(string); 4. strlen(string); Ответ: 2
+Как добавить символы в конец строки? 1. string += "abc"; 2. string.append("abc"); 3. string.insert("abc"); 4. string.concat("abc"); Ответ: 2
+Как заменить одну подстроку на другую в строке? 1. string.replace(old_str, new_str); 2. string.swap(old_str, new_str); 3. string.change(old_str, new_str); 4. string.modify(old_str, new_str); Ответ: 1
+Как проверить, содержит ли строка подстроку? 1. string.contains(sub_str); 2. string.search(sub_str); 3. string.find(sub_str); 4. string.locate(sub_str); Ответ: 3
+Как преобразовать строку в целое число? 1. atoi(string); 2. to_int(string); 3. stoi(string); 4. string.to_int(); Ответ: 3
+Как преобразовать целое число в строку? 1. itoa(num, string); 2. to_string(num); 3. int_to_string(num); 4. string.int(num); Ответ: 2
+Как удалить все пробельные символы из строки? 1. string.replace(" ", ""); 2. string.remove_space(); 3. string.erase(remove_if(string.begin(), string.end(), isspace), string.end()); 4. string.clear_spaces(); Ответ: 3
+Как скопировать одну строку в другую? 1. string = new_str; 2. string.copy(new_str, size); 3. strcpy(string, new_str); 4. string.move(new_str, size); Ответ: 1
+Как сравнить две строки? 1. string.compare(other_string); 2. string.eq(other_string); 3. sring.match(other_string); 4. string.verify(other_string); Ответ: 1
+Как изменить регистр всех символов в строке на противоположный? 1. string.invert_case(); 2. string.transform_case(); 3. string.swap_case(); 4. string.reverse_case(); Ответ: 3
+Как получить подстроку из строки? 1. string.substr(index); 2. string.get_substring(index, length); 3. string.section(index, length); 4. string.extract(index, length); Ответ: 1
+Как перевернуть строку задом наперёд? 1. string.reverse(); 2. string.turn(); 3. string.rotate(); 4. string.flip(); Ответ: 1
+Как проверить, пустая ли строка? 1. string.empty(); 2. string.null(); 3. string.blank(); 4. string.void(); Ответ: 1
+Как добавить символ в заданной позиции в строке? 1. string.insert(position, char); 2. string.add(char, position); 3. string.modify(char, position); 4. string.place(char, position); Ответ: 1
+Как удалить все символы из строки, кроме цифр? 1. string.filter_digits(); 2. string.clear_non_digits(); 3. string.remove_letters(); 4. string.delete_non_numbers(); Ответ: 1
+Как вывести строку на экран? 1. cout << string; 2. printf(string); 3. write(string); 4. echo(string); Ответ: 1
+Как узнать, начинается ли строка с определенной подстроки? 1. string.starts_with(sub_str); 2. string.begins_with(sub_str); 3. string.commences(sub_str); 4. string.initiates(sub_str); Ответ: 1
+Как получить указатель на символ по заданной позиции в строке? 1. &string[index]; 2. string.char_pointer(index); 3. string.position(index); 4. string.symbol_reference(index); Ответ: 1
+Как вывести строку задом наперед? 1. reverse_string(string); 2. string.reverse_output(); 3. print_reversed(string); 4. cout << string.reverse(); Ответ: 4
+Как удалить последний символ из строки? 1. string.lastchar(); 2. string.pop_back(); 3. string.erase_back(); 4. string.remove_last(); Ответ: 2
+Как получить подстроку между двумя заданными индексами? 1. string.subsection(index1, index2); 2. string.extract(index1, index2); 3. string.section(index1, index2); 4. string.get_range(index1, index2); Ответ: 3
+Как проверить, является ли строка палиндромом? 1. string.is_palindrome(); 2. string.check_palindrome(); 3. string.palindrome(); 4. string.verify_palindrome(); Ответ: 1
+Как удалить все символы из строки, кроме букв? 1. string.filter_letters(); 2. string.delete_non_letters(); 3. string.clear_digits(); 4. string.remove_non_chars(); Ответ: 1
+Как скопировать символы из одной строки в другую с указанной позиции? 1. string.copy(new_str, length, position); 2. string.copy_to(new_str, length, position); 3. string.transfer(new_str, length, position); 4. string.move_to(new_str, position, length); Ответ: 1
+Как получить индекс первого вхождения подстроки в строку? 1. string.find(sub_str); 2. string.search(sub_str); 3. string.locate(sub_str); 4. string.seek(sub_str); Ответ: 1
+Как заменить все вхождения одной подстроки на другую в строке? 1. string.replace_all(old_str, new_str); 2. string.swap_all(old_str, new_str); 3. string.change_all(old_str, new_str); 4. string.modify_all(old_str, new_str); Ответ: 1
+Как получить последний символ из строки? 1. string.lastchar(); 2. string.back(); 3. string.endchar(); 4. string.final_char(); Ответ: 2

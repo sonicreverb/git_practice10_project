@@ -1,11 +1,11 @@
 #include "../Headers/TestMenuLib.h"
 
 int TrainingOnTheme(string Theme) {
-    setlocale(LC_ALL, "ru_RU.UTF-8"); system("cls");
+    system("cls");
 
     ifstream fileInp(Theme);
     if (!fileInp.is_open()) {
-        cout << "Failed to open file" << endl;
+        cout << "Îøèáêà îòêðûòèÿ ôàéëà" << endl;
         return 1;
     }
 
@@ -41,7 +41,7 @@ int TrainingOnTheme(string Theme) {
             cout << " --> ";
             cin >> answer;
         } while (answer != correctAnswer);
-        cout << endl << "CORRECT" << endl;
+        cout << endl << "ÂÅÐÍÎ" << endl;
         system("pause");
     }
 
@@ -50,15 +50,14 @@ int TrainingOnTheme(string Theme) {
     return 0;
 }
 
+
 int TestingOnTheme(string Theme)
 {
-    setlocale(LC_ALL, "ru_RU.UTF-8");
-
     system("cls");
 
     ifstream fileInp(Theme);
     if (!fileInp.is_open()) {
-        cout << "Failed to open file" << endl;
+        cout << "Îøèáêà îòêðûòèÿ ôàéëà" << endl;
         return 1;
     }
 
@@ -96,44 +95,42 @@ int TestingOnTheme(string Theme)
         cout << " --> ";
         cin >> answer;
         if (answer == correctAnswer) {
-            cout << "CORRECT" << endl;
+            cout << "ÂÅÐÍÎ" << endl;
         }
         else {
             string wrongAnswerStr = str.substr(0, str.size());
             wrongAnswers.push_back(wrongAnswerStr);
-            cout << "WRONG ANSWER" << endl;
+            cout << "ÍÅÂÅÐÍÎ" << endl;
             mistakes++;
         }
         system("pause");
     }
     system("cls");
     if (mistakes > 6) {
-        cout << endl << "Mark: 2 (" << 10 - mistakes << "/10)" << endl;
+        cout << "ÎÖÅÍÊÀ: 2 (" << 10 - mistakes << "/10)" << endl;
     }
     else if (mistakes > 4) {
-        cout << endl << "Mark: 3 (" << 10 - mistakes << "/10)" << endl;
+        cout << "ÎÖÅÍÊÀ: 3 (" << 10 - mistakes << "/10)" << endl;
     }
     else if (mistakes > 2) {
-        cout << endl << "Mark: 4 (" << 10 - mistakes << "/10)" << endl;
+        cout << "ÎÖÅÍÊÀ: 4 (" << 10 - mistakes << "/10)" << endl;
     }
     else {
-        cout << endl << "Mark: 5 (" << 10 - mistakes << "/10)" << endl;
+        cout << "ÎÖÅÍÊÀ: 5 (" << 10 - mistakes << "/10)" << endl;
     }
 
-    cout << "WRONG ANSWERED QESTIONS:" << endl;
+    cout << "ÍÅÏÐÀÂÈËÜÍÎ ÎÒÂÅ×ÅÍÍÛÅ ÂÎÏÐÎÑÛ:" << endl;
     for (string wrongAnswer : wrongAnswers) {
         cout << endl << wrongAnswer << endl;
     }
 
     system("pause");
     system("cls");
-    setlocale(LC_ALL, "rus");
     return 0;
 }
 
 int FinalTest() {
-    const int FILE_COUNT = 8; setlocale(LC_ALL, "ru_RU.UTF-8");
-
+    const int FILE_COUNT = 8;
     system("cls");
 
     ifstream cirFile("CircleTest.txt");
@@ -150,8 +147,15 @@ int FinalTest() {
     };
 
     vector<ifstream*> ifs = {
-        &cirFile, &arrFile, &strFile, &recFile, &structFile, &filFile, &poiFile, &dinFile
+        &cirFile,&arrFile,&strFile,&recFile,&structFile,&filFile,&poiFile,&dinFile
     };
+
+    for (int i = 0; i < FILE_COUNT; i++) {
+        if (!*ifs[i]) {
+            cerr << "Îøèáêà îòêðûòèÿ ôàéëà" << endl;
+            return 1;
+        }
+    }
 
     for (int i = 0; i < FILE_COUNT; i++) {
         string line;
@@ -184,17 +188,16 @@ int FinalTest() {
         }
         cout << " --> ";
         cin >> answer;
-        if (answer == correctAnswer) cout << "CORRECT" << endl; else { cout << "WRONG ANSWER" << endl; mistakes++; }
+        if (answer == correctAnswer) cout << "ÂÅÐÍÎ" << endl; else { cout << "ÍÅÂÅÐÍÎ" << endl; mistakes++; }
         system("pause");
     }
     system("cls");
-    if (mistakes > 15) cout << endl << endl << "Mark: 2(" << 40 - mistakes << "/40)" << endl;
-    else if (mistakes > 10) cout << endl << endl << "Mark: 3(" << 40 - mistakes << "/40)" << endl;
-    else if (mistakes > 5) cout << endl << endl << "Mark: 4(" << 40 - mistakes << "/40)" << endl;
-    else cout << endl << endl << "Mark: 5(" << 40 - mistakes << "/40)" << endl;
+    if (mistakes > 15) cout << "ÎÖÅÍÊÀ: 2(" << 40 - mistakes << "/40)" << endl;
+    else if (mistakes > 10) cout << "ÎÖÅÍÊÀ: 3(" << 40 - mistakes << "/40)" << endl;
+    else if (mistakes > 5) cout << "ÎÖÅÍÊÀ: 4(" << 40 - mistakes << "/40)" << endl;
+    else cout << "ÎÖÅÍÊÀ: 5(" << 40 - mistakes << "/40)" << endl;
 
     system("pause");
     system("cls");
-    setlocale(LC_ALL, "rus");
     return 0;
 }
