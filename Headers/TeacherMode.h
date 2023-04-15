@@ -31,4 +31,11 @@ vector<string> fileParse(string Theme);
 int QestionEditorPlace(string Theme);
 int QestionEditorMenu();
 
+//TODO ILIAS
+void DelAndRegStudents();
+
+void EditStudentsProgress();
+void ShowStudensList(int mode_id, StudentData* student_data, int students_quantity);
+void MarksFilter(StudentData* student_data, int students_quanity);
+
 void TeacherAuthMenu();
