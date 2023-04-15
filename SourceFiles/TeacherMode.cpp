@@ -10,7 +10,7 @@ int FileOutput(vector<string> lines)
 	for (auto& str : lines) {
 		if (!str.empty()) {
 			cout << "QUESTION #" << i << "  ";
-			cout << str.substr(0, str.size()) << endl;
+			cout << str.substr(0, str.size()) << endl << endl;
 			i++;
 		}
 	}
@@ -58,6 +58,8 @@ int QuestionEdit(string Theme, vector<string> lines)
 	if (LineNumber >= 0 && LineNumber < lines.size()) {
 		string editedLine;
 		cout << "Новый вариант вопроса: ";
+		cin.ignore();
+		getline(cin, editedLine);
 		if (!isdigit(editedLine.back())) {
 			cout << "Последний символ нового варианта вопроса должен быть его ответом, то есть, цифрой." << endl;
 			return 1;
