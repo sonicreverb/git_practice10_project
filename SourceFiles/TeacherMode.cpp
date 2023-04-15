@@ -220,7 +220,11 @@ void ShowStudensList(int mode_id, StudentData* student_data, int students_quanti
 
 			for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
 			{
-				cout << student_data[student_num].marks[mark_id] << endl;
+				if (student_data[student_num].marks[mark_id] == 0) cout << "н\n";
+				else
+				{
+					cout << student_data[student_num].marks[mark_id] << endl;
+				}
 			}
 			cout << "\n";
 		}
@@ -454,7 +458,12 @@ void ShowSortList(StudentData* student_data, int students_quantity)
 
 		cout << "Оценки по всем темам:" << endl;
 		for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
-			cout << student_data[student_num].marks[mark_id] << endl;
+			if (student_data[student_num].marks[mark_id] == 0) cout << "н\n";
+			else
+			{
+							cout << student_data[student_num].marks[mark_id] << endl;
+			}
+
 
 
 		cout << "\n";
@@ -604,13 +613,14 @@ void TeacherAuthMenu()
 
 				if (curr_user.password != teachers[curr_user_arr_id_in_database].password)
 				{
-					if (attemps_left - 1 > 0) 
+					attemps_left--;
+					if (attemps_left) 
 					{
-						cout << "Вы ввели неверный пароль, попробуйте снова." << "Осталось(ась) " << attemps_left - 1 << " попытки(ок/ка)." << endl;
+						cout << "Вы ввели неверный пароль, попробуйте снова." << "Осталось(ась) " << attemps_left << " попытки(ок/ка)." << endl;
 					}
 					
 				}
-				attemps_left--;
+				
 			} while (curr_user.password != teachers[curr_user_arr_id_in_database].password && attemps_left > 0);
 
 			if (attemps_left == 0)
