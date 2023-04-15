@@ -408,15 +408,12 @@ void MarksFilter(StudentData* student_data, int students_quanity)
 	delete[] not_certified_students_id;
 }
 
-//TODO SOMEONE GUYS PLEASE HELP!!!!!!!!!
 void ShowSortList(StudentData* student_data, int students_quantity)
 {
+	system("cls");
+
 	for (int student_num = 0; student_num < students_quantity; student_num++)
 	{
-		cout << "Пользователь #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
-		cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
-		cout << "Средний бал:" << endl;
-
 		double avg_mark = 0;
 		for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
 		{
@@ -426,8 +423,42 @@ void ShowSortList(StudentData* student_data, int students_quantity)
 		student_data[student_num].avg_mark = avg_mark;
 	}
 
+	int* sorted_array = new int[students_quantity];
+	for (int i = 0; i < students_quantity; i++)
+	{
+		sorted_array[i] = i;
+	}
 
-	// ДОБАВИТЬ ВЫВОД ОТСОРТИРОВАННЫХ УЧЕНИКОВ ОТ БОЛЬШЕГО СРЕДНЕГО БАЛА К МЕНЬШЕМУ
+	// сортировка пузырьком
+	for (int i = 0; i < students_quantity - 1; i++)
+	{
+		for (int j = 0; j < students_quantity - i - 1; j++)
+		{
+			if (student_data[sorted_array[j]].avg_mark < student_data[sorted_array[j + 1]].avg_mark)
+			{
+				int tmp = sorted_array[j];
+				sorted_array[j] = sorted_array[j + 1];
+				sorted_array[j + 1] = tmp;
+			}
+		}
+	}
+
+	for (int i = 0; i < students_quantity; i++)
+	{
+		int student_num = sorted_array[i];
+		cout << "Пользователь #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
+		cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
+		cout << "Средний бал: " << student_data[student_num].avg_mark << endl;
+
+		cout << "Оценки по всем темам:" << endl;
+		for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
+			cout << student_data[student_num].marks[mark_id] << endl;
+
+
+		cout << "\n";
+	}
+
+	delete[] sorted_array;
 }
 
 void TeacherAuthMenu()
@@ -496,7 +527,7 @@ void TeacherAuthMenu()
 	students[2].surname = "Зайцев2";
 	students[2].patronymic = "Владимирович2";
 	students[2].password = "qwerty";
-	students[2].id = 1;
+	students[2].id = 2;
 	students[2].numbers_of_marks = 6;
 	students[2].marks[0] = 4;
 	students[2].marks[1] = 5;
@@ -510,7 +541,7 @@ void TeacherAuthMenu()
 	students[3].surname = "Зайцев23";
 	students[3].patronymic = "Владимирович2";
 	students[3].password = "qwerty";
-	students[3].id = 1;
+	students[3].id = 3;
 	students[3].numbers_of_marks = 6;
 	students[3].marks[0] = 4;
 	students[3].marks[1] = 3;
@@ -552,7 +583,7 @@ void TeacherAuthMenu()
 			if (!flag_teacher_exist)
 			{
 				cout << "Извините, пользователь " << curr_user.login << " не найден.\n";
-				cout << "Нажмите любую клавишу, чтобы продолжить.\n";
+				cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
 				getchar();
 				continue;
 			}
@@ -614,7 +645,7 @@ void TeacherAuthMenu()
 				{
 					// работа со списком студентов
 					cout << "1. Удаление и регистрация студентов.\n2. Изменение прогресса студентов.\n-- Вывод списка студентов с оценками \n3. -по всем темам\n4. -по конкретной теме\n";
-					cout << "5. -только итоговый тест\n6. -только средний бал\n7. Фильтрация (по конкретным оценкам).\n8. Сортировка по конректным оценкам.";
+					cout << "5. -только итоговый тест\n6. -только средний бал\n7. Фильтрация (по конкретным оценкам).\n8. Сортировка по конректным оценкам.\n";
 					cout << "Выберите задачу: ";
 					cin >> teacher_task_choose;
 
