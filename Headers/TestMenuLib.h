@@ -8,6 +8,7 @@
 #include <locale>
 #include <set>
 #include <Windows.h>
+#include <sstream>
 
 using namespace std;
 int TrainingOnTheme(string Theme);

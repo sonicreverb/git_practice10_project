@@ -1,11 +1,13 @@
+//realized by G.Machehin & E. Zhurow
 #include "../Headers/TestMenuLib.h"
 
-int MarkToBase(int mark, string surname, string name, string patronymic)
+int MarkToBase(string Theme, int mark, string surname, string name, string patronymic, int* marks)
 {
     string line;
     ifstream fileStudents("students_database.txt");
     if (!fileStudents.is_open()) {
         cout << "Ошибка открытия файла students_database.txt" << endl;
+        system("pause");
         return 1;
     }
 
@@ -28,17 +30,31 @@ int MarkToBase(int mark, string surname, string name, string patronymic)
             studentFound = true;
 
             size_t marksPos = i + 3;
-            while (marksPos < studentLines.size() && studentLines[marksPos].find("Marks:") == string::npos) {
-                ++marksPos;
+            stringstream marks_stream(studentLines[marksPos]);
+            int index = 0;
+            int temp_mark;
+            while (marks_stream >> temp_mark) {
+                marks[index++] = temp_mark;
             }
 
-            if (marksPos < studentLines.size()) {
-                system("cls");
-                cout << "Ваши предыдущие оценки: " << studentLines[marksPos].substr(6) << endl;
-                system("pause");
-                studentLines[marksPos] += " " + to_string(mark);
-                break;
+            if (index > 0) {
+                if (Theme == "CircleTest.txt") marks[0] = mark;
+                else if (Theme == "ArrayTest.txt") marks[1] = mark;
+                else if (Theme == "StringTest.txt") marks[2] = mark;
+                else if (Theme == "RekursionTest.txt") marks[3] = mark;
+                else if (Theme == "StructTest.txt") marks[4] = mark;
+                else if (Theme == "FilesTest.txt") marks[5] = mark;
+                else if (Theme == "PointerTest.txt") marks[6] = mark;
+                else if (Theme == "DinMemory.txt") marks[7] = mark;
+                else if (Theme == "Final") marks[8] = mark;
+
+                studentLines[marksPos] = "";
+                for (int j = 0; j < index; ++j) {
+                    studentLines[marksPos] += to_string(marks[j]) + " ";
+                }
+                studentLines[marksPos].pop_back();
             }
+            break;
         }
     }
 
@@ -54,13 +70,13 @@ int MarkToBase(int mark, string surname, string name, string patronymic)
 
     return 0;
 }
-
 int TrainingOnTheme(string Theme) {
     system("cls");
 
     ifstream fileInp(Theme);
     if (!fileInp.is_open()) {
         cout << "Ошибка открытия файла" << endl;
+        system("pause");
         return 1;
     }
 
@@ -106,7 +122,7 @@ int TrainingOnTheme(string Theme) {
 }
 
 
-int TestingOnTheme(string Theme, string surname, string name, string patronymic)
+int TestingOnTheme(string Theme, string surname, string name, string patronymic/*, int *marcs*/)
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -183,13 +199,14 @@ int TestingOnTheme(string Theme, string surname, string name, string patronymic)
         cout << endl << wrongAnswer << endl;
     }
     system("pause");
-    MarkToBase(mark, surname, name, patronymic);
+    int marks[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    MarkToBase(Theme, mark, surname, name, patronymic, marks);
     system("cls");
     setlocale(LC_ALL, "Rus");
     return 0;
 }
 
-int FinalTest(string surname, string name, string patronymic) {
+int FinalTest(string surname, string name, string patronymic/*, int * marks*/) {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     const int FILE_COUNT = 8;
@@ -260,8 +277,12 @@ int FinalTest(string surname, string name, string patronymic) {
     else if (mistakes > 5) { cout << "ОЦЕНКА: 4(" << 40 - mistakes << "/40)" << endl; mark = 4; }
     else { cout << "ОЦЕНКА: 5(" << 40 - mistakes << "/40)" << endl; mark = 5; }
 
+
     system("pause");
-    MarkToBase(mark, surname, name, patronymic);
+
+    string Theme = "Final";
+    int marks[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    MarkToBase(Theme, mark, surname, name, patronymic, marks);
     system("cls");
     return 0;
 }
