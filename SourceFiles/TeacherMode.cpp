@@ -195,7 +195,6 @@ void DelAndRegStudents()
 
 }
 
-//TODO VLADIS
 void EditStudentsProgress()
 {
 	system("cls");
