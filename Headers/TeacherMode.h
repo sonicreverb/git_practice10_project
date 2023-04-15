@@ -8,6 +8,8 @@
 #include <windows.h>
 #include <set>
 
+#include "StudentMode.h"
+
 using namespace std;
 
 struct TeacherData
@@ -30,5 +32,12 @@ int QuestionAdd(string Theme, vector<string> lines);
 vector<string> fileParse(string Theme);
 int QestionEditorPlace(string Theme);
 int QestionEditorMenu();
+
+//TODO ILIAS
+void DelAndRegStudents();
+
+void EditStudentsProgress();
+void ShowStudensList(int mode_id, StudentData* student_data, int students_quantity);
+void MarksFilter(StudentData* student_data, int students_quanity);
 
 void TeacherAuthMenu();

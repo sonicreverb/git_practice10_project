@@ -110,13 +110,13 @@ void StudentAuthMenu()
 
 				if (curr_user.password != students[curr_user_arr_id_in_database].password)
 				{
-					if (attemps_left - 1 > 0)
+					attemps_left--;
+					if (attemps_left)
 					{
-						cout << "Вы ввели неверный пароль, попробуйте снова." << "Осталось(ась) " << attemps_left - 1 << " попытки(ок/ка)." << endl;
+						cout << "Вы ввели неверный пароль, попробуйте снова." << "Осталось(ась) " << attemps_left << " попытки(ок/ка)." << endl;
 					}
 
 				}
-				attemps_left--;
 			} while (curr_user.password != students[curr_user_arr_id_in_database].password && attemps_left > 0);
 
 			if (attemps_left == 0)

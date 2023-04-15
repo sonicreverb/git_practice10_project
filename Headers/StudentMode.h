@@ -10,8 +10,12 @@ struct StudentData
 	string name;
 	string surname;
 	string patronymic;
+
 	int id;
-	int marks[11];
+	int numbers_of_marks;
+	int marks[256];
+	
+	double avg_mark;
 };
 
 
