@@ -199,7 +199,7 @@ void EditStudentsProgress()
 {
 	system("cls");
 	system(DATABASE_LOCATION_VOLUME_NAME);
-	system("cd " ABSPATH_TO_DATABASE "students_database.txt");
+	system(ABSPATH_TO_DATABASE "students_database.txt");
 }
 
 void ShowStudensList(int mode_id, StudentData* student_data, int students_quantity)
