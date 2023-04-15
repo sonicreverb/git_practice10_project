@@ -698,6 +698,7 @@ void TeacherAuthMenu()
 						cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
 						getchar();
 						getchar();
+						break;
 					case 7:
 						MarksFilter(students, number_of_students);
 						cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";

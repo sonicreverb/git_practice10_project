@@ -8,6 +8,8 @@
 #include <windows.h>
 #include <set>
 
+#include "StudentMode.h"
+
 using namespace std;
 
 struct TeacherData
