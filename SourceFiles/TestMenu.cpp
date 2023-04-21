@@ -1,8 +1,9 @@
 //realized by G.Machehin & E. Zhurow
 #include "../Headers/TestMenuLib.h"
 
-int MarkToBase(string Theme, int mark, string surname, string name, string patronymic, int* marks)
+int MarkToBase(string Theme, int mark, string surname, string name, string patronymic, int* marks/*, int id*/)
 {
+    int id = 1; //убрать к реализации
     string line;
     ifstream fileStudents("students_database.txt");
     if (!fileStudents.is_open()) {
@@ -26,7 +27,7 @@ int MarkToBase(string Theme, int mark, string surname, string name, string patro
 
     bool studentFound = false;
     for (size_t i = 0; i < studentLines.size(); ++i) {
-        if (studentLines[i] == surname && studentLines[i + 1] == name && studentLines[i + 2] == patronymic) {
+        if (studentLines[i] == surname && studentLines[i + 1] == name && studentLines[i + 2] == patronymic && stoi(studentLines[i + 4]) == id) {
             studentFound = true;
 
             size_t marksPos = i + 3;
@@ -122,7 +123,7 @@ int TrainingOnTheme(string Theme) {
 }
 
 
-int TestingOnTheme(string Theme, string surname, string name, string patronymic/*, int *marcs*/)
+int TestingOnTheme(string Theme, string surname, string name, string patronymic/*, int *marcs*//*, int id*/)
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -199,14 +200,14 @@ int TestingOnTheme(string Theme, string surname, string name, string patronymic/
         cout << endl << wrongAnswer << endl;
     }
     system("pause");
-    int marks[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    int marks[9];
     MarkToBase(Theme, mark, surname, name, patronymic, marks);
     system("cls");
     setlocale(LC_ALL, "Rus");
     return 0;
 }
 
-int FinalTest(string surname, string name, string patronymic/*, int * marks*/) {
+int FinalTest(string surname, string name, string patronymic/*, int * marks*//*, int id*/) {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     const int FILE_COUNT = 8;
@@ -281,7 +282,7 @@ int FinalTest(string surname, string name, string patronymic/*, int * marks*/) {
     system("pause");
 
     string Theme = "Final";
-    int marks[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    int marks[9] ;
     MarkToBase(Theme, mark, surname, name, patronymic, marks);
     system("cls");
     return 0;
