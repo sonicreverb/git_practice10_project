@@ -1,8 +1,12 @@
 #pragma once
 #include <stdio.h>
-#include <locale.h>
 #include <iostream>
+#include <malloc.h>
+#include <windows.h>
 #include <string>
+#include <conio.h>
+
+using namespace std;
 
 #include "../Headers/TeacherMode.h"
 #include "../Headers/StudentMode.h"
