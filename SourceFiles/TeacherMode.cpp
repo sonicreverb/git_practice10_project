@@ -1,8 +1,8 @@
 #include "../Headers/TeacherMode.h"
 #include "../Headers/FileReading.h"
 
-#define DATABASE_LOCATION_VOLUME_NAME "D:"
-#define ABSPATH_TO_DATABASE "D:\\БГТУ\\Программирование\\Practice10_GroupProject\\git_practice10_project\\SourceFiles\\"
+//#define DATABASE_LOCATION_VOLUME_NAME "D:"
+//#define ABSPATH_TO_DATABASE "D:\\БГТУ\\Программирование\\Practice10_GroupProject\\git_practice10_project\\SourceFiles\\"
 
 int FileOutput(vector<string> lines)
 {
@@ -200,8 +200,7 @@ void DelAndRegStudents()
 void EditStudentsProgress()
 {
 	system("cls");
-	system(DATABASE_LOCATION_VOLUME_NAME);
-	system(ABSPATH_TO_DATABASE "students_database.txt");
+	system("students_database.txt");
 }
 
 void ShowStudensList(int mode_id, StudentData* student_data, int students_quantity)
@@ -485,6 +484,8 @@ void TeacherAuthMenu()
 
 	cout << teachers;
 	getchar();*/
+
+
 
 	int number_of_teachers = 2;
 	TeacherData* teachers = new TeacherData[number_of_teachers];

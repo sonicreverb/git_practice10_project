@@ -14,7 +14,7 @@ struct StudentData
 
 	int id;
 	int numbers_of_marks;
-	int marks[256];
+	int marks[9];
 	
 	double avg_mark;
 };

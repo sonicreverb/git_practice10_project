@@ -106,7 +106,6 @@ void StudentAuthMenu()
 			system("pause");
 		}
 
-		// пользователь вводит логин
 		else
 		{
 			// пользователь существует
