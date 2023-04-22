@@ -12,6 +12,6 @@
 
 using namespace std;
 int TrainingOnTheme(string Theme);
-int TestingOnTheme(string Theme, string surname, string name, string patronymic);
-int FinalTest(string surname, string name, string patronymic);
-int MarkToBase(int mark, string surname, string name, string patronymic);
+int TestingOnTheme(string Theme, string surname, string name, string patronymic, int id);
+int FinalTest(string surname, string name, string patronymic, int id);
+int MarkToBase(string Theme, int mark, string surname, string name, string patronymic, int* marks, int id);

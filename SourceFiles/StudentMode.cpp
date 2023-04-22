@@ -23,22 +23,23 @@ void Training() {
 	case 0: break;
 	}
 }
-void TopicTesting(string surname, string name, string patronymic)
+void TopicTesting(string surname, string name, string patronymic, int id)
 {
 	int test;
+	system("cls");
 	cout << "Введите номер теста:" << endl;
 	cout << "1) Циклы" << endl << "2) Массивы (одномерные и двумерные)" << endl << "3) Строки" << endl << "4) Рекурсия" << endl << "5) Структуры" << endl << "6) Файлы" << endl << "7) Адреса и указатели" << endl << "8) Динамическая память" << endl;
 	cin >> test;
 	switch (test)
 	{
-	case 1:TestingOnTheme("CircleTest.txt", surname, name, patronymic); break;
-	case 2:TestingOnTheme("ArrayTest.txt", surname, name, patronymic); break;
-	case 3:TestingOnTheme("StringTest.txt", surname, name, patronymic); break;
-	case 4:TestingOnTheme("RekursionTest.txt", surname, name, patronymic); break;
-	case 5:TestingOnTheme("StructTest.txt", surname, name, patronymic); break;
-	case 6:TestingOnTheme("FilesTest.txt", surname, name, patronymic); break;
-	case 7:TestingOnTheme("PointerTest.txt", surname, name, patronymic); break;
-	case 8:TestingOnTheme("DinMemory.txt", surname, name, patronymic); break;
+	case 1:TestingOnTheme("CircleTest.txt", surname, name, patronymic, id); break;
+	case 2:TestingOnTheme("ArrayTest.txt", surname, name, patronymic, id); break;
+	case 3:TestingOnTheme("StringTest.txt", surname, name, patronymic, id); break;
+	case 4:TestingOnTheme("RekursionTest.txt", surname, name, patronymic, id); break;
+	case 5:TestingOnTheme("StructTest.txt", surname, name, patronymic, id); break;
+	case 6:TestingOnTheme("FilesTest.txt", surname, name, patronymic, id); break;
+	case 7:TestingOnTheme("PointerTest.txt", surname, name, patronymic, id); break;
+	case 8:TestingOnTheme("DinMemory.txt", surname, name, patronymic, id); break;
 	case 0: break;
 	}
 }
@@ -46,18 +47,17 @@ void TopicTesting(string surname, string name, string patronymic)
 
 void StudentAuthMenu()
 {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
 	int number_of_students = 2;
 	StudentData* students = new StudentData[number_of_students];
 
-	students[0].login = "student32";
-	students[0].name = "Максим";
-	students[0].surname = "Козлек";
-	students[0].patronymic = "Абрамович";
-	students[0].password = "qwerty";
-
-	students[1].login = "demidovlox";
-	students[1].name = "Илья";
-	students[1].patronymic = "Владимирович";
+	students[0].login;
+	students[0].name;
+	students[0].surname;
+	students[0].patronymic;
+	students[0].password;
+	students[0].id;
 
 	string state = "run";
 
@@ -69,46 +69,61 @@ void StudentAuthMenu()
 		system("cls");
 		cout << "Добро пожаловать, для продолжения введите свой логин (чтобы вернуться в главное меню введите 0):" << endl;
 		getline(cin, curr_user.login);
-
 		// пользователь хочет вернуться в главное меню
-		if (curr_user.login == "0") state = "shutdown";
+		if (curr_user.login == "0") return;/*state = "shutdown"*/;
+
+		string line;
+		ifstream fileStudents("students_database.txt");
+		if (!fileStudents.is_open()) {
+			cout << "Ошибка открытия файла students_database.txt" << endl;
+			system("pause");
+			return;
+		}
+
+		vector<string> studentLines;
+		while (getline(fileStudents, line)) {
+			studentLines.push_back(line);
+		}
+		fileStudents.close();
+
+
+		bool studentFound = false;
+		for (size_t i = 0; i < studentLines.size(); ++i) {
+			if (studentLines[i] == curr_user.login) {
+				studentFound = true;
+				curr_user.login = studentLines[i];
+				curr_user.password = studentLines[i + 1];
+				curr_user.surname = studentLines[i + 2];
+				curr_user.name = studentLines[i + 3];
+				curr_user.patronymic = studentLines[i + 4];
+				curr_user.id = stoi(studentLines[i + 6]);
+				break;
+			}
+		}
+
+		if (!studentFound) {
+			cout << "Студент не найден в базе данных." << endl;
+			system("pause");
+		}
 
 		// пользователь вводит логин
 		else
 		{
-			// проверка на существования логина в базе данных
-			bool flag_student_exist = false;
-			for (int arr_id = 0; arr_id < number_of_students; arr_id++)
-			{
-				if (students[arr_id].login == curr_user.login)
-				{
-					flag_student_exist = true;
-					curr_user_arr_id_in_database = arr_id;
-					break;
-				}
-			}
-
-			if (!flag_student_exist)
-			{
-				cout << "Извините, пользователь " << curr_user.login << " не найден.\n";
-				cout << "Нажмите клавишу enter, чтобы продолжить.\n";
-
-				continue;
-			}
-
 			// пользователь существует
-			cout << "Вы входите, как " << students[curr_user_arr_id_in_database].name << " " << students[curr_user_arr_id_in_database].patronymic << ".\n";
+			cout << "Вы входите, как " << curr_user.name << " " << curr_user.patronymic << ".\n";
 
+			string passw;
 			int attemps_left = 3;
 			do
 			{
 				cout << "Для продолжения введите пароль(чтобы выйти из учётной записи введите 0): ";
-				getline(cin, curr_user.password);
+				getline(cin, passw);
 
 				// отказ от ввода пароля, выход в меню авторизации
-				if (curr_user.password == "0") continue;
+				if (passw == "0") StudentAuthMenu();
+				;
 
-				if (curr_user.password != students[curr_user_arr_id_in_database].password)
+				if (curr_user.password != passw)
 				{
 					attemps_left--;
 					if (attemps_left)
@@ -117,26 +132,26 @@ void StudentAuthMenu()
 					}
 
 				}
-			} while (curr_user.password != students[curr_user_arr_id_in_database].password && attemps_left > 0);
+			} while (curr_user.password != passw && attemps_left > 0);
 
 			if (attemps_left == 0)
 			{
 				cout << "Вы не авторизировались.\n";
-				cout << "Нажмите клавишу enter, чтобы продолжить.\n";
-
+				system("pause");
+				StudentAuthMenu();
 				continue;
 			}
-			curr_user = students[curr_user_arr_id_in_database];
 			cout << "Вы авторизировались, как " << curr_user.surname << " " << curr_user.name << " " << curr_user.patronymic << endl;
 			int choose;
 			do {
+				system("cls");
 				cout << "Выберите род задания:" << endl << "1) Треннинг по теме" << endl << "2) Тестирование по теме" << endl << "3) Итоговый тест" << endl << "0) Выход из учётной записи" << endl;
 				cin >> choose;
 				switch (choose)
 				{
 				case 1:Training(); getchar();  break;
-				case 2:TopicTesting(curr_user.surname, curr_user.name, curr_user.patronymic); getchar(); break;
-				case 3:FinalTest(curr_user.surname, curr_user.name, curr_user.patronymic); getchar(); break;
+				case 2:TopicTesting(curr_user.surname, curr_user.name, curr_user.patronymic, curr_user.id); getchar(); break;
+				case 3:FinalTest(curr_user.surname, curr_user.name, curr_user.patronymic, curr_user.id); getchar(); break;
 				}
 			} while (choose != 0);
 			getchar();

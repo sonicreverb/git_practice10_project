@@ -1,9 +1,8 @@
 //realized by G.Machehin & E. Zhurow
 #include "../Headers/TestMenuLib.h"
 
-int MarkToBase(string Theme, int mark, string surname, string name, string patronymic, int* marks/*, int id*/)
+int MarkToBase(string Theme, int mark, string surname, string name, string patronymic, int* marks, int id)
 {
-    int id = 1; //убрать к реализации
     string line;
     ifstream fileStudents("students_database.txt");
     if (!fileStudents.is_open()) {
@@ -123,7 +122,7 @@ int TrainingOnTheme(string Theme) {
 }
 
 
-int TestingOnTheme(string Theme, string surname, string name, string patronymic/*, int *marcs*//*, int id*/)
+int TestingOnTheme(string Theme, string surname, string name, string patronymic, int id)
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -201,13 +200,13 @@ int TestingOnTheme(string Theme, string surname, string name, string patronymic/
     }
     system("pause");
     int marks[9];
-    MarkToBase(Theme, mark, surname, name, patronymic, marks);
+    MarkToBase(Theme, mark, surname, name, patronymic, marks, id);
     system("cls");
     setlocale(LC_ALL, "Rus");
     return 0;
 }
 
-int FinalTest(string surname, string name, string patronymic/*, int * marks*//*, int id*/) {
+int FinalTest(string surname, string name, string patronymic, int id) {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     const int FILE_COUNT = 8;
@@ -283,7 +282,7 @@ int FinalTest(string surname, string name, string patronymic/*, int * marks*//*,
 
     string Theme = "Final";
     int marks[9] ;
-    MarkToBase(Theme, mark, surname, name, patronymic, marks);
+    MarkToBase(Theme, mark, surname, name, patronymic, marks, id);
     system("cls");
     return 0;
 }
