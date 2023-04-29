@@ -192,9 +192,21 @@ int QestionEditorMenu()
 }
 
 //TODO ILIAS
-void DelAndRegStudents()
+void DelAndRegStudents(StudentData* studentdata, int* number_of_students, TeacherData* teacherdata, int number_of_teachers, int current_teacher_number)
 {
-
+	system("cls");
+	char key;
+	cout << "Нажмите 1, чтобы добавить студента\nНажите 2, чтобы удалить студента\nНажмите 0, чтобы вернуться в меню" << endl;
+	do {
+		key = _getch();
+	} while (key < '0' || key >'2');
+	switch (int(key))
+	{
+	case 48:return;
+	case 49: AddStudent(studentdata, number_of_students, teacherdata, number_of_teachers, current_teacher_number); break;
+		default: DeleteStudent(studentdata, number_of_students, teacherdata, number_of_teachers, current_teacher_number);
+	}
+	return;
 }
 
 void EditStudentsProgress()
@@ -475,92 +487,13 @@ void ShowSortList(StudentData* student_data, int students_quantity)
 void TeacherAuthMenu()
 {
 
-	//TODO ILIAS READING FROM DATABASE
+	int number_of_teachers = CheckTeacherListNumber();
+	TeacherData* teachers = (TeacherData*)malloc(number_of_teachers * sizeof(TeacherData));
+	teachers = CheckTeacherList(teachers, number_of_teachers);
 
-	/*int number_of_teachers = CheckTeacherListNumber();
-	cout << number_of_teachers;
-
-	TeacherData* teachers = (TeacherData*)malloc(sizeof(TeacherData) * number_of_teachers);
-	CheckTeacherList(teachers, number_of_teachers);
-
-	cout << teachers;
-	getchar();*/
-
-	int number_of_teachers = 2;
-	TeacherData* teachers = new TeacherData[number_of_teachers];
-
-	teachers[0].login = "kazemir32";
-	teachers[0].name = "Каземир";
-	teachers[0].surname = "Каземиров";
-	teachers[0].patronymic = "Каземирович";
-	teachers[0].password = "qwerty";
-
-	teachers[1].login = "maxonpolyakov";
-	teachers[1].name = "Максим";
-	teachers[1].surname = "Поляков";
-	teachers[1].patronymic = "Фенибутович";
-	teachers[1].password = "bobus2";
-	
-	int number_of_students = 4;
-	StudentData* students = new StudentData[number_of_students];
-
-	students[0].login = "student32";
-	students[0].name = "Максим";
-	students[0].surname = "Козлек";
-	students[0].patronymic = "Абрамович";
-	students[0].password = "qwerty";
-	students[0].id = 0;
-	students[0].numbers_of_marks = 6;
-	students[0].marks[0] = 2;
-	students[0].marks[1] = 3;
-	students[0].marks[2] = 4;
-	students[0].marks[3] = 5;
-	students[0].marks[4] = 0;
-	students[0].marks[5] = 2;
-
-
-	students[1].login = "demidovlox";
-	students[1].name = "Илья";
-	students[1].surname = "Зайцев";
-	students[1].patronymic = "Владимирович";
-	students[1].password = "qwerty";
-	students[1].id = 1;
-	students[1].numbers_of_marks = 6;
-	students[1].marks[0] = 5;
-	students[1].marks[1] = 5;
-	students[1].marks[2] = 5;
-	students[1].marks[3] = 5;
-	students[1].marks[4] = 5;
-	students[1].marks[5] = 5;
-
-	students[2].login = "robertorick";
-	students[2].name = "Ильяc";
-	students[2].surname = "Зайцев2";
-	students[2].patronymic = "Владимирович2";
-	students[2].password = "qwerty";
-	students[2].id = 2;
-	students[2].numbers_of_marks = 6;
-	students[2].marks[0] = 4;
-	students[2].marks[1] = 5;
-	students[2].marks[2] = 5;
-	students[2].marks[3] = 4;
-	students[2].marks[4] = 5;
-	students[2].marks[5] = 5;
-
-	students[3].login = "robertorickoooo";
-	students[3].name = "Ильяcsdsd";
-	students[3].surname = "Зайцев23";
-	students[3].patronymic = "Владимирович2";
-	students[3].password = "qwerty";
-	students[3].id = 3;
-	students[3].numbers_of_marks = 6;
-	students[3].marks[0] = 4;
-	students[3].marks[1] = 3;
-	students[3].marks[2] = 5;
-	students[3].marks[3] = 4;
-	students[3].marks[4] = 5;
-	students[3].marks[5] = 5;
-
+	int number_of_students = CheckStudentListNumber();
+	StudentData* students = (StudentData*)malloc(number_of_teachers * sizeof(StudentData));
+	students = CheckStudentList(students, number_of_teachers);
 
 	string state = "run";
 
@@ -637,8 +570,13 @@ void TeacherAuthMenu()
 
 			do
 			{
+				number_of_teachers = CheckTeacherListNumber();
+				teachers = CheckTeacherList(teachers, number_of_teachers);
+				number_of_students = CheckStudentListNumber();
+				students = CheckStudentList(students, number_of_teachers);
 				system("cls");
 				curr_user = teachers[curr_user_arr_id_in_database];
+
 				cout << "Вы авторизированы, как " << curr_user.surname << " " << curr_user.name << " " << curr_user.patronymic << endl;
 				cout << "1. Редактирование вопросов." << endl << "2. Работа со списком студентов." << endl << "0. Выход из учётной записи" << endl;
 
