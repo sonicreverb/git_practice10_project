@@ -1,12 +1,11 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "../Headers/FileReading.h"
-
-#define ABSPATH_TO_DATABASE "C:\\Users\\zaicz\\source\\repos\\Bruh10\\Bruh10\\git_practice10_project\\SourceFiles\\"
 
 
 void UpdateStudentBase(StudentData* studentdata, int number_of_students)// use this function after every test to save student's progress in file
 {
 	FILE* file;
-	int a = fopen_s(&file, ABSPATH_TO_DATABASE"students_database.txt", "wt");
+	file = fopen("students_database.txt", "w");
 	fprintf(file, "%d\n", number_of_students);
 	for (int i = 0; i < number_of_students; i++)
 	{
@@ -26,7 +25,7 @@ void UpdateStudentBase(StudentData* studentdata, int number_of_students)// use t
 void UpdateTeacherBase(TeacherData* teacherdata, int number_of_teachers)// use this function after every test to save student's progress in file
 {
 	FILE* file;
-	int a = fopen_s(&file, ABSPATH_TO_DATABASE"teacher_database.txt", "wt");
+	file = fopen("teacher_database.txt", "w");
 	fprintf(file, "%d\n", number_of_teachers);
 	for (int i = 0; i < number_of_teachers; i++)
 	{
@@ -40,32 +39,37 @@ void UpdateTeacherBase(TeacherData* teacherdata, int number_of_teachers)// use t
 		fprintf(file, "\n");
 	}
 	fclose(file);
-	/*TextEncryption(1);*/
+	/*TextEncryption(2);*/
 }
 
 int CheckTeacherListNumber()
 {
+	/*TextDecryption(2);*/
 	FILE* file;
-	int a = fopen_s(&file, ABSPATH_TO_DATABASE"teacher_database.txt", "rt");
+	file = fopen("teacher_database.txt", "r");
 	int number;
 	fscanf_s(file, "%d", &number);
 	fclose(file);
 	return number;
+	/*TextEncryption(2);*/
 }
 int CheckStudentListNumber()
 {
+	/*TextDecryption(1);*/
 	FILE* file;
-	int a = fopen_s(&file, ABSPATH_TO_DATABASE"students_database.txt", "rt");
+	file = fopen("students_database.txt", "r");
 	int number;
 	fscanf_s(file, "%d", &number);
 	fclose(file);
 	return number;
+	/*TextEncryption(1);*/
 }
 TeacherData* CheckTeacherList(TeacherData* teacherdata, int number)
 {
+	/*TextDecryption(2);*/
 	char string[100];
 	FILE* file;
-	int a = fopen_s(&file, ABSPATH_TO_DATABASE"teacher_database.txt", "rt");
+	file = fopen("teacher_database.txt", "r");
 	fscanf_s(file, "%d%c", &number, &string[0]);
 	for (int i = 0; i < number; i++)
 	{
@@ -86,43 +90,52 @@ TeacherData* CheckTeacherList(TeacherData* teacherdata, int number)
 	}
 	fclose(file);
 	return teacherdata;
+	/*TextEncryption(2);*/
 }
 
 StudentData* CheckStudentList(StudentData* studentdata, int number)
 {
+	/*TextDecryption(1);*/
 	char string[100];
 	FILE* file;
-	int a = fopen_s(&file, ABSPATH_TO_DATABASE"students_database.txt", "rt");
-	fscanf_s(file, "%d%c", &number, &string[0]);
+	file = fopen("students_database.txt", "r");
+	fscanf(file, "%d%c", &number, &string[0]);
 	for (int i = 0; i < number; i++)
 	{
 		studentdata = (StudentData*)realloc((void*)studentdata, (i + 1) * sizeof(StudentData));
-		fscanf_s(file, "%c", &string[0]);
-		fscanf_s(file, "%s", &studentdata[i].login);
-		fscanf_s(file, "%s", &studentdata[i].password);
-		fscanf_s(file, "%s", &studentdata[i].surname);
-		fscanf_s(file, "%s", &studentdata[i].name);
-		fscanf_s(file, "%s", &studentdata[i].patronymic);
+		fscanf(file, "%c", &string[0]);
+		fscanf(file, "%s", studentdata[i].login);
+		fscanf(file, "%s", studentdata[i].password);
+		fscanf(file, "%s", studentdata[i].surname);
+		fscanf(file, "%s", studentdata[i].name);
+		fscanf(file, "%s", studentdata[i].patronymic);
 		for (int j = 0; j < 9; j++)
 		{
-			fscanf_s(file, "%d", &studentdata[i].marks[j]);
+			fscanf(file, "%d", &studentdata[i].marks[j]);
 		}
-		fscanf_s(file, "%d", &studentdata[i].id);
-		fscanf_s(file, "%c", &string[0]);
+		fscanf(file, "%d", &studentdata[i].id);
+		fscanf(file, "%c", &string[0]);
 	}
 	fclose(file);
 	return studentdata;
+	/*TextEncryption(1);*/
 }
 
-void TextDecryption(int number_of_text)//1 - student 2 - teacher 3 - test
+void TextDecryption(int number_of_text)//1 - student 2 - teacher 3 - circle 4 - array 5 - string 6 - rekursion 7 - struct 8 - files 9 - pointer 10 - dinmemory
 {
 	FILE* file;
-	int a;
 	switch (number_of_text)
 	{
-	case 1: a = fopen_s(&file, ABSPATH_TO_DATABASE"students_database.txt", "rt"); break;
-	case 2: a = fopen_s(&file, ABSPATH_TO_DATABASE"teacher_database.txt", "rt"); break;
-	default: a = fopen_s(&file, "Опыты.txt", "rt");
+	case 1: file = fopen("students_database.txt", "r"); break;
+	case 2: file = fopen("teacher_database.txt", "r"); break;
+	case 3: file = fopen("CircleTest.txt", "r"); break;
+	case 4: file = fopen("ArrayTest.txt", "r"); break;
+	case 5: file = fopen("StringTest.txt", "r"); break;
+	case 6: file = fopen("RekursionTest.txt", "r"); break;
+	case 7: file = fopen("StructTest.txt", "r"); break;
+	case 8: file = fopen("FilesTest.txt", "r"); break;
+	case 9: file = fopen("PointerTest.txt", "r"); break;
+	default: file = fopen("DinMemory.txt", "r");
 	}
 	char* string = (char*)malloc(sizeof(char));
 	int i = 0;
@@ -139,9 +152,16 @@ void TextDecryption(int number_of_text)//1 - student 2 - teacher 3 - test
 	}
 	switch (number_of_text)
 	{
-	case 1: a = fopen_s(&file, ABSPATH_TO_DATABASE"students_database.txt", "wt"); break;
-	case 2: a = fopen_s(&file, ABSPATH_TO_DATABASE"teacher_database.txt", "wt"); break;
-	default: a = fopen_s(&file, "Опыты.txt", "wt");
+	case 1: file = fopen("students_database.txt", "w"); break;
+	case 2: file = fopen("teacher_database.txt", "w"); break;
+	case 3: file = fopen("CircleTest.txt", "w"); break;
+	case 4: file = fopen("ArrayTest.txt", "w"); break;
+	case 5: file = fopen("StringTest.txt", "w"); break;
+	case 6: file = fopen("RekursionTest.txt", "w"); break;
+	case 7: file = fopen("StructTest.txt", "w"); break;
+	case 8: file = fopen("FilesTest.txt", "w"); break;
+	case 9: file = fopen("PointerTest.txt", "w"); break;
+	default: file = fopen("DinMemory.txt", "w");
 	}
 	for (int j = 0; j < i; j++)
 	{
@@ -156,9 +176,16 @@ void TextEncryption(int number_of_text)//1 - student 2 - teacher 3 - test
 	int a;
 	switch (number_of_text)
 	{
-	case 1: a = fopen_s(&file, ABSPATH_TO_DATABASE"students_database.txt", "rt"); break;
-	case 2: a = fopen_s(&file, ABSPATH_TO_DATABASE"teacher_database.txt", "rt"); break;
-	default: a = fopen_s(&file, "Опыты.txt", "rt");
+	case 1: file = fopen("students_database.txt", "r"); break;
+	case 2: file = fopen("teacher_database.txt", "r"); break;
+	case 3: file = fopen("CircleTest.txt", "r"); break;
+	case 4: file = fopen("ArrayTest.txt", "r"); break;
+	case 5: file = fopen("StringTest.txt", "r"); break;
+	case 6: file = fopen("RekursionTest.txt", "r"); break;
+	case 7: file = fopen("StructTest.txt", "r"); break;
+	case 8: file = fopen("FilesTest.txt", "r"); break;
+	case 9: file = fopen("PointerTest.txt", "r"); break;
+	default: file = fopen("DinMemory.txt", "r");
 	}
 	char* string = (char*)malloc(sizeof(char));
 	int i = 0;
@@ -175,9 +202,16 @@ void TextEncryption(int number_of_text)//1 - student 2 - teacher 3 - test
 	}
 	switch (number_of_text)
 	{
-	case 1: a = fopen_s(&file, ABSPATH_TO_DATABASE"students_database.txt", "wt"); break;
-	case 2: a = fopen_s(&file, ABSPATH_TO_DATABASE"teacher_database.txt", "wt"); break;
-	default: a = fopen_s(&file, "Опыты.txt", "wt");
+	case 1: file = fopen("students_database.txt", "w"); break;
+	case 2: file = fopen("teacher_database.txt", "w"); break;
+	case 3: file = fopen("CircleTest.txt", "w"); break;
+	case 4: file = fopen("ArrayTest.txt", "w"); break;
+	case 5: file = fopen("StringTest.txt", "w"); break;
+	case 6: file = fopen("RekursionTest.txt", "w"); break;
+	case 7: file = fopen("StructTest.txt", "w"); break;
+	case 8: file = fopen("FilesTest.txt", "w"); break;
+	case 9: file = fopen("PointerTest.txt", "w"); break;
+	default: file = fopen("DinMemory.txt", "w");
 	}
 	for (int j = 0; j < i; j++)
 	{
