@@ -192,7 +192,7 @@ int QestionEditorMenu()
 }
 
 //TODO ILIAS
-void DelAndRegStudents(StudentData* studentdata, int* number_of_students, TeacherData* teacherdata, int number_of_teachers, int current_teacher_number)
+void DelAndRegStudents(StudentData* studentdata, int number_of_students, TeacherData* teacherdata, int number_of_teachers, int current_teacher_number)
 {
 	system("cls");
 	char key;
@@ -203,8 +203,8 @@ void DelAndRegStudents(StudentData* studentdata, int* number_of_students, Teache
 	switch (int(key))
 	{
 	case 48:return;
-	case 49: AddStudent(studentdata, number_of_students, teacherdata, number_of_teachers, current_teacher_number); break;
-		default: DeleteStudent(studentdata, number_of_students, teacherdata, number_of_teachers, current_teacher_number);
+	case 49: AddStudent(studentdata, &number_of_students, teacherdata, number_of_teachers, current_teacher_number); break;
+		default: DeleteStudent(studentdata, &number_of_students, teacherdata, number_of_teachers, current_teacher_number);
 	}
 	return;
 }
@@ -602,7 +602,7 @@ void TeacherAuthMenu()
 					switch (teacher_task_choose)
 					{
 					case 1:
-						DelAndRegStudents();
+						DelAndRegStudents(students, number_of_students, teachers, number_of_teachers, curr_user_arr_id_in_database);
 						cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
 						getchar();
 						getchar();

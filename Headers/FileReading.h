@@ -19,6 +19,6 @@ TeacherData* CheckTeacherList(TeacherData* teacherdata, int number);
 StudentData* CheckStudentList(StudentData* studentdata, int number);
 void TextDecryption(int number_of_text);//1 - student 2 - teacher 3 - test
 void TextEncryption(int number_of_text);//1 - student 2 - teacher 3 - test
-void AddStudent(StudentData* studentdata, int* number_of_students);//Just let me create these functions
-void DeleteStudent(StudentData* studentdata, int* number_of_students);
+void AddStudent(StudentData* studentdata, int* number_of_students, TeacherData* teacherdata, int number_of_teachers, int current_teacher_number);//Just let me create these functions
+void DeleteStudent(StudentData* studentdata, int* number_of_students, TeacherData* teacherdata, int number_of_teachers, int current_teacher_number);
 void UpdateStudentBase(StudentData* studentdata, int number_of_students);//Use this function after every test to save student's progress in file
