@@ -4,91 +4,112 @@
 
 void UpdateStudentBase(StudentData* studentdata, int number_of_students)// use this function after every test to save student's progress in file
 {
-	FILE* file;
-	file = fopen("students_database.txt", "w");
-	fprintf(file, "%d\n", number_of_students);
+	ofstream file("students_database.txt");
+	if (!file.is_open()) {
+		cout << "Ошибка открытия файла students_database.txt" << endl;
+		system("pause");
+		return;
+	}
+	file << number_of_students;
 	for (int i = 0; i < number_of_students; i++)
 	{
-		fprintf(file, "\n%s\n", studentdata[i].login);
-		fprintf(file, "%s\n", studentdata[i].password);
-		fprintf(file, "%s\n", studentdata[i].surname);
-		fprintf(file, "%s\n", studentdata[i].name);
-		fprintf(file, "%s\n", studentdata[i].patronymic);
-		for (int j = 0; j < 9; j++)fprintf(file, "%d ", studentdata[i].marks[j]);
-		fprintf(file, "\n");
-		fprintf(file, "%d\n", studentdata[i].id);
+		file << studentdata[i].login;
+		file << studentdata[i].password;
+		file << studentdata[i].surname;
+		file << studentdata[i].name;
+		file << studentdata[i].patronymic;
+		for (int j = 0; j < 9; j++)file << studentdata[i].marks[j];
+		file << "\n";
+		file << studentdata[i].id << "\n";
 	}
-	fclose(file);
+	file.close();
 
 	/*TextEncryption(1);*/
 }
 void UpdateTeacherBase(TeacherData* teacherdata, int number_of_teachers)// use this function after every test to save student's progress in file
 {
-	FILE* file;
-	file = fopen("teacher_database.txt", "w");
-	fprintf(file, "%d\n", number_of_teachers);
+	ofstream file("teacher_database.txt");
+	if (!file.is_open()) {
+		cout << "Ошибка открытия файла teacher_database.txt" << endl;
+		system("pause");
+		return;
+	}
+	file << number_of_teachers;
 	for (int i = 0; i < number_of_teachers; i++)
 	{
-		fprintf(file, "\n%s\n", teacherdata[i].login);
-		fprintf(file, "%s\n", teacherdata[i].password);
-		fprintf(file, "%s\n", teacherdata[i].surname);
-		fprintf(file, "%s\n", teacherdata[i].name);
-		fprintf(file, "%s\n", teacherdata[i].patronymic);
-		fprintf(file, "%d\n", teacherdata[i].numbers_of_students);
-		for (int j = 0; j < teacherdata[i].numbers_of_students; j++)fprintf(file, "%d ", teacherdata[i].id_students_arr[j]);
-		fprintf(file, "\n");
+		file << teacherdata[i].login;
+		file << teacherdata[i].password;
+		file << teacherdata[i].surname;
+		file << teacherdata[i].name;
+		file << teacherdata[i].patronymic;
+		file << teacherdata[i].numbers_of_students;
+		for (int j = 0; j < teacherdata[i].numbers_of_students; j++)file << teacherdata[i].id_students_arr[j];
+		file << "\n";
 	}
-	fclose(file);
+	file.close();
 	/*TextEncryption(2);*/
 }
 
 int CheckTeacherListNumber()
 {
 	/*TextDecryption(2);*/
-	FILE* file;
-	file = fopen("teacher_database.txt", "r");
+	ifstream file("teacher_database.txt");
+	if (!file.is_open()) {
+		cout << "Ошибка открытия файла teacher_database.txt" << endl;
+		system("pause");
+		return 0;
+	}
 	int number;
-	fscanf_s(file, "%d", &number);
-	fclose(file);
+	file >> number;
+	file.close();
 	return number;
 	/*TextEncryption(2);*/
 }
 int CheckStudentListNumber()
 {
 	/*TextDecryption(1);*/
-	FILE* file;
-	file = fopen("students_database.txt", "r");
+	ifstream file("students_database.txt");
+	if (!file.is_open()) {
+		cout << "Ошибка открытия файла students_database.txt" << endl;
+		system("pause");
+		return 0;
+	}
 	int number;
-	fscanf_s(file, "%d", &number);
-	fclose(file);
+	file >> number;
+	file.close();
 	return number;
 	/*TextEncryption(1);*/
 }
 TeacherData* CheckTeacherList(TeacherData* teacherdata, int number)
 {
 	/*TextDecryption(2);*/
-	char string[100];
-	FILE* file;
-	file = fopen("teacher_database.txt", "r");
-	fscanf_s(file, "%d%c", &number, &string[0]);
+	char string;
+	ifstream file("teacher_database.txt");
+	if (!file.is_open()) {
+		cout << "Ошибка открытия файла teacher_database.txt" << endl;
+		system("pause");
+		return NULL;
+	}
+	file >> number >> string;
+
 	for (int i = 0; i < number; i++)
 	{
 		teacherdata = (TeacherData*)realloc((void*)teacherdata, (i + 1) * sizeof(TeacherData));
-		fscanf_s(file, "%c", &string[0]);
-		fscanf_s(file, "%s", &teacherdata[i].login);
-		fscanf_s(file, "%s", &teacherdata[i].password);
-		fscanf_s(file, "%s", &teacherdata[i].surname);
-		fscanf_s(file, "%s", &teacherdata[i].name);
-		fscanf_s(file, "%s", &teacherdata[i].patronymic);
-		fscanf_s(file, "%d", &teacherdata[i].numbers_of_students);
+		file >> string;
+		file >> teacherdata[i].login;
+		file >> teacherdata[i].password;
+		file >> teacherdata[i].surname;
+		file >> teacherdata[i].name;
+		file >> teacherdata[i].patronymic;
+		file >> teacherdata[i].numbers_of_students;
 		teacherdata[i].id_students_arr = (int*)malloc(teacherdata[i].numbers_of_students * sizeof(int));
 		for (int j = 0; j < teacherdata[i].numbers_of_students; j++)
 		{
-			fscanf_s(file, "%d", &teacherdata[i].id_students_arr[j]);
+			file >> teacherdata[i].id_students_arr[j];
 		}
-		fscanf_s(file, "%c", &string[0]);
+		file >> string;
 	}
-	fclose(file);
+	file.close();
 	return teacherdata;
 	/*TextEncryption(2);*/
 }
@@ -96,128 +117,688 @@ TeacherData* CheckTeacherList(TeacherData* teacherdata, int number)
 StudentData* CheckStudentList(StudentData* studentdata, int number)
 {
 	/*TextDecryption(1);*/
-	char string[100];
-	FILE* file;
-	file = fopen("students_database.txt", "r");
-	fscanf(file, "%d%c", &number, &string[0]);
+	char string;
+	ifstream file("students_database.txt");
+	if (!file.is_open()) {
+		cout << "Ошибка открытия файла students_database.txt" << endl;
+		system("pause");
+		return NULL;
+	}
+	file >> number >> string;
 	for (int i = 0; i < number; i++)
 	{
 		studentdata = (StudentData*)realloc((void*)studentdata, (i + 1) * sizeof(StudentData));
-		fscanf(file, "%c", &string[0]);
-		fscanf(file, "%s", studentdata[i].login);
-		fscanf(file, "%s", studentdata[i].password);
-		fscanf(file, "%s", studentdata[i].surname);
-		fscanf(file, "%s", studentdata[i].name);
-		fscanf(file, "%s", studentdata[i].patronymic);
+		file >> string;
+		file >> studentdata[i].login;
+		file >> studentdata[i].password;
+		file >> studentdata[i].surname;
+		file >> studentdata[i].name;
+		file >> studentdata[i].patronymic;
 		for (int j = 0; j < 9; j++)
 		{
-			fscanf(file, "%d", &studentdata[i].marks[j]);
+			file >> studentdata[i].marks[j];
 		}
-		fscanf(file, "%d", &studentdata[i].id);
-		fscanf(file, "%c", &string[0]);
+		file >> studentdata[i].id;
+		file >> string;
 	}
-	fclose(file);
+	file.close();
 	return studentdata;
 	/*TextEncryption(1);*/
 }
-
-void TextDecryption(int number_of_text)//1 - student 2 - teacher 3 - circle 4 - array 5 - string 6 - rekursion 7 - struct 8 - files 9 - pointer 10 - dinmemory
+//1 - student
+//2 - teacher 
+//3 - circle 
+//4 - array 
+//5 - string 
+//6 - rekursion 
+//7 - struct 
+//8 - files 
+//9 - pointer 
+//10 - dinmemory
+void TextDecryption(int number_of_text)
 {
-	FILE* file;
+	vector <char> symbol;
+	char sym;
+	int i = 0;
 	switch (number_of_text)
 	{
-	case 1: file = fopen("students_database.txt", "r"); break;
-	case 2: file = fopen("teacher_database.txt", "r"); break;
-	case 3: file = fopen("CircleTest.txt", "r"); break;
-	case 4: file = fopen("ArrayTest.txt", "r"); break;
-	case 5: file = fopen("StringTest.txt", "r"); break;
-	case 6: file = fopen("RekursionTest.txt", "r"); break;
-	case 7: file = fopen("StructTest.txt", "r"); break;
-	case 8: file = fopen("FilesTest.txt", "r"); break;
-	case 9: file = fopen("PointerTest.txt", "r"); break;
-	default: file = fopen("DinMemory.txt", "r");
-	}
-	char* string = (char*)malloc(sizeof(char));
-	int i = 0;
-	do
+	case 1:
 	{
-		string = (char*)realloc(string, (i + 1) * sizeof(char));
-		fscanf_s(file, "%c", &string[i]);
-		i++;
-	} while (string[i - 1] != '\0');
-	fclose(file);
+		ifstream file("students_database.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла students_database.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 2:
+	{
+		ifstream file("teacher_database.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла teacher_database.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 3:
+	{
+		ifstream file("CircleTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла CircleTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 4:
+	{
+		ifstream file("ArrayTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла ArrayTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 5:
+	{
+		ifstream file("StringTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла StringTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 6:
+	{
+		ifstream file("RekursionTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла RekursionTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 7:
+	{
+		ifstream file("StructTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла StructTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 8:
+	{
+		ifstream file("FilesTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла FilesTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 9:
+	{
+		ifstream file("PointerTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла PointerTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	default:
+	{
+		ifstream file("DinMemory.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла DinMemory.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}
+	}
 	for (int j = 0; j < i - 1; j++)
 	{
-		string[j]++;
+		symbol[j]--;
 	}
 	switch (number_of_text)
 	{
-	case 1: file = fopen("students_database.txt", "w"); break;
-	case 2: file = fopen("teacher_database.txt", "w"); break;
-	case 3: file = fopen("CircleTest.txt", "w"); break;
-	case 4: file = fopen("ArrayTest.txt", "w"); break;
-	case 5: file = fopen("StringTest.txt", "w"); break;
-	case 6: file = fopen("RekursionTest.txt", "w"); break;
-	case 7: file = fopen("StructTest.txt", "w"); break;
-	case 8: file = fopen("FilesTest.txt", "w"); break;
-	case 9: file = fopen("PointerTest.txt", "w"); break;
-	default: file = fopen("DinMemory.txt", "w");
-	}
-	for (int j = 0; j < i; j++)
+	case 1:
 	{
-		fprintf(file, "%c", string[j]);
+		ofstream file("students_database.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла students_database.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 2:
+	{
+		ofstream file("teacher_database.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла teacher_database.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 3:
+	{
+		ofstream file("CircleTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла CircleTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 4:
+	{
+		ofstream file("ArrayTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла ArrayTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 5:
+	{
+		ofstream file("StringTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла StringTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 6:
+	{
+		ofstream file("RekursionTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла RekursionTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 7:
+	{
+		ofstream file("StructTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла StructTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 8:
+	{
+		ofstream file("FilesTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла FilesTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 9:
+	{
+		ofstream file("PointerTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла PointerTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	default:
+	{
+		ofstream file("DinMemory.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла DinMemory.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
 	}
-	fclose(file);
+	}
+	return;
 }
 
-void TextEncryption(int number_of_text)//1 - student 2 - teacher 3 - test
+//1 - student
+//2 - teacher 
+//3 - circle 
+//4 - array 
+//5 - string 
+//6 - rekursion 
+//7 - struct 
+//8 - files 
+//9 - pointer 
+//10 - dinmemory
+void TextEncryption(int number_of_text)//1 - student 2 - teacher 3 - circle 4 - array 5 - string 6 - rekursion 7 - struct 8 - files 9 - pointer 10 - dinmemory
 {
-	FILE* file;
-	int a;
+	vector <char> symbol;
+	char sym;
+	int i = 0;
 	switch (number_of_text)
 	{
-	case 1: file = fopen("students_database.txt", "r"); break;
-	case 2: file = fopen("teacher_database.txt", "r"); break;
-	case 3: file = fopen("CircleTest.txt", "r"); break;
-	case 4: file = fopen("ArrayTest.txt", "r"); break;
-	case 5: file = fopen("StringTest.txt", "r"); break;
-	case 6: file = fopen("RekursionTest.txt", "r"); break;
-	case 7: file = fopen("StructTest.txt", "r"); break;
-	case 8: file = fopen("FilesTest.txt", "r"); break;
-	case 9: file = fopen("PointerTest.txt", "r"); break;
-	default: file = fopen("DinMemory.txt", "r");
-	}
-	char* string = (char*)malloc(sizeof(char));
-	int i = 0;
-	do
+	case 1:
 	{
-		string = (char*)realloc(string, (i + 1) * sizeof(char));
-		fscanf_s(file, "%c", &string[i]);
-		i++;
-	} while (string[i - 1] != '\0');
-	fclose(file);
+		ifstream file("students_database.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла students_database.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 2:
+	{
+		ifstream file("teacher_database.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла teacher_database.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 3:
+	{
+		ifstream file("CircleTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла CircleTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 4:
+	{
+		ifstream file("ArrayTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла ArrayTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 5:
+	{
+		ifstream file("StringTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла StringTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 6:
+	{
+		ifstream file("RekursionTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла RekursionTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 7:
+	{
+		ifstream file("StructTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла StructTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 8:
+	{
+		ifstream file("FilesTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла FilesTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	case 9:
+	{
+		ifstream file("PointerTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла PointerTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}break;
+	default:
+	{
+		ifstream file("DinMemory.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла DinMemory.txt" << endl;
+			system("pause");
+			return;
+		}
+		file >> sym;
+		while (sym)
+		{
+			symbol.push_back(sym);
+			i++;
+		}
+		file.close();
+	}
+	}
 	for (int j = 0; j < i - 1; j++)
 	{
-		string[j]--;
+		symbol[j]++;
 	}
 	switch (number_of_text)
 	{
-	case 1: file = fopen("students_database.txt", "w"); break;
-	case 2: file = fopen("teacher_database.txt", "w"); break;
-	case 3: file = fopen("CircleTest.txt", "w"); break;
-	case 4: file = fopen("ArrayTest.txt", "w"); break;
-	case 5: file = fopen("StringTest.txt", "w"); break;
-	case 6: file = fopen("RekursionTest.txt", "w"); break;
-	case 7: file = fopen("StructTest.txt", "w"); break;
-	case 8: file = fopen("FilesTest.txt", "w"); break;
-	case 9: file = fopen("PointerTest.txt", "w"); break;
-	default: file = fopen("DinMemory.txt", "w");
-	}
-	for (int j = 0; j < i; j++)
+	case 1:
 	{
-		fprintf(file, "%c", string[j]);
+		ofstream file("students_database.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла students_database.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 2:
+	{
+		ofstream file("teacher_database.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла teacher_database.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 3:
+	{
+		ofstream file("CircleTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла CircleTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 4:
+	{
+		ofstream file("ArrayTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла ArrayTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 5:
+	{
+		ofstream file("StringTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла StringTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 6:
+	{
+		ofstream file("RekursionTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла RekursionTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 7:
+	{
+		ofstream file("StructTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла StructTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 8:
+	{
+		ofstream file("FilesTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла FilesTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	case 9:
+	{
+		ofstream file("PointerTest.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла PointerTest.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
+	}break;
+	default:
+	{
+		ofstream file("DinMemory.txt");
+		if (!file.is_open()) {
+			cout << "Ошибка открытия файла DinMemory.txt" << endl;
+			system("pause");
+			return;
+		}
+		for (int j = 0; j < i; j++)
+		{
+			file << symbol[j];
+		}
+		file.close();
 	}
-	fclose(file);
+	}
+	return;
 }
 
 void AddStudent(StudentData* studentdata, int* number_of_students, TeacherData* teacherdata, int number_of_teachers, int current_teacher_number)//Just let me create these functions
