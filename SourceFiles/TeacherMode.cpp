@@ -1,8 +1,8 @@
-#include "../Headers/TeacherMode.h"
+п»ї#include "../Headers/TeacherMode.h"
 #include "../Headers/FileReading.h"
 
 #define DATABASE_LOCATION_VOLUME_NAME "D:"
-#define ABSPATH_TO_DATABASE "D:\\БГТУ\\Программирование\\Practice10_GroupProject\\git_practice10_project\\SourceFiles\\"
+#define ABSPATH_TO_DATABASE "D:\\Р‘Р“РўРЈ\\РџСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёРµ\\Practice10_GroupProject\\git_practice10_project\\SourceFiles\\"
 
 int FileOutput(vector<string> lines)
 {
@@ -22,7 +22,7 @@ int QuestionDel(string Theme, vector<string> lines)
 {
 	FileOutput(lines);
 	int lineNumber;
-	cout << "Выберите номер вопроса для удаления(0 - выход): ";
+	cout << "Р’С‹Р±РµСЂРёС‚Рµ РЅРѕРјРµСЂ РІРѕРїСЂРѕСЃР° РґР»СЏ СѓРґР°Р»РµРЅРёСЏ(0 - РІС‹С…РѕРґ): ";
 	cin >> lineNumber;
 	lineNumber--;
 	if (lineNumber >= 0 && lineNumber < lines.size()) {
@@ -35,13 +35,13 @@ int QuestionDel(string Theme, vector<string> lines)
 			fileOut.close();
 		}
 		else {
-			cout << "Ошибка при открытии файла." << endl;
+			cout << "РћС€РёР±РєР° РїСЂРё РѕС‚РєСЂС‹С‚РёРё С„Р°Р№Р»Р°." << endl;
 			return 1;
 		}
-		cout << "Готово." << endl;
+		cout << "Р“РѕС‚РѕРІРѕ." << endl;
 	}
 	else {
-		cout << "Неверный номер вопроса." << endl;
+		cout << "РќРµРІРµСЂРЅС‹Р№ РЅРѕРјРµСЂ РІРѕРїСЂРѕСЃР°." << endl;
 		return 1;
 	}
 	return 0;
@@ -52,16 +52,16 @@ int QuestionEdit(string Theme, vector<string> lines)
 	FileOutput(lines);
 
 	int LineNumber;
-	cout << "Выберите номер вопроса для редактирования(0 - выход): ";
+	cout << "Р’С‹Р±РµСЂРёС‚Рµ РЅРѕРјРµСЂ РІРѕРїСЂРѕСЃР° РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ(0 - РІС‹С…РѕРґ): ";
 	cin >> LineNumber;
 	LineNumber--;
 	if (LineNumber >= 0 && LineNumber < lines.size()) {
 		string editedLine;
-		cout << "Новый вариант вопроса: ";
+		cout << "РќРѕРІС‹Р№ РІР°СЂРёР°РЅС‚ РІРѕРїСЂРѕСЃР°: ";
 		cin.ignore();
 		getline(cin, editedLine);
 		if (!isdigit(editedLine.back())) {
-			cout << "Последний символ нового варианта вопроса должен быть его ответом, то есть, цифрой." << endl;
+			cout << "РџРѕСЃР»РµРґРЅРёР№ СЃРёРјРІРѕР» РЅРѕРІРѕРіРѕ РІР°СЂРёР°РЅС‚Р° РІРѕРїСЂРѕСЃР° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РµРіРѕ РѕС‚РІРµС‚РѕРј, С‚Рѕ РµСЃС‚СЊ, С†РёС„СЂРѕР№." << endl;
 			return 1;
 		}
 		lines[LineNumber] = editedLine;
@@ -73,14 +73,14 @@ int QuestionEdit(string Theme, vector<string> lines)
 			fileOut.close();
 		}
 		else {
-			cout << "Ошибка при открытии файла." << endl;
+			cout << "РћС€РёР±РєР° РїСЂРё РѕС‚РєСЂС‹С‚РёРё С„Р°Р№Р»Р°." << endl;
 			system("pause");
 			return 1;
 		}
-		cout << "Готово." << endl;
+		cout << "Р“РѕС‚РѕРІРѕ." << endl;
 	}
 	else {
-		cout << "Неверный номер вопроса." << endl;
+		cout << "РќРµРІРµСЂРЅС‹Р№ РЅРѕРјРµСЂ РІРѕРїСЂРѕСЃР°." << endl;
 		return 1;
 	}
 	return 0;
@@ -91,13 +91,13 @@ int QuestionAdd(string Theme, vector<string> lines)
 	FileOutput(lines);
 
 	string newLine;
-	cout << "Новый вопрос: ";
+	cout << "РќРѕРІС‹Р№ РІРѕРїСЂРѕСЃ: ";
 
 	cin.ignore();
 	getline(cin, newLine);
 
 	if (!isdigit(newLine.back())) {
-		cout << "Последний символ нового вопроса должен быть его ответом, то есть, цифрой." << endl;
+		cout << "РџРѕСЃР»РµРґРЅРёР№ СЃРёРјРІРѕР» РЅРѕРІРѕРіРѕ РІРѕРїСЂРѕСЃР° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РµРіРѕ РѕС‚РІРµС‚РѕРј, С‚Рѕ РµСЃС‚СЊ, С†РёС„СЂРѕР№." << endl;
 		return 1;
 	}
 
@@ -111,10 +111,10 @@ int QuestionAdd(string Theme, vector<string> lines)
 		fileOut.close();
 	}
 	else {
-		cout << "Ошибка при открытии файла." << endl;
+		cout << "РћС€РёР±РєР° РїСЂРё РѕС‚РєСЂС‹С‚РёРё С„Р°Р№Р»Р°." << endl;
 		return 1;
 	}
-	cout << "Готово." << endl;
+	cout << "Р“РѕС‚РѕРІРѕ." << endl;
 	return 0;
 }
 
@@ -125,7 +125,7 @@ vector<string> fileParse(string Theme)
 
 	ifstream fileInp(Theme);
 	if (!fileInp.is_open()) {
-		cout << "Ошибка при открытии файла" << endl;
+		cout << "РћС€РёР±РєР° РїСЂРё РѕС‚РєСЂС‹С‚РёРё С„Р°Р№Р»Р°" << endl;
 		system("pause");
 		return lines;
 	}
@@ -146,7 +146,7 @@ int QestionEditorPlace(string Theme)
 	do
 	{
 		system("cls");
-		cout << "Выберите действие: " << endl << "1 - Удалить вопрос" << endl << "2 - Редактировать вопрос" << endl << "3 - Добавить вопрос" << endl << "4 - Вывести перечень вопросов" << endl << "0 - Выйти в меню выбора темы" << endl;
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ: " << endl << "1 - РЈРґР°Р»РёС‚СЊ РІРѕРїСЂРѕСЃ" << endl << "2 - Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РІРѕРїСЂРѕСЃ" << endl << "3 - Р”РѕР±Р°РІРёС‚СЊ РІРѕРїСЂРѕСЃ" << endl << "4 - Р’С‹РІРµСЃС‚Рё РїРµСЂРµС‡РµРЅСЊ РІРѕРїСЂРѕСЃРѕРІ" << endl << "0 - Р’С‹Р№С‚Рё РІ РјРµРЅСЋ РІС‹Р±РѕСЂР° С‚РµРјС‹" << endl;
 		cin >> switcher;
 		switch (switcher) {
 		case 1: system("cls"); QuestionDel(Theme, lines); system("pause"); system("cls"); lines = fileParse(Theme); break;
@@ -154,7 +154,7 @@ int QestionEditorPlace(string Theme)
 		case 3: system("cls"); QuestionAdd(Theme, lines); system("pause"); system("cls"); lines = fileParse(Theme); break;
 		case 4: system("cls"); FileOutput(lines); system("pause"); system("cls"); break;
 		case 0: break;
-		default: cout << "Несуществующий вариат." << endl;
+		default: cout << "РќРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РІР°СЂРёР°С‚." << endl;
 		}
 	} while (switcher != 0);
 	return 0;
@@ -170,7 +170,7 @@ int QestionEditorMenu()
 	do
 	{
 		system("cls");
-		cout << "Выберите тему для редактирования перечня вопросов:" << endl << endl << "1 - Циклы\n2 - Массивы\n3 - Строки\n4 - Рекурсия\n5 - Структуры\n6 - Файлы\n7 - Адреса и указатели\n8 - Динамическая память\n0 - Выйти из редактора вопросов\n--> ";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ С‚РµРјСѓ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ РїРµСЂРµС‡РЅСЏ РІРѕРїСЂРѕСЃРѕРІ:" << endl << endl << "1 - Р¦РёРєР»С‹\n2 - РњР°СЃСЃРёРІС‹\n3 - РЎС‚СЂРѕРєРё\n4 - Р РµРєСѓСЂСЃРёСЏ\n5 - РЎС‚СЂСѓРєС‚СѓСЂС‹\n6 - Р¤Р°Р№Р»С‹\n7 - РђРґСЂРµСЃР° Рё СѓРєР°Р·Р°С‚РµР»Рё\n8 - Р”РёРЅР°РјРёС‡РµСЃРєР°СЏ РїР°РјСЏС‚СЊ\n0 - Р’С‹Р№С‚Рё РёР· СЂРµРґР°РєС‚РѕСЂР° РІРѕРїСЂРѕСЃРѕРІ\n--> ";
 		cin >> switcher;
 		switch (switcher)
 		{
@@ -183,7 +183,7 @@ int QestionEditorMenu()
 		case 7: QestionEditorPlace("PointerTest.txt"); break;
 		case 8: QestionEditorPlace("DinMemory.txt"); break;
 		case 0: break;
-		default: cout << "Несуществующий вариант";
+		default: cout << "РќРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РІР°СЂРёР°РЅС‚";
 		}
 	} while (switcher != 0);
 
@@ -194,9 +194,9 @@ int QestionEditorMenu()
 //TODO ILIAS
 void DelAndRegStudents(StudentData* studentdata, int number_of_students, TeacherData* teacherdata, int number_of_teachers, int current_teacher_number)
 {
-	system("cls");
+	/*system("cls");
 	char key;
-	cout << "Нажмите 1, чтобы добавить студента\nНажите 2, чтобы удалить студента\nНажмите 0, чтобы вернуться в меню" << endl;
+	cout << "РќР°Р¶РјРёС‚Рµ 1, С‡С‚РѕР±С‹ РґРѕР±Р°РІРёС‚СЊ СЃС‚СѓРґРµРЅС‚Р°\nРќР°Р¶РёС‚Рµ 2, С‡С‚РѕР±С‹ СѓРґР°Р»РёС‚СЊ СЃС‚СѓРґРµРЅС‚Р°\nРќР°Р¶РјРёС‚Рµ 0, С‡С‚РѕР±С‹ РІРµСЂРЅСѓС‚СЊСЃСЏ РІ РјРµРЅСЋ" << endl;
 	do {
 		key = _getch();
 	} while (key < '0' || key >'2');
@@ -206,7 +206,7 @@ void DelAndRegStudents(StudentData* studentdata, int number_of_students, Teacher
 	case 49: AddStudent(studentdata, &number_of_students, teacherdata, number_of_teachers, current_teacher_number); break;
 		default: DeleteStudent(studentdata, &number_of_students, teacherdata, number_of_teachers, current_teacher_number);
 	}
-	return;
+	return;*/
 }
 
 void EditStudentsProgress()
@@ -223,16 +223,16 @@ void ShowStudensList(int mode_id, StudentData* student_data, int students_quanti
 	switch (mode_id)
 	{
 	case(1):
-		// по всем темам
+		// РїРѕ РІСЃРµРј С‚РµРјР°Рј
 		for (int student_num = 0; student_num < students_quantity; student_num++)
 		{
-			cout << "Пользователь #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
+			cout << "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
 			cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
-			cout << "Оценки по всем темам:" << endl;
+			cout << "РћС†РµРЅРєРё РїРѕ РІСЃРµРј С‚РµРјР°Рј:" << endl;
 
 			for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
 			{
-				if (student_data[student_num].marks[mark_id] == 0) cout << "н\n";
+				if (student_data[student_num].marks[mark_id] == 0) cout << "РЅ\n";
 				else
 				{
 					cout << student_data[student_num].marks[mark_id] << endl;
@@ -243,33 +243,33 @@ void ShowStudensList(int mode_id, StudentData* student_data, int students_quanti
 		break;
 
 	case(2):
-		// определённый тест
+		// РѕРїСЂРµРґРµР»С‘РЅРЅС‹Р№ С‚РµСЃС‚
 
 		int s_test_id;
 		double test_id;
 
-		cout << "Введите номер п/п теста:" << endl;
+		cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Рї/Рї С‚РµСЃС‚Р°:" << endl;
 		cin >> test_id;
 
 		while (test_id != round(test_id) || test_id <= 0)
 		{
-			cout << "Некорретное значение, повторите ввод:" << endl;
+			cout << "РќРµРєРѕСЂСЂРµС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ, РїРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ:" << endl;
 			cin >> test_id;
 		} s_test_id = (int)test_id;
 
 		for (int student_num = 0; student_num < students_quantity; student_num++)
 		{
-			cout << "Пользователь #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
+			cout << "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
 			cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
-			cout << "Тест #" << s_test_id << ":" << endl;
+			cout << "РўРµСЃС‚ #" << s_test_id << ":" << endl;
 
 			if (s_test_id > student_data->numbers_of_marks) 
 			{
-				cout << "Студент не выполнял тест #" << s_test_id << ".\n";
+				cout << "РЎС‚СѓРґРµРЅС‚ РЅРµ РІС‹РїРѕР»РЅСЏР» С‚РµСЃС‚ #" << s_test_id << ".\n";
 			}
 			else
 			{
-				if (student_data[student_num].marks[s_test_id - 1] == 0) cout << "Студент не выполнял тест #" << s_test_id << ".\n";
+				if (student_data[student_num].marks[s_test_id - 1] == 0) cout << "РЎС‚СѓРґРµРЅС‚ РЅРµ РІС‹РїРѕР»РЅСЏР» С‚РµСЃС‚ #" << s_test_id << ".\n";
 				else
 				{
 					cout << student_data[student_num].marks[s_test_id - 1] << endl;
@@ -280,15 +280,15 @@ void ShowStudensList(int mode_id, StudentData* student_data, int students_quanti
 		break;
 
 	case(3):
-		// итоговый тест
+		// РёС‚РѕРіРѕРІС‹Р№ С‚РµСЃС‚
 
 		for (int student_num = 0; student_num < students_quantity; student_num++)
 		{
-			cout << "Пользователь #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
+			cout << "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
 			cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
-			cout << "Итоговый тест:" << endl;
+			cout << "РС‚РѕРіРѕРІС‹Р№ С‚РµСЃС‚:" << endl;
 
-			if (student_data[student_num].marks[student_data[student_num].numbers_of_marks - 1] == 0) cout << "Студент не выполнял итоговый тест.\n";
+			if (student_data[student_num].marks[student_data[student_num].numbers_of_marks - 1] == 0) cout << "РЎС‚СѓРґРµРЅС‚ РЅРµ РІС‹РїРѕР»РЅСЏР» РёС‚РѕРіРѕРІС‹Р№ С‚РµСЃС‚.\n";
 			else
 			{
 				cout << student_data[student_num].marks[student_data[student_num].numbers_of_marks - 1] << endl;
@@ -298,13 +298,13 @@ void ShowStudensList(int mode_id, StudentData* student_data, int students_quanti
 		break;
 
 	case(4):
-		// средний бал
+		// СЃСЂРµРґРЅРёР№ Р±Р°Р»
 
 		for (int student_num = 0; student_num < students_quantity; student_num++)
 		{
-			cout << "Пользователь #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
+			cout << "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
 			cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
-			cout << "Средний бал:" << endl;
+			cout << "РЎСЂРµРґРЅРёР№ Р±Р°Р»:" << endl;
 			
 			double avg_mark = 0;
 			for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
@@ -384,8 +384,8 @@ void MarksFilter(StudentData* student_data, int students_quanity)
 		}
 	}
 
-	cout << "Список отличников:" << endl;
-	if (excellent_students_quanity == 0) cout << "К сожалению, отличников не найдено...\n" << endl;
+	cout << "РЎРїРёСЃРѕРє РѕС‚Р»РёС‡РЅРёРєРѕРІ:" << endl;
+	if (excellent_students_quanity == 0) cout << "Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ, РѕС‚Р»РёС‡РЅРёРєРѕРІ РЅРµ РЅР°Р№РґРµРЅРѕ...\n" << endl;
 	else
 	{
 		for (int student_num = 0; student_num < excellent_students_quanity; student_num++)
@@ -396,8 +396,8 @@ void MarksFilter(StudentData* student_data, int students_quanity)
 	}
 	cout << "\n";
 
-	cout << "Список хорошистов:" << endl;
-	if (good_students_quanity == 0) cout << "К сожалению, хорошистов не найдено...\n" << endl;
+	cout << "РЎРїРёСЃРѕРє С…РѕСЂРѕС€РёСЃС‚РѕРІ:" << endl;
+	if (good_students_quanity == 0) cout << "Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ, С…РѕСЂРѕС€РёСЃС‚РѕРІ РЅРµ РЅР°Р№РґРµРЅРѕ...\n" << endl;
 	else
 	{
 		for (int student_num = 0; student_num < good_students_quanity; student_num++)
@@ -408,8 +408,8 @@ void MarksFilter(StudentData* student_data, int students_quanity)
 	}
 	cout << "\n";
 
-	cout << "Список неаттестованных студентов:" << endl;
-	if (good_students_quanity == 0) cout << "К счастью, неаттестованных студентов не найдено :).\n" << endl;
+	cout << "РЎРїРёСЃРѕРє РЅРµР°С‚С‚РµСЃС‚РѕРІР°РЅРЅС‹С… СЃС‚СѓРґРµРЅС‚РѕРІ:" << endl;
+	if (good_students_quanity == 0) cout << "Рљ СЃС‡Р°СЃС‚СЊСЋ, РЅРµР°С‚С‚РµСЃС‚РѕРІР°РЅРЅС‹С… СЃС‚СѓРґРµРЅС‚РѕРІ РЅРµ РЅР°Р№РґРµРЅРѕ :).\n" << endl;
 	else
 	{
 		for (int student_num = 0; student_num < not_certified_quanity; student_num++)
@@ -447,7 +447,7 @@ void ShowSortList(StudentData* student_data, int students_quantity)
 		sorted_array[i] = i;
 	}
 
-	// сортировка пузырьком
+	// СЃРѕСЂС‚РёСЂРѕРІРєР° РїСѓР·С‹СЂСЊРєРѕРј
 	for (int i = 0; i < students_quantity - 1; i++)
 	{
 		for (int j = 0; j < students_quantity - i - 1; j++)
@@ -464,13 +464,13 @@ void ShowSortList(StudentData* student_data, int students_quantity)
 	for (int i = 0; i < students_quantity; i++)
 	{
 		int student_num = sorted_array[i];
-		cout << "Пользователь #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
+		cout << "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
 		cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
-		cout << "Средний бал: " << student_data[student_num].avg_mark << endl;
+		cout << "РЎСЂРµРґРЅРёР№ Р±Р°Р»: " << student_data[student_num].avg_mark << endl;
 
-		cout << "Оценки по всем темам:" << endl;
+		cout << "РћС†РµРЅРєРё РїРѕ РІСЃРµРј С‚РµРјР°Рј:" << endl;
 		for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
-			if (student_data[student_num].marks[mark_id] == 0) cout << "н\n";
+			if (student_data[student_num].marks[mark_id] == 0) cout << "РЅ\n";
 			else
 			{
 							cout << student_data[student_num].marks[mark_id] << endl;
@@ -487,13 +487,88 @@ void ShowSortList(StudentData* student_data, int students_quantity)
 void TeacherAuthMenu()
 {
 
-	int number_of_teachers = CheckTeacherListNumber();
+	/*int number_of_teachers = CheckTeacherListNumber();
 	TeacherData* teachers = (TeacherData*)malloc(number_of_teachers * sizeof(TeacherData));
 	teachers = CheckTeacherList(teachers, number_of_teachers);
 
 	int number_of_students = CheckStudentListNumber();
 	StudentData* students = (StudentData*)malloc(number_of_teachers * sizeof(StudentData));
-	students = CheckStudentList(students, number_of_teachers);
+	students = CheckStudentList(students, number_of_teachers);*/
+
+	int number_of_teachers = 2;
+	TeacherData* teachers = new TeacherData[number_of_teachers];
+
+	teachers[0].login = "kazemir32";
+	teachers[0].name = "РљР°Р·РµРјРёСЂ";
+	teachers[0].surname = "РљР°Р·РµРјРёСЂРѕРІРёС‡";
+	teachers[0].patronymic = "Р’РѕР»РѕРіРґРµС†РєРёР№";
+	teachers[0].password = "qwerty";
+
+	teachers[1].login = "maxonpolyakov";
+	teachers[1].name = "РњР°РєСЃРёРј";
+	teachers[1].surname = "РџРѕР»СЏРєРѕРІ";
+	teachers[1].patronymic = "Р’Р»Р°РґРёРјРёСЂРѕРІРёС‡";
+	teachers[1].password = "bobus2";
+
+	int number_of_students = 4;
+	StudentData* students = new StudentData[number_of_students];
+
+	students[0].login = "student32";
+	students[0].name = "РўРµСЃС‚РѕРІС‹Р№";
+	students[0].surname = "РЎС‚СѓРґРµРЅС‚";
+	students[0].patronymic = "1";
+	students[0].password = "qwerty";
+	students[0].id = 0;
+	students[0].numbers_of_marks = 6;
+	students[0].marks[0] = 2;
+	students[0].marks[1] = 3;
+	students[0].marks[2] = 4;
+	students[0].marks[3] = 5;
+	students[0].marks[4] = 0;
+	students[0].marks[5] = 2;
+
+
+	students[1].login = "demidovsieben";
+	students[1].name = "РўРµСЃС‚РѕРІС‹Р№";
+	students[1].surname = "РЎС‚СѓРґРµРЅС‚";
+	students[1].patronymic = "2";
+	students[1].password = "qwerty";
+	students[1].id = 1;
+	students[1].numbers_of_marks = 6;
+	students[1].marks[0] = 5;
+	students[1].marks[1] = 5;
+	students[1].marks[2] = 5;
+	students[1].marks[3] = 5;
+	students[1].marks[4] = 5;
+	students[1].marks[5] = 5;
+
+	students[2].login = "robertorick";
+	students[2].name = "РўРµСЃС‚РѕРІС‹Р№";
+	students[2].surname = "РЎС‚СѓРґРµРЅС‚";
+	students[2].patronymic = "3";
+	students[2].password = "qwerty";
+	students[2].id = 2;
+	students[2].numbers_of_marks = 6;
+	students[2].marks[0] = 4;
+	students[2].marks[1] = 5;
+	students[2].marks[2] = 5;
+	students[2].marks[3] = 4;
+	students[2].marks[4] = 5;
+	students[2].marks[5] = 5;
+
+	students[3].login = "iliasieben";
+	students[3].name = "РўРµСЃС‚РѕРІС‹Р№";
+	students[3].surname = "РЎС‚СѓРґРµРЅС‚";
+	students[3].patronymic = "4";
+	students[3].password = "qwerty";
+	students[3].id = 3;
+	students[3].numbers_of_marks = 6;
+	students[3].marks[0] = 4;
+	students[3].marks[1] = 3;
+	students[3].marks[2] = 5;
+	students[3].marks[3] = 4;
+	students[3].marks[4] = 5;
+	students[3].marks[5] = 5;
 
 	string state = "run";
 
@@ -503,16 +578,16 @@ void TeacherAuthMenu()
 		int curr_user_arr_id_in_database;
 
 		system("cls");
-		cout << "Добро пожаловать, для продолжения введите свой логин (чтобы вернуться в главное меню введите 0):" << endl;
+		cout << "Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ, РґР»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РІРІРµРґРёС‚Рµ СЃРІРѕР№ Р»РѕРіРёРЅ (С‡С‚РѕР±С‹ РІРµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ РІРІРµРґРёС‚Рµ 0):" << endl;
 		getline(cin, curr_user.login);
 
-		// пользователь хочет вернуться в главное меню
+		// РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ С…РѕС‡РµС‚ РІРµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
 		if (curr_user.login == "0") state = "shutdown";
 
-		// пользователь вводит логин
+		// РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІРІРѕРґРёС‚ Р»РѕРіРёРЅ
 		else
 		{
-			// проверка на существования логина в базе данных
+			// РїСЂРѕРІРµСЂРєР° РЅР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ Р»РѕРіРёРЅР° РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С…
 			bool flag_teacher_exist = false;
 			for (int arr_id = 0; arr_id < number_of_teachers; arr_id++)
 			{
@@ -526,22 +601,22 @@ void TeacherAuthMenu()
 
 			if (!flag_teacher_exist)
 			{
-				cout << "Извините, пользователь " << curr_user.login << " не найден.\n";
-				cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
+				cout << "РР·РІРёРЅРёС‚Рµ, РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ " << curr_user.login << " РЅРµ РЅР°Р№РґРµРЅ.\n";
+				cout << "РќР°Р¶РјРёС‚Рµ РєР»Р°РІРёС€Сѓ ENTER, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ.\n";
 				getchar();
 				continue;
 			}
 
-			// пользователь существует
-			cout << "Вы входите, как " << teachers[curr_user_arr_id_in_database].name << " " << teachers[curr_user_arr_id_in_database].patronymic << ".\n";
+			// РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃСѓС‰РµСЃС‚РІСѓРµС‚
+			cout << "Р’С‹ РІС…РѕРґРёС‚Рµ, РєР°Рє " << teachers[curr_user_arr_id_in_database].name << " " << teachers[curr_user_arr_id_in_database].patronymic << ".\n";
 
 			int attemps_left = 3;
 			do
 			{
-				cout << "Для продолжения введите пароль(чтобы выйти из учётной записи введите 0): ";
+				cout << "Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РІРІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ(С‡С‚РѕР±С‹ РІС‹Р№С‚Рё РёР· СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё РІРІРµРґРёС‚Рµ 0): ";
 				getline(cin, curr_user.password);
 				
-				// отказ от ввода пароля, выход в меню авторизации
+				// РѕС‚РєР°Р· РѕС‚ РІРІРѕРґР° РїР°СЂРѕР»СЏ, РІС‹С…РѕРґ РІ РјРµРЅСЋ Р°РІС‚РѕСЂРёР·Р°С†РёРё
 				if (curr_user.password == "0") continue;
 
 				if (curr_user.password != teachers[curr_user_arr_id_in_database].password)
@@ -549,7 +624,7 @@ void TeacherAuthMenu()
 					attemps_left--;
 					if (attemps_left) 
 					{
-						cout << "Вы ввели неверный пароль, попробуйте снова." << "Осталось(ась) " << attemps_left << " попытки(ок/ка)." << endl;
+						cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅС‹Р№ РїР°СЂРѕР»СЊ, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°." << "РћСЃС‚Р°Р»РѕСЃСЊ(Р°СЃСЊ) " << attemps_left << " РїРѕРїС‹С‚РєРё(РѕРє/РєР°)." << endl;
 					}
 					
 				}
@@ -558,29 +633,29 @@ void TeacherAuthMenu()
 
 			if (attemps_left == 0)
 			{
-				cout << "Вы не авторизировались.\n";
-				cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
+				cout << "Р’С‹ РЅРµ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°Р»РёСЃСЊ.\n";
+				cout << "РќР°Р¶РјРёС‚Рµ РєР»Р°РІРёС€Сѓ ENTER, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ.\n";
 				getchar();
 				continue;
 			}
 
 			int teacher_section_choose;
 			int teacher_task_choose;
-			// меню авторизованного учителя
+			// РјРµРЅСЋ Р°РІС‚РѕСЂРёР·РѕРІР°РЅРЅРѕРіРѕ СѓС‡РёС‚РµР»СЏ
 
 			do
 			{
-				number_of_teachers = CheckTeacherListNumber();
-				teachers = CheckTeacherList(teachers, number_of_teachers);
-				number_of_students = CheckStudentListNumber();
-				students = CheckStudentList(students, number_of_teachers);
+				//number_of_teachers = CheckTeacherListNumber();
+				//teachers = CheckTeacherList(teachers, number_of_teachers);
+				//number_of_students = CheckStudentListNumber();
+				//students = CheckStudentList(students, number_of_teachers);
 				system("cls");
 				curr_user = teachers[curr_user_arr_id_in_database];
 
-				cout << "Вы авторизированы, как " << curr_user.surname << " " << curr_user.name << " " << curr_user.patronymic << endl;
-				cout << "1. Редактирование вопросов." << endl << "2. Работа со списком студентов." << endl << "0. Выход из учётной записи" << endl;
+				cout << "Р’С‹ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹, РєР°Рє " << curr_user.surname << " " << curr_user.name << " " << curr_user.patronymic << endl;
+				cout << "1. Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РІРѕРїСЂРѕСЃРѕРІ." << endl << "2. Р Р°Р±РѕС‚Р° СЃРѕ СЃРїРёСЃРєРѕРј СЃС‚СѓРґРµРЅС‚РѕРІ." << endl << "0. Р’С‹С…РѕРґ РёР· СѓС‡С‘С‚РЅРѕР№ Р·Р°РїРёСЃРё" << endl;
 
-				cout << "Выберите раздел меню: ";
+				cout << "Р’С‹Р±РµСЂРёС‚Рµ СЂР°Р·РґРµР» РјРµРЅСЋ: ";
 				cin >> teacher_section_choose;
 
 
@@ -588,64 +663,64 @@ void TeacherAuthMenu()
 				{
 				case 1:
 				{
-					// редактирование вопросов
+					// СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РІРѕРїСЂРѕСЃРѕРІ
 					QestionEditorMenu(); break;
 				}
 				case 2:
 				{
-					// работа со списком студентов
-					cout << "1. Удаление и регистрация студентов.\n2. Изменение прогресса студентов.\n-- Вывод списка студентов с оценками \n3. -по всем темам\n4. -по конкретной теме\n";
-					cout << "5. -только итоговый тест\n6. -только средний бал\n7. Фильтрация (по конкретным оценкам).\n8. Сортировка по конректным оценкам.\n";
-					cout << "Выберите задачу: ";
+					// СЂР°Р±РѕС‚Р° СЃРѕ СЃРїРёСЃРєРѕРј СЃС‚СѓРґРµРЅС‚РѕРІ
+					cout << "1. РЈРґР°Р»РµРЅРёРµ Рё СЂРµРіРёСЃС‚СЂР°С†РёСЏ СЃС‚СѓРґРµРЅС‚РѕРІ.\n2. РР·РјРµРЅРµРЅРёРµ РїСЂРѕРіСЂРµСЃСЃР° СЃС‚СѓРґРµРЅС‚РѕРІ.\n-- Р’С‹РІРѕРґ СЃРїРёСЃРєР° СЃС‚СѓРґРµРЅС‚РѕРІ СЃ РѕС†РµРЅРєР°РјРё \n3. -РїРѕ РІСЃРµРј С‚РµРјР°Рј\n4. -РїРѕ РєРѕРЅРєСЂРµС‚РЅРѕР№ С‚РµРјРµ\n";
+					cout << "5. -С‚РѕР»СЊРєРѕ РёС‚РѕРіРѕРІС‹Р№ С‚РµСЃС‚\n6. -С‚РѕР»СЊРєРѕ СЃСЂРµРґРЅРёР№ Р±Р°Р»\n7. Р¤РёР»СЊС‚СЂР°С†РёСЏ (РїРѕ РєРѕРЅРєСЂРµС‚РЅС‹Рј РѕС†РµРЅРєР°Рј).\n8. РЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РєРѕРЅСЂРµРєС‚РЅС‹Рј РѕС†РµРЅРєР°Рј.\n";
+					cout << "Р’С‹Р±РµСЂРёС‚Рµ Р·Р°РґР°С‡Сѓ: ";
 					cin >> teacher_task_choose;
 
 					switch (teacher_task_choose)
 					{
 					case 1:
 						DelAndRegStudents(students, number_of_students, teachers, number_of_teachers, curr_user_arr_id_in_database);
-						cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
+						cout << "РќР°Р¶РјРёС‚Рµ РєР»Р°РІРёС€Сѓ ENTER, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ.\n";
 						getchar();
 						getchar();
 						break;
 					case 2:
 						EditStudentsProgress();
-						cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
+						cout << "РќР°Р¶РјРёС‚Рµ РєР»Р°РІРёС€Сѓ ENTER, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ.\n";
 						getchar();
 						getchar();
 						break;
 					case 3:
 						ShowStudensList(1, students, number_of_students);
-						cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
+						cout << "РќР°Р¶РјРёС‚Рµ РєР»Р°РІРёС€Сѓ ENTER, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ.\n";
 						getchar();
 						getchar();
 						break;
 					case 4:
 						ShowStudensList(2, students, number_of_students);
-						cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
+						cout << "РќР°Р¶РјРёС‚Рµ РєР»Р°РІРёС€Сѓ ENTER, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ.\n";
 						getchar();
 						getchar();
 						break;
 					case 5:
 						ShowStudensList(3, students, number_of_students);
-						cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
+						cout << "РќР°Р¶РјРёС‚Рµ РєР»Р°РІРёС€Сѓ ENTER, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ.\n";
 						getchar();
 						getchar();
 						break;
 					case 6:
 						ShowStudensList(4, students, number_of_students);
-						cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
+						cout << "РќР°Р¶РјРёС‚Рµ РєР»Р°РІРёС€Сѓ ENTER, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ.\n";
 						getchar();
 						getchar();
 						break;
 					case 7:
 						MarksFilter(students, number_of_students);
-						cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
+						cout << "РќР°Р¶РјРёС‚Рµ РєР»Р°РІРёС€Сѓ ENTER, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ.\n";
 						getchar();
 						getchar();
 						break;
 					case 8:
 						ShowSortList(students, number_of_students);
-						cout << "Нажмите клавишу ENTER, чтобы продолжить.\n";
+						cout << "РќР°Р¶РјРёС‚Рµ РєР»Р°РІРёС€Сѓ ENTER, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ.\n";
 						getchar();
 						getchar();
 						break;
@@ -653,7 +728,7 @@ void TeacherAuthMenu()
 
 					default:
 					{
-						cout << "Вы ввели некорректное значение. Для продолжения нажмите ENTER.";
+						cout << "Р’С‹ РІРІРµР»Рё РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ. Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ ENTER.";
 						getchar();
 						break;
 					}
@@ -661,7 +736,7 @@ void TeacherAuthMenu()
 				}
 				default:
 				{
-					cout << "Вы ввели некорректное значение. Для продолжения нажмите клавишу ENTER." << endl;
+					cout << "Р’С‹ РІРІРµР»Рё РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ. Р”Р»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РЅР°Р¶РјРёС‚Рµ РєР»Р°РІРёС€Сѓ ENTER." << endl;
 					break;
 				}
 				}
@@ -672,3 +747,741 @@ void TeacherAuthMenu()
 	} while (state != "shutdown");
 	
 }
+
+//
+//#include "../Headers/TeacherMode.h"
+//#include "../Headers/FileReading.h"
+//
+//#define DATABASE_LOCATION_VOLUME_NAME "D:"
+//#define ABSPATH_TO_DATABASE "D:\\пїЅпїЅпїЅпїЅ\\пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\\Practice10_GroupProject\\git_practice10_project\\SourceFiles\\"
+//
+//int FileOutput(vector<string> lines)
+//{
+//	int i = 1;
+//	for (auto& str : lines) {
+//		if (!str.empty()) {
+//			cout << "QUESTION #" << i << "  ";
+//			cout << str.substr(0, str.size()) << endl << endl;
+//			i++;
+//		}
+//	}
+//	cout << endl;
+//	return 0;
+//}
+//
+//int QuestionDel(string Theme, vector<string> lines)
+//{
+//	FileOutput(lines);
+//	int lineNumber;
+//	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ(0 - пїЅпїЅпїЅпїЅпїЅ): ";
+//	cin >> lineNumber;
+//	lineNumber--;
+//	if (lineNumber >= 0 && lineNumber < lines.size()) {
+//		lines.erase(lines.begin() + lineNumber);
+//		ofstream fileOut(Theme);
+//		if (fileOut.is_open()) {
+//			for (int i = 0; i < lines.size(); i++) {
+//				fileOut << lines[i] << endl;
+//			}
+//			fileOut.close();
+//		}
+//		else {
+//			cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ." << endl;
+//			return 1;
+//		}
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅ." << endl;
+//	}
+//	else {
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ." << endl;
+//		return 1;
+//	}
+//	return 0;
+//}
+//
+//int QuestionEdit(string Theme, vector<string> lines)
+//{
+//	FileOutput(lines);
+//
+//	int LineNumber;
+//	cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ(0 - пїЅпїЅпїЅпїЅпїЅ): ";
+//	cin >> LineNumber;
+//	LineNumber--;
+//	if (LineNumber >= 0 && LineNumber < lines.size()) {
+//		string editedLine;
+//		cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
+//		cin.ignore();
+//		getline(cin, editedLine);
+//		if (!isdigit(editedLine.back())) {
+//			cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ." << endl;
+//			return 1;
+//		}
+//		lines[LineNumber] = editedLine;
+//		ofstream fileOut(Theme);
+//		if (fileOut.is_open()) {
+//			for (int i = 0; i < lines.size(); i++) {
+//				fileOut << lines[i] << endl;
+//			}
+//			fileOut.close();
+//		}
+//		else {
+//			cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ." << endl;
+//			system("pause");
+//			return 1;
+//		}
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅ." << endl;
+//	}
+//	else {
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ." << endl;
+//		return 1;
+//	}
+//	return 0;
+//}
+//
+//int QuestionAdd(string Theme, vector<string> lines)
+//{
+//	FileOutput(lines);
+//
+//	string newLine;
+//	cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
+//
+//	cin.ignore();
+//	getline(cin, newLine);
+//
+//	if (!isdigit(newLine.back())) {
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ." << endl;
+//		return 1;
+//	}
+//
+//	lines.push_back(newLine);
+//
+//	ofstream fileOut(Theme);
+//	if (fileOut.is_open()) {
+//		for (int i = 0; i < lines.size(); i++) {
+//			fileOut << lines[i] << endl;
+//		}
+//		fileOut.close();
+//	}
+//	else {
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ." << endl;
+//		return 1;
+//	}
+//	cout << "пїЅпїЅпїЅпїЅпїЅпїЅ." << endl;
+//	return 0;
+//}
+//
+//vector<string> fileParse(string Theme)
+//{
+//	string line;
+//	vector<string> lines;
+//
+//	ifstream fileInp(Theme);
+//	if (!fileInp.is_open()) {
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ" << endl;
+//		system("pause");
+//		return lines;
+//	}
+//
+//	while (getline(fileInp, line)) {
+//		lines.push_back(line);
+//	}
+//	fileInp.close();
+//	return lines;
+//}
+//
+//int QestionEditorPlace(string Theme)
+//{
+//	vector<string> lines = fileParse(Theme);
+//
+//	int switcher;
+//
+//	do
+//	{
+//		system("cls");
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " << endl << "1 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << endl << "2 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << endl << "3 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << endl << "4 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << endl << "0 - пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ" << endl;
+//		cin >> switcher;
+//		switch (switcher) {
+//		case 1: system("cls"); QuestionDel(Theme, lines); system("pause"); system("cls"); lines = fileParse(Theme); break;
+//		case 2: system("cls"); QuestionEdit(Theme, lines); system("pause"); system("cls"); lines = fileParse(Theme); break;
+//		case 3: system("cls"); QuestionAdd(Theme, lines); system("pause"); system("cls"); lines = fileParse(Theme); break;
+//		case 4: system("cls"); FileOutput(lines); system("pause"); system("cls"); break;
+//		case 0: break;
+//		default: cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ." << endl;
+//		}
+//	} while (switcher != 0);
+//	return 0;
+//}
+//
+//int QestionEditorMenu()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//
+//	string Theme;
+//	int switcher;
+//	do
+//	{
+//		system("cls");
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:" << endl << endl << "1 - пїЅпїЅпїЅпїЅпїЅ\n2 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n3 - пїЅпїЅпїЅпїЅпїЅпїЅ\n4 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n5 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n6 - пїЅпїЅпїЅпїЅпїЅ\n7 - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n8 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ\n0 - пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n--> ";
+//		cin >> switcher;
+//		switch (switcher)
+//		{
+//		case 1: QestionEditorPlace("CircleTest.txt"); break;
+//		case 2: QestionEditorPlace("ArrayTest.txt"); break;
+//		case 3: QestionEditorPlace("StringTest.txt"); break;
+//		case 4: QestionEditorPlace("RekursionTest.txt"); break;
+//		case 5: QestionEditorPlace("StructTest.txt"); break;
+//		case 6: QestionEditorPlace("FilesTest.txt"); break;
+//		case 7: QestionEditorPlace("PointerTest.txt"); break;
+//		case 8: QestionEditorPlace("DinMemory.txt"); break;
+//		case 0: break;
+//		default: cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
+//		}
+//	} while (switcher != 0);
+//
+//	setlocale(LC_ALL, "Rus");
+//	return 0;
+//}
+//
+////TODO ILIAS
+//void DelAndRegStudents()
+//{
+//
+//}
+//
+//void EditStudentsProgress()
+//{
+//	system("cls");
+//	system(DATABASE_LOCATION_VOLUME_NAME);
+//	system(ABSPATH_TO_DATABASE "students_database.txt");
+//}
+//
+//void ShowStudensList(int mode_id, StudentData* student_data, int students_quantity)
+//{
+//	system("cls");
+//
+//	switch (mode_id)
+//	{
+//	case(1):
+//		// пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+//		for (int student_num = 0; student_num < students_quantity; student_num++)
+//		{
+//			cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
+//			cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
+//			cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:" << endl;
+//
+//			for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
+//			{
+//				if (student_data[student_num].marks[mark_id] == 0) cout << "пїЅ\n";
+//				else
+//				{
+//					cout << student_data[student_num].marks[mark_id] << endl;
+//				}
+//			}
+//			cout << "\n";
+//		}
+//		break;
+//
+//	case(2):
+//		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+//
+//		int s_test_id;
+//		double test_id;
+//
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ/пїЅ пїЅпїЅпїЅпїЅпїЅ:" << endl;
+//		cin >> test_id;
+//
+//		while (test_id != round(test_id) || test_id <= 0)
+//		{
+//			cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ:" << endl;
+//			cin >> test_id;
+//		} s_test_id = (int)test_id;
+//
+//		for (int student_num = 0; student_num < students_quantity; student_num++)
+//		{
+//			cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
+//			cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
+//			cout << "пїЅпїЅпїЅпїЅ #" << s_test_id << ":" << endl;
+//
+//			if (s_test_id > student_data->numbers_of_marks)
+//			{
+//				cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ #" << s_test_id << ".\n";
+//			}
+//			else
+//			{
+//				if (student_data[student_num].marks[s_test_id - 1] == 0) cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ #" << s_test_id << ".\n";
+//				else
+//				{
+//					cout << student_data[student_num].marks[s_test_id - 1] << endl;
+//				}
+//			}
+//			cout << "\n";
+//		}
+//		break;
+//
+//	case(3):
+//		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+//
+//		for (int student_num = 0; student_num < students_quantity; student_num++)
+//		{
+//			cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
+//			cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
+//			cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ:" << endl;
+//
+//			if (student_data[student_num].marks[student_data[student_num].numbers_of_marks - 1] == 0) cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ.\n";
+//			else
+//			{
+//				cout << student_data[student_num].marks[student_data[student_num].numbers_of_marks - 1] << endl;
+//			}
+//			cout << "\n";
+//		}
+//		break;
+//
+//	case(4):
+//		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
+//
+//		for (int student_num = 0; student_num < students_quantity; student_num++)
+//		{
+//			cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
+//			cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
+//			cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ:" << endl;
+//
+//			double avg_mark = 0;
+//			for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
+//			{
+//				avg_mark += student_data[student_num].marks[mark_id];
+//			} avg_mark = avg_mark / student_data[student_num].numbers_of_marks;
+//
+//			cout << avg_mark << endl;
+//			cout << "\n";
+//		}
+//		break;
+//	default:
+//		break;
+//	}
+//
+//}
+//
+//void MarksFilter(StudentData* student_data, int students_quanity)
+//{
+//	system("cls");
+//
+//	int* excellent_students_id = new int[students_quanity];
+//	int excellent_students_quanity = 0;
+//
+//	int* good_students_id = new int[students_quanity];
+//	int good_students_quanity = 0;
+//
+//	int* not_certified_students_id = new int[students_quanity];
+//	int not_certified_quanity = 0;
+//
+//	for (int student_num = 0; student_num < students_quanity; student_num++)
+//	{
+//		bool is_excellent = true;
+//		bool is_good = true;
+//		bool is_not_certified = false;
+//
+//		for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
+//		{
+//			if (student_data[student_num].marks[mark_id] == 4)
+//			{
+//				is_excellent = false;
+//			};
+//
+//			if (student_data[student_num].marks[mark_id] == 3)
+//			{
+//				is_excellent = false;
+//				is_good = false;
+//			};
+//
+//			if (student_data[student_num].marks[mark_id] == 2)
+//			{
+//				is_excellent = false;
+//				is_good = false;
+//				is_not_certified = true;
+//			};
+//		}
+//
+//		if (is_not_certified)
+//		{
+//			not_certified_students_id[not_certified_quanity] = student_num;
+//			not_certified_quanity++;
+//			continue;
+//		}
+//
+//		if (is_excellent)
+//		{
+//			excellent_students_id[excellent_students_quanity] = student_num;
+//			excellent_students_quanity++;
+//			continue;
+//		}
+//
+//		if (is_good)
+//		{
+//			good_students_id[good_students_quanity] = student_num;
+//			good_students_quanity++;
+//			continue;
+//		}
+//	}
+//
+//	cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:" << endl;
+//	if (excellent_students_quanity == 0) cout << "пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...\n" << endl;
+//	else
+//	{
+//		for (int student_num = 0; student_num < excellent_students_quanity; student_num++)
+//		{
+//			cout << student_data[excellent_students_id[student_num]].surname << " " << student_data[excellent_students_id[student_num]].name << " " << student_data[excellent_students_id[student_num]].patronymic << endl;
+//			cout << "\n";
+//		}
+//	}
+//	cout << "\n";
+//
+//	cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:" << endl;
+//	if (good_students_quanity == 0) cout << "пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...\n" << endl;
+//	else
+//	{
+//		for (int student_num = 0; student_num < good_students_quanity; student_num++)
+//		{
+//			cout << student_data[good_students_id[student_num]].surname << " " << student_data[good_students_id[student_num]].name << " " << student_data[good_students_id[student_num]].patronymic << endl;
+//			cout << "\n";
+//		}
+//	}
+//	cout << "\n";
+//
+//	cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:" << endl;
+//	if (good_students_quanity == 0) cout << "пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ :).\n" << endl;
+//	else
+//	{
+//		for (int student_num = 0; student_num < not_certified_quanity; student_num++)
+//		{
+//			cout << student_data[not_certified_students_id[student_num]].surname << " " << student_data[not_certified_students_id[student_num]].name << " " << student_data[not_certified_students_id[student_num]].patronymic << endl;
+//			cout << "\n";
+//		}
+//	}
+//	cout << "\n";
+//
+//
+//	delete[] excellent_students_id;
+//	delete[] good_students_id;
+//	delete[] not_certified_students_id;
+//}
+//
+//void ShowSortList(StudentData* student_data, int students_quantity)
+//{
+//	system("cls");
+//
+//	for (int student_num = 0; student_num < students_quantity; student_num++)
+//	{
+//		double avg_mark = 0;
+//		for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
+//		{
+//			avg_mark += student_data[student_num].marks[mark_id];
+//		} avg_mark = avg_mark / student_data[student_num].numbers_of_marks;
+//
+//		student_data[student_num].avg_mark = avg_mark;
+//	}
+//
+//	int* sorted_array = new int[students_quantity];
+//	for (int i = 0; i < students_quantity; i++)
+//	{
+//		sorted_array[i] = i;
+//	}
+//
+//	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+//	for (int i = 0; i < students_quantity - 1; i++)
+//	{
+//		for (int j = 0; j < students_quantity - i - 1; j++)
+//		{
+//			if (student_data[sorted_array[j]].avg_mark < student_data[sorted_array[j + 1]].avg_mark)
+//			{
+//				int tmp = sorted_array[j];
+//				sorted_array[j] = sorted_array[j + 1];
+//				sorted_array[j + 1] = tmp;
+//			}
+//		}
+//	}
+//
+//	for (int i = 0; i < students_quantity; i++)
+//	{
+//		int student_num = sorted_array[i];
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ #" << student_data[student_num].id << " " << student_data[student_num].login << endl;
+//		cout << student_data[student_num].surname << " " << student_data[student_num].name << " " << student_data[student_num].patronymic << endl;
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ: " << student_data[student_num].avg_mark << endl;
+//
+//		cout << "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:" << endl;
+//		for (int mark_id = 0; mark_id < student_data[student_num].numbers_of_marks; mark_id++)
+//			if (student_data[student_num].marks[mark_id] == 0) cout << "пїЅ\n";
+//			else
+//			{
+//				cout << student_data[student_num].marks[mark_id] << endl;
+//			}
+//
+//
+//
+//		cout << "\n";
+//	}
+//
+//	delete[] sorted_array;
+//}
+//
+//void TeacherAuthMenu()
+//{
+//
+//	//TODO ILIAS READING FROM DATABASE
+//
+//	/*int number_of_teachers = CheckTeacherListNumber();
+//	cout << number_of_teachers;
+//
+//	TeacherData* teachers = (TeacherData*)malloc(sizeof(TeacherData) * number_of_teachers);
+//	CheckTeacherList(teachers, number_of_teachers);
+//
+//	cout << teachers;
+//	getchar();*/
+//
+//	int number_of_teachers = 2;
+//	TeacherData* teachers = new TeacherData[number_of_teachers];
+//
+//	teachers[0].login = "kazemir32";
+//	teachers[0].name = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
+//	teachers[0].surname = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
+//	teachers[0].patronymic = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
+//	teachers[0].password = "qwerty";
+//
+//	teachers[1].login = "maxonpolyakov";
+//	teachers[1].name = "пїЅпїЅпїЅпїЅпїЅпїЅ";
+//	teachers[1].surname = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
+//	teachers[1].patronymic = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
+//	teachers[1].password = "bobus2";
+//
+//	int number_of_students = 4;
+//	StudentData* students = new StudentData[number_of_students];
+//
+//	students[0].login = "student32";
+//	students[0].name = "пїЅпїЅпїЅпїЅпїЅпїЅ";
+//	students[0].surname = "пїЅпїЅпїЅпїЅпїЅпїЅ";
+//	students[0].patronymic = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
+//	students[0].password = "qwerty";
+//	students[0].id = 0;
+//	students[0].numbers_of_marks = 6;
+//	students[0].marks[0] = 2;
+//	students[0].marks[1] = 3;
+//	students[0].marks[2] = 4;
+//	students[0].marks[3] = 5;
+//	students[0].marks[4] = 0;
+//	students[0].marks[5] = 2;
+//
+//
+//	students[1].login = "demidovlox";
+//	students[1].name = "пїЅпїЅпїЅпїЅ";
+//	students[1].surname = "пїЅпїЅпїЅпїЅпїЅпїЅ";
+//	students[1].patronymic = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
+//	students[1].password = "qwerty";
+//	students[1].id = 1;
+//	students[1].numbers_of_marks = 6;
+//	students[1].marks[0] = 5;
+//	students[1].marks[1] = 5;
+//	students[1].marks[2] = 5;
+//	students[1].marks[3] = 5;
+//	students[1].marks[4] = 5;
+//	students[1].marks[5] = 5;
+//
+//	students[2].login = "robertorick";
+//	students[2].name = "пїЅпїЅпїЅпїЅc";
+//	students[2].surname = "пїЅпїЅпїЅпїЅпїЅпїЅ2";
+//	students[2].patronymic = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ2";
+//	students[2].password = "qwerty";
+//	students[2].id = 2;
+//	students[2].numbers_of_marks = 6;
+//	students[2].marks[0] = 4;
+//	students[2].marks[1] = 5;
+//	students[2].marks[2] = 5;
+//	students[2].marks[3] = 4;
+//	students[2].marks[4] = 5;
+//	students[2].marks[5] = 5;
+//
+//	students[3].login = "robertorickoooo";
+//	students[3].name = "пїЅпїЅпїЅпїЅcsdsd";
+//	students[3].surname = "пїЅпїЅпїЅпїЅпїЅпїЅ23";
+//	students[3].patronymic = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ2";
+//	students[3].password = "qwerty";
+//	students[3].id = 3;
+//	students[3].numbers_of_marks = 6;
+//	students[3].marks[0] = 4;
+//	students[3].marks[1] = 3;
+//	students[3].marks[2] = 5;
+//	students[3].marks[3] = 4;
+//	students[3].marks[4] = 5;
+//	students[3].marks[5] = 5;
+//
+//
+//	string state = "run";
+//
+//	do
+//	{
+//		TeacherData curr_user;
+//		int curr_user_arr_id_in_database;
+//
+//		system("cls");
+//		cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 0):" << endl;
+//		getline(cin, curr_user.login);
+//
+//		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+//		if (curr_user.login == "0") state = "shutdown";
+//
+//		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+//		else
+//		{
+//			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+//			bool flag_teacher_exist = false;
+//			for (int arr_id = 0; arr_id < number_of_teachers; arr_id++)
+//			{
+//				if (teachers[arr_id].login == curr_user.login)
+//				{
+//					flag_teacher_exist = true;
+//					curr_user_arr_id_in_database = arr_id;
+//					break;
+//				}
+//			}
+//
+//			if (!flag_teacher_exist)
+//			{
+//				cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " << curr_user.login << " пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//				cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//				getchar();
+//				continue;
+//			}
+//
+//			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+//			cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ " << teachers[curr_user_arr_id_in_database].name << " " << teachers[curr_user_arr_id_in_database].patronymic << ".\n";
+//
+//			int attemps_left = 3;
+//			do
+//			{
+//				cout << "пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ(пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 0): ";
+//				getline(cin, curr_user.password);
+//
+//				// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+//				if (curr_user.password == "0") continue;
+//
+//				if (curr_user.password != teachers[curr_user_arr_id_in_database].password)
+//				{
+//					attemps_left--;
+//					if (attemps_left)
+//					{
+//						cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ." << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ(пїЅпїЅпїЅ) " << attemps_left << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅ(пїЅпїЅ/пїЅпїЅ)." << endl;
+//					}
+//
+//				}
+//
+//			} while (curr_user.password != teachers[curr_user_arr_id_in_database].password && attemps_left > 0);
+//
+//			if (attemps_left == 0)
+//			{
+//				cout << "пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//				cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//				getchar();
+//				continue;
+//			}
+//
+//			int teacher_section_choose;
+//			int teacher_task_choose;
+//			// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+//
+//			do
+//			{
+//				system("cls");
+//				curr_user = teachers[curr_user_arr_id_in_database];
+//				cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ " << curr_user.surname << " " << curr_user.name << " " << curr_user.patronymic << endl;
+//				cout << "1. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." << endl << "2. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." << endl << "0. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ" << endl;
+//
+//				cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ: ";
+//				cin >> teacher_section_choose;
+//
+//
+//				switch (teacher_section_choose)
+//				{
+//				case 1:
+//				{
+//					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+//					QestionEditorMenu(); break;
+//				}
+//				case 2:
+//				{
+//					// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+//					cout << "1. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n2. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n-- пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ \n3. -пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ\n4. -пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ\n";
+//					cout << "5. -пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ\n6. -пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ\n7. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ).\n8. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//					cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ";
+//					cin >> teacher_task_choose;
+//
+//					switch (teacher_task_choose)
+//					{
+//					case 1:
+//						DelAndRegStudents();
+//						cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//						getchar();
+//						getchar();
+//						break;
+//					case 2:
+//						EditStudentsProgress();
+//						cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//						getchar();
+//						getchar();
+//						break;
+//					case 3:
+//						ShowStudensList(1, students, number_of_students);
+//						cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//						getchar();
+//						getchar();
+//						break;
+//					case 4:
+//						ShowStudensList(2, students, number_of_students);
+//						cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//						getchar();
+//						getchar();
+//						break;
+//					case 5:
+//						ShowStudensList(3, students, number_of_students);
+//						cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//						getchar();
+//						getchar();
+//						break;
+//					case 6:
+//						ShowStudensList(4, students, number_of_students);
+//						cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//						getchar();
+//						getchar();
+//						break;
+//					case 7:
+//						MarksFilter(students, number_of_students);
+//						cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//						getchar();
+//						getchar();
+//						break;
+//					case 8:
+//						ShowSortList(students, number_of_students);
+//						cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n";
+//						getchar();
+//						getchar();
+//						break;
+//						break;
+//
+//					default:
+//					{
+//						cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER.";
+//						getchar();
+//						break;
+//					}
+//					}
+//				}
+//				default:
+//				{
+//					cout << "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ENTER." << endl;
+//					break;
+//				}
+//				}
+//			} while (teacher_section_choose != 0);
+//
+//		}
+//
+//	} while (state != "shutdown");
+//
+//}
